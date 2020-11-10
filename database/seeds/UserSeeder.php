@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
         $admin = User::create([
             'usr_name' => 'Admin',
             'usr_email' => 'admin@gmail.com',
-            'usr_password' => Hash::make('admin123'),
+            'usr_password' => Hash::make('admin'),
             'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'usr_verification_token' => str_replace('/', '', Hash::make(Str::random(12))),
             'usr_is_active' => true,
@@ -27,9 +27,9 @@ class UserSeeder extends Seeder
         $admin->assignRole('admin');
 
         $siswa = User::create([
-            'usr_name' => 'Mayang Sari',
-            'usr_email' => 'mayangsari12@gmail.com',
-            'usr_password' => Hash::make('mayangsari'),
+            'usr_name' => 'Siswa',
+            'usr_email' => 'student@gmail.com',
+            'usr_password' => Hash::make('student'),
             'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'usr_verification_token' => str_replace('/', '', Hash::make(Str::random(12))),
             'usr_is_active' => true,
@@ -38,8 +38,8 @@ class UserSeeder extends Seeder
         $siswa->assignRole('student');
 
         $guru = User::create([
-            'usr_name' => 'Nini Nurul',
-            'usr_email' => 'nini@gmail.com',
+            'usr_name' => 'Teacher',
+            'usr_email' => 'teacher@gmail.com',
             'usr_password' => Hash::make('nininurul'),
             'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'usr_verification_token' => str_replace('/', '', Hash::make(Str::random(12))),

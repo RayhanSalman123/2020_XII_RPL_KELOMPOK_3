@@ -55,7 +55,6 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ url('register-student') }}">Siswa</a>
                                 <a class="dropdown-item" href="{{ url('register-teacher') }}">Guru</a>
-                                <a class="dropdown-item" href="{{ url('register-staff') }}">Staff TU</a>
                             </div>
                         </li>
                         @endif
@@ -97,7 +96,7 @@
                 $("#btnSubmit").attr("disabled", true);
                 return true;
             });
-            $('#only-number').on('keydown', '#usr_phone', function(e) {
+            $('#only-number').on('keydown', '#nip', function(e) {
                 -1 !== $
                     .inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) || /65|67|86|88/
                     .test(e.keyCode) && (!0 === e.ctrlKey || !0 === e.metaKey) ||

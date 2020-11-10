@@ -12,12 +12,82 @@
                         @csrf
 
                         <div class="form-group row">
+                            <label for="usr_name" class="col-md-4 col-form-label text-md-right">{{ __('NIS') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="nis" type="nis" class="form-control @error('nis') is-invalid @enderror" name="nis" value="{{ old('nis') }}" autocomplete="nis" autofocus>
+
+                                @error('nis')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="usr_name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="usr_name" type="text" class="form-control @error('usr_name') is-invalid @enderror" name="usr_name" value="{{ old('usr_name') }}" autocomplete="usr_name" autofocus>
 
                                 @error('usr_name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Jenis Kelamin') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="gender" type="gender" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" autocomplete="gender" autofocus>
+
+                                @error('gender')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="class" class="col-md-4 col-form-label text-md-right">{{ __('Kelas') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="class" type="class" class="form-control @error('class') is-invalid @enderror" name="class" value="{{ old('class') }}" autocomplete="class" autofocus>
+
+                                @error('class')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="major" class="col-md-4 col-form-label text-md-right">{{ __('Jurusan') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="major" type="major" class="form-control @error('major') is-invalid @enderror" name="major" value="{{ old('major') }}" autocomplete="major" autofocus>
+
+                                @error('major')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="school_year" class="col-md-4 col-form-label text-md-right">{{ __('Tahun Ajaran') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="school_year" type="school_year" class="form-control @error('school_year') is-invalid @enderror" name="school_year" value="{{ old('school_year') }}" autocomplete="school_year" autofocus>
+
+                                @error('school_year')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -38,21 +108,6 @@
                                 @enderror
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="usr_phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
-
-                            <div class="col-md-6" id="only-number">
-                                <input id="usr_phone" value="{{ old('usr_phone') }}" type="text" class="form-control @error('usr_phone') is-invalid @enderror" name="usr_phone" autocomplete="off">
-
-                                @error('usr_phone')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>

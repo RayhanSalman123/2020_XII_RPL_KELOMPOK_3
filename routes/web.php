@@ -19,7 +19,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/account/{userId}/{userVerificationToken}/activate', 'Auth\AccountController@verifyToken');
+Route::group(['middleware' => 'auth', 'DisablePreventBack'], function () {
+
+	Route::get('/account/{userId}/{userVerificationToken}/activate', 'Auth\AccountController@verifyToken');
 Route::get('/account/waiting-verification', 'Auth\AccountController@waitingVerification');
 Route::post('/account/resend-verification', 'Auth\AccountController@resendVerification');
 
@@ -28,13 +30,24 @@ Route::post('/account/forgot-password', 'Auth\AccountController@sendEmailForgotP
 Route::get('/account/{resetVerificationToken}/forgot-password', 'Auth\AccountController@verifyForgotToken');
 Route::post('/account/reset-password', 'Auth\AccountController@updatePassword')->name('password-reset');
 
+Route::get('/index_admin', 'AdminController@index');
+Route::get('/index_student', 'StudentController@index');
+Route::get('/index_teacher', 'TeacherController@index');
+Route::get('/index_head_master', 'HeadMasterController@index');
+
+
 //Route untuk register teacher dan staff
+});
 
 Route::get('/register-student', 'Auth\RegisterController@registerStudent');
 Route::get('/register-teacher', 'Auth\RegisterController@registerTeacher');
-Route::get('/register-staff', 'Auth\RegisterController@registerStaff');
+
+
 
 //Route Untuk Admin, Student, Teacher, Staff TU, jika register dan login maka akan ke halaman ini 
 Route::group(['middleware' => ['auth', 'verified']], function () {
-    Route::get('/dashboard', 'User\UserController@index')->name('dashboard.users');
+Route::get('/dashboard', 'User\UserController@index')->name('dashboard.users');
+
+
+
 });

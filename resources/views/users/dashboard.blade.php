@@ -25,6 +25,19 @@
                     {{ __('You are logged in!') }}
                     <br><br>
                     Example Tampilan Untuk Siswa
+
+                    <table>
+                        <tr>
+                            <td>Nama</td>
+                            <td>:</td>
+                            <td>{{ Auth()->user()->usr_name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Role</td>
+                            <td>:</td>
+                            <td>Student</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
             @elseif(Auth()->user()->hasRole('teacher'))
@@ -42,6 +55,19 @@
                     {{ __('You are logged in!') }}
                     <br><br>
                     Example Tampilan Untuk Guru
+
+                    <table>
+                        <tr>
+                            <td>Nama</td>
+                            <td>:</td>
+                            <td>{{ Auth()->user()->usr_name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Role</td>
+                            <td>:</td>
+                            <td>Teacher</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
 
@@ -60,6 +86,19 @@
                     {{ __('You are logged in!') }}
                     <br><br>
                     Example Tampilan Untuk Kepala Sekolah
+
+                    <table>
+                        <tr>
+                            <td>Nama</td>
+                            <td>:</td>
+                            <td>{{ Auth()->user()->usr_name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Role</td>
+                            <td>:</td>
+                            <td>Head Master</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
 
@@ -76,6 +115,19 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    <table>
+                        <tr>
+                            <td>Nama</td>
+                            <td>:</td>
+                            <td>{{ Auth()->user()->usr_name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Role</td>
+                            <td>:</td>
+                            <td>Admin</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
 

@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMail;
 use Illuminate\Support\Str;
+use App\Teacher;
+use App\Student;
 
 class RegisterController extends Controller
 {
@@ -34,10 +36,10 @@ class RegisterController extends Controller
         return view('auth.register-teacher');
     }
 
-    public function registerStaff()
-    {
-        return view('auth.register-staff');
-    }
+    // public function registerStaff()
+    // {
+    //     return view('auth.register-staff');
+    // }
 
     use RegistersUsers;
 
@@ -70,7 +72,6 @@ class RegisterController extends Controller
             'usr_name' => ['required', 'string', 'max:255'],
             'usr_email' => ['required', 'string', 'max:255', 'unique:users,usr_email'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'usr_phone' => ['required', 'min:11', 'max:14'],
         ]);
     }
 
@@ -85,23 +86,41 @@ class RegisterController extends Controller
         $user = User::create([
             'usr_name' => $data['usr_name'],
             'usr_email' => $data['usr_email'],
-            'usr_phone' => $data['usr_phone'],
             'usr_password' => Hash::make($data['password']),
             'usr_verification_token' => str_replace('/', '', Hash::make(Str::random(12))),
             'usr_is_active' => true,
         ]);
 
+        
+
         if ($data['role'] == 1) {
+            Student::create([
+            'user_id'   => $user->usr_id,
+            'nis'=> $data['nis'],
+            'gender'=>$data['gender'],
+            'class'=>$data['class'],
+            'major'=>$data['major'],
+            'school_year'=> $data['school_year'], 
+            
+        ]);
+            
+
+            //student
             $user->assignRole('student');
             $user->created_by = $user->usr_id;
-        } elseif ($data['role'] == 2) {
+
+
+        } elseif ($data['role'] == 2){
+            Teacher::create([
+            'user_id'   => $user->usr_id,
+            'nip'=> $data['nip'],
+            'teacher_subject'=> $data['teacher_subject'], 
+            'gender'=>$data['gender'],
+        ]);
+            
             $user->assignRole('teacher');
             $user->created_by = $user->usr_id;
-        } elseif ($data['role'] == 3) {
-            $user->assignRole('staff');
-            $user->created_by = $user->usr_id;
-        }
-
+        } 
 
         Mail::to($data['usr_email'])->send(new SendMail($user));
         return $user;

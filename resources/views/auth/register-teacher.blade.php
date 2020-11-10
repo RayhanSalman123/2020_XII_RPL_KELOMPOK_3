@@ -12,12 +12,57 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="usr_name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="usr_name" class="col-md-4 col-form-label text-md-right">{{ __('Nama') }}</label>
 
                             <div class="col-md-6">
                                 <input id="usr_name" type="text" class="form-control @error('usr_name') is-invalid @enderror" name="usr_name" value="{{ old('usr_name') }}" autocomplete="usr_name" autofocus>
 
                                 @error('usr_name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="nip" class="col-md-4 col-form-label text-md-right">{{ __('NIP') }}</label>
+
+                            <div class="col-md-6" id="only-number">
+                                <input id="nip" type="nip" class="form-control @error('nip') is-invalid @enderror" name="nip" value="{{ old('nip') }}" autocomplete="nip">
+
+                                @error('nip')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="teacher_subject" class="col-md-4 col-form-label text-md-right">{{ __('Mata Pelajaran') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="teacher_subject" type="teacher_subject" class="form-control @error('teacher_subject') is-invalid @enderror" name="teacher_subject" value="{{ old('teacher_subject') }}" autocomplete="teacher_subject">
+
+                                @error('teacher_subject')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                     <div class="form-group row">
+                            <label for="teacher_subject" class="col-md-4 col-form-label text-md-right">{{ __('Jenis Kelamin') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="gender" type="gender" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" autocomplete="gender">
+
+                                @error('gender')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -38,21 +83,6 @@
                                 @enderror
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="usr_phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
-
-                            <div class="col-md-6" id="only-number">
-                                <input id="usr_phone" value="{{ old('usr_phone') }}" type="text" class="form-control @error('usr_phone') is-invalid @enderror" name="usr_phone" autocomplete="off">
-
-                                @error('usr_phone')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
