@@ -16,10 +16,10 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li class="active"><a href="index.html"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
-			<li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em>Mengajukan Jadwal</a></li>
-			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em>Mata Pelajaran</a></li>
-			<li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em>Guru</a></li>
-			<li><a href="login"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+			<li class="#"><a href="index.html"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
+			<li><a href="#"><em class="fa fa-calendar">&nbsp;</em>Mengajukan Jadwal</a></li>
+			<li><a href="#"><em class="fa fa-bar-chart">&nbsp;</em>Mata Pelajaran</a></li>
+			<li><a href="#"><em class="fa fa-toggle-off">&nbsp;</em>Guru</a></li>
+			<li><a href="{{ url('/logout')}}"><em class="fa fa-power-off">&nbsp;</em>Logout</a></li>
 		</ul>
 	</div><!--/.sidebar-->

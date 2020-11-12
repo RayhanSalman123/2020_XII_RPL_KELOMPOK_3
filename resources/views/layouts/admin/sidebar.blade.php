@@ -16,7 +16,7 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li class="active"><a href="index.html"><i class="fas fa-ellipsis-v"></i><span>DASHBOARD</span></a></li>
+			<li class="active"><a href="index.html"><em class="fa fa-ellipsis-v">&nbsp;</em><span>DASHBOARD</span></a></li>
 			<li><a href="#"><em class="fa fa-calendar">&nbsp;</em>Kelola Kepala Sekolah</a></li>
 			<li><a href="#"><em class="fa fa-bar-chart">&nbsp;</em>Kelola Mata Pelajaran</a>
 			<li><a href="#"><em class="fa fa-toggle-off">&nbsp;</em>Kelola Guru</a></li>
@@ -45,6 +45,6 @@
 				</ul>
 			</li>
 		</li>
-			<li><a href="login"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+		<li><a href="{{ url('/logout')}}"><em class="fa fa-power-off">&nbsp;</em>Logout</a></li>          
 		</ul>
 	</div><!--/.sidebar-->

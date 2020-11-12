@@ -17,11 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/logout', function(){
+	Auth::logout();
+	return redirect('login');
+});
+
 Auth::routes();
 
 Route::group(['middleware' => 'auth', 'DisablePreventBack'], function () {
 
-	Route::get('/account/{userId}/{userVerificationToken}/activate', 'Auth\AccountController@verifyToken');
+Route::get('/account/{userId}/{userVerificationToken}/activate', 'Auth\AccountController@verifyToken');
 Route::get('/account/waiting-verification', 'Auth\AccountController@waitingVerification');
 Route::post('/account/resend-verification', 'Auth\AccountController@resendVerification');
 
@@ -41,7 +46,7 @@ Route::get('/index_head_master', 'HeadMasterController@index');
 
 Route::get('/register-student', 'Auth\RegisterController@registerStudent');
 Route::get('/register-teacher', 'Auth\RegisterController@registerTeacher');
-
+Route::get('/dashboard', 'AdminController@index')->name('layouts.admin.master');
 
 
 //Route Untuk Admin, Student, Teacher, Staff TU, jika register dan login maka akan ke halaman ini 
