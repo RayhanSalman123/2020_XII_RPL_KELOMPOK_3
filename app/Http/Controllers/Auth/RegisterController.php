@@ -26,6 +26,11 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
+    public function registerSelect()
+    {
+        return view('auth.select-register');
+    }
+
     public function registerStudent()
     {
         return view('auth.register-student');
@@ -83,6 +88,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        
         $user = User::create([
             'usr_name' => $data['usr_name'],
             'usr_email' => $data['usr_email'],

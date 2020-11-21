@@ -10,7 +10,6 @@ class AdminController extends Controller
 
      public function __construct()
     {
-        $this->middleware(['auth']);
         $this->middleware('DisablePreventBack');
     }
     /**
@@ -21,7 +20,7 @@ class AdminController extends Controller
     public function index()
     {
         
-        return view('layouts.admin.master');
+        return view('admin.dashboard');
     }
 
     /**
@@ -31,7 +30,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view ('admin.create');
     }
 
     /**
@@ -42,7 +41,8 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = Admin::get($request->all());
+        return view('pages.admin.list-class',compact('data'));
     }
 
     /**

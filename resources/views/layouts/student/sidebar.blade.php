@@ -1,23 +1,31 @@
-<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-		<div class="profile-sidebar">
-			<div class="profile-userpic">
-				<img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
-			</div>
-			<div class="profile-usertitle">
-				<div class="profile-usertitle-name">{{Auth::user()->usr_name}}</div>
-				<div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
-			</div>
-			<div class="clear"></div>
-		</div>
-		<div class="divider"></div>
-		<form role="search">
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Search">
-			</div>
-		</form>
-		<ul class="nav menu">
-			<li class="active"><a href="index.html"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
-			<li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em>Mata Pelajaran</a></li>
-			<li><a href="{{ url('/logout')}}"><em class="fa fa-power-off">&nbsp;</em>Logout</a></li>
-		</ul>
-	</div><!--/.sidebar-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a href="#">
+                    <img src="images/icon/logo.png" alt="Cool Admin" />
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <li class="active has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="{{ url('/student/schedule') }}">
+                                <i class="fas fa-chart-bar"></i>Mata Pelajaran</a>
+                        </li>
+                       <li>
+                            <a href="">
+                                <i class="fas fa-chart-bar"></i>Jadwal</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/logout')}}">
+                                <i class="fa fa-power-off"></i>Logout</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>

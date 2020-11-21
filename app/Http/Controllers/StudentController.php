@@ -9,7 +9,17 @@ class StudentController extends Controller
 {
     public function index()
     {
-        
-        return view('layouts.student.master');
+        $student = student::all();
+        return view('student.dashboard');
     }
+
+
+    public function schedule(Request $request)
+    {
+        return view('layouts.schedule');
+    }
+    public function view(){
+    	return view('student.view');
+    }
+
 }

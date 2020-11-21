@@ -24,7 +24,7 @@ Route::get('/logout', function(){
 
 Auth::routes();
 
-Route::group(['middleware' => 'auth', 'DisablePreventBack'], function () {
+Route::get('/dashboard/create', 'StudentController@view');
 
 Route::get('/account/{userId}/{userVerificationToken}/activate', 'Auth\AccountController@verifyToken');
 Route::get('/account/waiting-verification', 'Auth\AccountController@waitingVerification');
@@ -35,9 +35,24 @@ Route::post('/account/forgot-password', 'Auth\AccountController@sendEmailForgotP
 Route::get('/account/{resetVerificationToken}/forgot-password', 'Auth\AccountController@verifyForgotToken');
 Route::post('/account/reset-password', 'Auth\AccountController@updatePassword')->name('password-reset');
 
+Route::group(['middleware' => 'auth', 'DisablePreventBack', 'verified'], function () {
+
+
+
+//Admin
 Route::get('/index_admin', 'AdminController@index');
+// Route::get('/pages/admin/list-class', 'AdminController@store');
+Route::get('/index_admin/create','AdminController@create');
+
+//Siswa
 Route::get('/index_student', 'StudentController@index');
+// Route::get('/student/schedule', 'StudentController@schedule');
+
+
+//Guru
 Route::get('/index_teacher', 'TeacherController@index');
+
+//Kepsek
 Route::get('/index_head_master', 'HeadMasterController@index');
 
 
@@ -46,6 +61,7 @@ Route::get('/index_head_master', 'HeadMasterController@index');
 
 Route::get('/register-student', 'Auth\RegisterController@registerStudent');
 Route::get('/register-teacher', 'Auth\RegisterController@registerTeacher');
+Route::get('/register-select', 'Auth\RegisterController@registerSelect');
 Route::get('/dashboard', 'AdminController@index')->name('layouts.admin.master');
 
 

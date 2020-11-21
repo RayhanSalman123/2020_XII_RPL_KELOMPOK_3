@@ -1,50 +1,73 @@
-<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-		<div class="profile-sidebar">
-			<div class="profile-userpic">
-				<img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
-			</div>
-			<div class="profile-usertitle">
-				<div class="profile-usertitle-name">{{Auth::user()->usr_name}}</div>
-				<div class="profile-usertitle-status"><span class="indicator label-success"></span></div>
-			</div>
-			<div class="clear"></div>
-		</div>
-		<div class="divider"></div>
-		<form role="search">
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Search">
-			</div>
-		</form>
-		<ul class="nav menu">
-			<li class="active"><a href="index.html"><em class="fa fa-ellipsis-v">&nbsp;</em><span>DASHBOARD</span></a></li>
-			<li><a href="#"><em class="fa fa-calendar">&nbsp;</em>Kelola Kepala Sekolah</a></li>
-			<li><a href="#"><em class="fa fa-bar-chart">&nbsp;</em>Kelola Mata Pelajaran</a>
-			<li><a href="#"><em class="fa fa-toggle-off">&nbsp;</em>Kelola Guru</a></li>
-			<li class="parent "><a data-toggle="collapse" href="#sub-item-1">
-				<em class="fa fa-navicon">&nbsp;</em>Kelola Kelas<span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
-				</a>
-				<ul class="children collapse" id="sub-item-1">
-					<li><a class="" href="#">
-						<span class="fa fa-arrow-right">&nbsp;</span> X - RPL
-					</a></li>
-					<li><a class="" href="#">
-						<span class="fa fa-arrow-right">&nbsp;</span> X - Multimedia
-					</a></li>
-					<li><a class="" href="#">
-						<span class="fa fa-arrow-right">&nbsp;</span> XI - RPL
-					</a></li>
-					<li><a class="" href="#">
-						<span class="fa fa-arrow-right">&nbsp;</span> XI - Multimedia
-					</a></li>
-					<li><a class="" href="#">
-						<span class="fa fa-arrow-right">&nbsp;</span> XII - RPL
-					</a></li>
-					<li><a class="" href="#">
-						<span class="fa fa-arrow-right">&nbsp;</span> XII - Multimedia
-					</a></li>
-				</ul>
-			</li>
-		</li>
-		<li><a href="{{ url('/logout')}}"><em class="fa fa-power-off">&nbsp;</em>Logout</a></li>          
-		</ul>
-	</div><!--/.sidebar-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a href="#">
+                    <img src="images/icon/logo.png" alt="Cool Admin" />
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <li class="active has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/admin/confirm_headmaster') }}">
+                                <i class="fas fa-chart-bar"></i>Konfirmasi KEPSEK</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/admin/list_teacher') }}">
+                                <i class="fas fa-table"></i>List Guru</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/admin/list_class') }}">
+                                <i class="fas fa-calendar-alt"></i>List Kelas</a>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="index.html">Dashboard 1</a>
+                                </li>
+                                <li>
+                                    <a href="index2.html">Dashboard 2</a>
+                                </li>
+                                <li>
+                                    <a href="index3.html">Dashboard 3</a>
+                                </li>
+                                <li>
+                                    <a href="index4.html">Dashboard 4</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="far fa-check-square"></i>List Mata Pelajaran</a>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="index.html">Dashboard 1</a>
+                                </li>
+                                <li>
+                                    <a href="index2.html">Dashboard 2</a>
+                                </li>
+                                <li>
+                                    <a href="index3.html">Dashboard 3</a>
+                                </li>
+                                <li>
+                                    <a href="index4.html">Dashboard 4</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-calendar-alt"></i>Pengajuan Guru</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/admin/schedule') }}">
+                                <i class="fas fa-map-marker-alt"></i>Jadwal Pelajaran</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/logout')}}">
+                                <i class="fa fa-power-off"></i>Logout</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>

@@ -1,5 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
+@section('content')
+- Siswa
+@endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
