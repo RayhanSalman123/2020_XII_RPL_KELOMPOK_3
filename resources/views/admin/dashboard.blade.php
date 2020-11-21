@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="col-md-12">
-        <a class="btn btn-primary" href="#" role="button">create</a>
+        <a class="btn btn-dark" href="#" role="button">create</a>
                                 <!-- DATA TABLE-->
                                 <div class="table-responsive m-b-40">
                                     <table class="table table-borderless table-data3">
