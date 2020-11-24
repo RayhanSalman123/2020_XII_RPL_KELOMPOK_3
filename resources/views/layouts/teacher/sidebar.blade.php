@@ -8,7 +8,7 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a class="js-arrow" href="#">
+                            <a href="/index_teacher">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
 
@@ -18,7 +18,7 @@
                         </li>
 
                         <li>
-                            <a href="{{url('/student/schedule')}}">
+                            <a href="/list_subject">
                                 <i class="fas fa-copy"></i>Mata Pelajaran</a>
                         </li>
 

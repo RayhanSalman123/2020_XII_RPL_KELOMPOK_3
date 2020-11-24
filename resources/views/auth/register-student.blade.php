@@ -124,7 +124,7 @@
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-user"></i>
                                                     </div>
-                                                    <input id="school_year" type="school_year" placeholder="Tahin Ajaran" class="form-control @error('school_year') is-invalid @enderror" name="school_year" value="{{ old('school_year') }}" autocomplete="school_year" autofocus>
+                                                    <input id="school_year" type="school_year" placeholder="Tahun Ajaran" class="form-control @error('school_year') is-invalid @enderror" name="school_year" value="{{ old('school_year') }}" autocomplete="school_year" autofocus>
 
                                 @error('school_year')
                                 <span class="invalid-feedback" role="alert">

@@ -8,7 +8,7 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a class="js-arrow" href="#">
+                            <a href="/index_admin">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
                         <li>
@@ -16,51 +16,23 @@
                                 <i class="fas fa-chart-bar"></i>Konfirmasi KEPSEK</a>
                         </li>
                         <li>
-                            <a href="{{ url('/admin/list_teacher') }}">
+                            <a href="/list_teacher">
                                 <i class="fas fa-table"></i>List Guru</a>
                         </li>
                         <li>
-                            <a href="{{ url('/admin/list_class') }}">
-                                <i class="fas fa-calendar-alt"></i>List Kelas</a>
-                                <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="index.html">Dashboard 1</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Dashboard 2</a>
-                                </li>
-                                <li>
-                                    <a href="index3.html">Dashboard 3</a>
-                                </li>
-                                <li>
-                                    <a href="index4.html">Dashboard 4</a>
-                                </li>
-                            </ul>
+                            <a href="/list_class">
+                                <i class="fas fa-calendar"></i>List Kelas</a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="/list_subject">
                                 <i class="far fa-check-square"></i>List Mata Pelajaran</a>
-                                <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="index.html">Dashboard 1</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Dashboard 2</a>
-                                </li>
-                                <li>
-                                    <a href="index3.html">Dashboard 3</a>
-                                </li>
-                                <li>
-                                    <a href="index4.html">Dashboard 4</a>
-                                </li>
-                            </ul>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="/list_submission_teacher">
                                 <i class="fas fa-calendar-alt"></i>Pengajuan Guru</a>
                         </li>
                         <li>
-                            <a href="{{ url('/admin/schedule') }}">
+                            <a href="/list_schedule">
                                 <i class="fas fa-map-marker-alt"></i>Jadwal Pelajaran</a>
                         </li>
                         <li>

@@ -7,7 +7,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Dashboard</title>
+    <title>Dashboard-Siswa</title>
 
     <!-- Fontfaces CSS-->
     <link href="{{ url('css/font-face.css')}}" rel="stylesheet" media="all">

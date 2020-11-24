@@ -7,7 +7,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Dashboard-Admin</title>
+    <title>Dashboard-Kepsek</title>
 
     <!-- Fontfaces CSS-->
     <link href="{{asset('css/font-face.css')}}" rel="stylesheet" media="all">

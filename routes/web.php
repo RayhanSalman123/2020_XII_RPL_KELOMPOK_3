@@ -40,20 +40,27 @@ Route::group(['middleware' => 'auth', 'DisablePreventBack', 'verified'], functio
 
 
 //Admin
-Route::get('/index_admin', 'AdminController@index');
+Route::get('/index_admin', 'Admin\AdminController@index');
 // Route::get('/pages/admin/list-class', 'AdminController@store');
-Route::get('/index_admin/create','AdminController@create');
+Route::get('/index_admin/create','Admin\AdminController@create');
+Route::get('/list_class', 'Admin\ClassController@list_class');
+Route::get('/list_teacher', 'Admin\TeacherController@list_teacher');
+Route::get('/list_subject', 'Admin\SubjectController@list_subject');
+Route::get('/list_schedule', 'Admin\ScheduleController@list_schedule');
 
 //Siswa
-Route::get('/index_student', 'StudentController@index');
+Route::get('/index_student', 'Student\StudentController@index');
 // Route::get('/student/schedule', 'StudentController@schedule');
+Route::get('/list_schedule', 'Student\ScheduleController@list_schedule');
 
 
 //Guru
-Route::get('/index_teacher', 'TeacherController@index');
+Route::get('/index_teacher', 'Teacher\TeacherController@index');
+Route::get('/list_subject', 'Teacher\SubjectController@list_subject');
+
 
 //Kepsek
-Route::get('/index_head_master', 'HeadMasterController@index');
+Route::get('/index_head_master', 'HeadMaster\HeadMasterController@index');
 
 
 //Route untuk register teacher dan staff
@@ -62,7 +69,7 @@ Route::get('/index_head_master', 'HeadMasterController@index');
 Route::get('/register-student', 'Auth\RegisterController@registerStudent');
 Route::get('/register-teacher', 'Auth\RegisterController@registerTeacher');
 Route::get('/register-select', 'Auth\RegisterController@registerSelect');
-Route::get('/dashboard', 'AdminController@index')->name('layouts.admin.master');
+Route::get('/dashboard', 'Admin\AdminController@index')->name('layouts.admin.master');
 
 
 //Route Untuk Admin, Student, Teacher, Staff TU, jika register dan login maka akan ke halaman ini 

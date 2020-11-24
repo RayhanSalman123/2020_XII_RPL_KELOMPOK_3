@@ -1,17 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Admin;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Schedules;
 
-class AdminController extends Controller
+
+class ScheduleController extends Controller
 {
-
-     public function __construct()
-    {
-        $this->middleware('DisablePreventBack');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -19,8 +16,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        
-        return view('admin.dashboard');
+        return view('admin/schedule/list_schedule');
     }
 
     /**
@@ -30,7 +26,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view ('admin.create');
+        //
     }
 
     /**
@@ -41,8 +37,7 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        $data = Admin::get($request->all());
-        return view('pages.admin.list-class',compact('data'));
+        //
     }
 
     /**
@@ -88,5 +83,12 @@ class AdminController extends Controller
     public function destroy(cr $cr)
     {
         //
+    }
+
+     public function list_schedule()
+    {
+        $schedule=Schedules::all();
+        // $count = 0;
+        return view('admin/schedule/list_schedule');
     }
 }

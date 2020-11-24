@@ -1,18 +1,13 @@
-@extends('layouts.admin.master')
+@extends('layouts.teacher.master')
 
 @section('content')
 	<div class="col-md-12">
-        <div class="dt-buttons btn-group">
-            <div class="dt-buttons btn-group"> 
-                <a href="#" class="btn btn-outline-success btn-lg fa fa-plus"></a>
-            </div>
-        </div>
                                 <!-- DATA TABLE-->
                                 <div class="table-responsive m-b-40">
                                     <table class="table table-borderless table-data3">
                                         <thead>
                                             <tr>
-                                                <th>Date</th>
+                                                <th>dadasdte</th>
                                                 <th>type</th>
                                                 <th>description</th>
                                                 <th>status</th>

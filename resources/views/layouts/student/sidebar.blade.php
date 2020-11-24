@@ -8,18 +8,10 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            <a href="/list_schedule"> 
+                                <i class="fas fa-chart-bar"></i>Dashboard</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                             </ul>
-                        </li>
-                        <li>
-                            <a href="{{ url('/student/schedule') }}">
-                                <i class="fas fa-chart-bar"></i>Mata Pelajaran</a>
-                        </li>
-                       <li>
-                            <a href="">
-                                <i class="fas fa-chart-bar"></i>Jadwal</a>
                         </li>
                         <li>
                             <a href="{{ url('/logout')}}">
