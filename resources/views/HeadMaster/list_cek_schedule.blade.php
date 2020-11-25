@@ -1,28 +1,30 @@
-@extends('layouts.admin.master')
+@extends('layouts.head_master.master')
 
 @section('content')
-	<div class="col-md-12">
-         <div>
-            <a href="/list_subject/add_subject" class="btn btn-outline-success">Tambah</a>
-        </div>
+    <div class="col-md-12">
          <div class="table-responsive m-b-40">
             <table class="table table-borderless table-data3">
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>NIP</th>
+                        <th>NAMA GURU</th>
                         <th>MATA PELAJARAN</th>
-                        <th>KELAS</th>
-                        <th>JURUSAN</th>
-                        <th>KURIKULUM</th>
+                        <th>JENIS KELAMIN</th>
+                        <th>ACTION</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
+                        <td>123456789</td>
+                        <td>Denis, S.Pd</td>
                         <td>Komputer Jaringan</td>
-                        <td>XII</td>
-                        <td>RPL</td>
-                        <td>KTSP</td>
+                        <td>Pria</td>
+                        <td>
+                            <a href="/approve" class="btn btn-primary">Terima</a>
+                            <a href="/block" class="btn btn-danger">Tolak</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>

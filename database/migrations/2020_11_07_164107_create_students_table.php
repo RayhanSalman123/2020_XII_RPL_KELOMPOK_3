@@ -17,10 +17,10 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->bigInteger('user_id')->nullable()->unsigned();
             $table->foreign('user_id')->references('usr_id')->on('users')->onDelete('cascade');
+            $table->foreignId('st_class_id');
+            $table->foreign('st_class_id')->references('class_id')->on('classes');
             $table->string('nis');
             $table->string('gender');
-            $table->string('class');
-            $table->string('major');
             $table->integer('school_year');
             $table->timestamps();
         });

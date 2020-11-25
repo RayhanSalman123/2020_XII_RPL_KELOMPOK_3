@@ -4,8 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Schedules extends Model
+class Submissions extends Model
 {
     protected $guarded = [];
-    protected $primaryKey = 'schedule_id';
 }

@@ -12,10 +12,10 @@ class SubmissionSeeder extends Seeder
     public function run()
     {
           DB::table('submissions')->insert([
-        	'name_teacher' => 'Raynaldi',
-        	'name_subject' => 'pbo',
+            'user_id'           => '3',
+            'sbj_subject_id'    => '1',
             'time'         => '10:00:00',
-         	'day' 		   => 'selasa',
+         	'day' 		   => 'selasa'
         ]);
     }
 }

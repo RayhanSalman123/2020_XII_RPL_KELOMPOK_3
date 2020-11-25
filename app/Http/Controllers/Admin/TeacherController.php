@@ -14,6 +14,11 @@ class TeacherController extends Controller
         return view('admin/teacher/list_teacher');
     }
 
+     public function create()
+    {
+        return view('admin.teacher.add_teacher');
+    }
+
 
     public function list_teacher()
     {

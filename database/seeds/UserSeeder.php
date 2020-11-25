@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
         $admin->assignRole('admin');
 
         $siswa = User::create([
-            'usr_name' => 'Siswa',
+            'usr_name' => 'Anisa',
             'usr_email' => 'student@gmail.com',
             'usr_password' => Hash::make('student'),
             'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -38,9 +38,9 @@ class UserSeeder extends Seeder
         $siswa->assignRole('student');
 
         $guru = User::create([
-            'usr_name' => 'Teacher',
+            'usr_name' => 'Denis, S.Pd',
             'usr_email' => 'teacher@gmail.com',
-            'usr_password' => Hash::make('nininurul'),
+            'usr_password' => Hash::make('teacher'),
             'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'usr_verification_token' => str_replace('/', '', Hash::make(Str::random(12))),
             'usr_is_active' => true,

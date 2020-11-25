@@ -1,8 +1,6 @@
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
-                    <img src="images/icon/logo.png" alt="Cool Admin" />
-                </a>
+                <h3>SMK MAHAPUTRA</h3>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
@@ -13,13 +11,13 @@
                         </li>
 
                         <li>
-                            <a href="#">
+                            <a href="form-submission">
                                 <i class="fas fa-table"></i>Pengajuan Jadwal</a>
                         </li>
 
                         <li>
-                            <a href="/list_subject">
-                                <i class="fas fa-copy"></i>Mata Pelajaran</a>
+                            <a href="/list_schedule_teacher">
+                                <i class="fas fa-copy"></i>Jadwal Pelajaran</a>
                         </li>
 
                         <li>

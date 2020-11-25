@@ -12,7 +12,17 @@ class ClassesSeeder extends Seeder
     public function run()
     {
        DB::table('classes')->insert([
-            'name_class' => 'XII',
+            'class' => 'X',
+            'major' => 'Rekayasa Perangkat Lunak ',
+        ]);
+
+       DB::table('classes')->insert([
+            'class' => 'XI',
+            'major' => 'Multimedia ',
+        ]);
+
+       DB::table('classes')->insert([
+            'class' => 'XII',
             'major' => 'Rekayasa Perangkat Lunak ',
         ]);
     }

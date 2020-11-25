@@ -12,9 +12,10 @@ class TeacherSeeder extends Seeder
     public function run()
     {
     	DB::table('teachers')->insert([
-        	'nip' => '12345678',
-            'teacher_subject' => 'Bahasa Indonesia',
-            'gender' => 'Perempuan'
+            'user_id'           => '3',
+            'tcr_subject_id'    => '1',
+        	'nip'               => '123456789',
+            'gender'            => 'Pria'
         ]);
     }
 }

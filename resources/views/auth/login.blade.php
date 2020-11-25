@@ -42,10 +42,15 @@
             <div class="container">
                 <div class="login-wrap">
                     <div class="login-content">
-                        <div class="login-logo">
+                        <!-- <div class="login-logo">
                             
-                                <img src="{{ asset('images/icon/logo.png')}}" alt="CoolAdmin">
+                                <img src="{{ asset('images/icon/1.png')}}" alt="SMK Mahaputra">
                             
+                        </div> -->
+                        <div class="container">
+                            
+                            <h2>SMK MAHAPUTRA</h2>
+
                         </div>
                         <div class="login-form">
                             @if ($message = Session::get('success'))

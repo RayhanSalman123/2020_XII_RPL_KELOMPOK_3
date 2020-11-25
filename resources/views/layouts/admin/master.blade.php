@@ -2,7 +2,7 @@
 <html>
 @include('layouts.admin.head')
 
-	<body class="animsition">
+	<body>
     <div class="page-wrapper">
     @include('layouts.admin.sidebar');
  <div class="page-container">

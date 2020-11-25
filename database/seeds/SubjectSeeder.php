@@ -12,7 +12,8 @@ class SubjectSeeder extends Seeder
     public function run()
     {
         DB::table('subjects')->insert([
-         	'name_subject' => 'Matematika',
+            'sbj_class_id'  => '2',
+         	'name_subject' => 'Komputer Jaringan',
             'curriculum' => 'KTSP'
         ]);
     }

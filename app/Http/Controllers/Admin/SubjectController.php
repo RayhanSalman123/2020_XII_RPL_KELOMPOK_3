@@ -14,6 +14,11 @@ class SubjectController extends Controller
     }
 
 
+     public function create()
+    {
+        return view('admin.subject.add_subject');
+    }
+
     public function list_subject()
     {
         $subject=Subjects::all();

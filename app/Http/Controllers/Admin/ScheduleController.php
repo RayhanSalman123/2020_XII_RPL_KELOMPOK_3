@@ -16,7 +16,7 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        return view('admin/schedule/list_schedule');
+        return view('admin/schedule/list_schedule_admin');
     }
 
     /**
@@ -24,9 +24,9 @@ class ScheduleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+     public function create()
     {
-        //
+        return view('admin.schedule.add_schedule');
     }
 
     /**
@@ -87,8 +87,8 @@ class ScheduleController extends Controller
 
      public function list_schedule()
     {
-        $schedule=Schedules::all();
+        $schedules=Schedules::all();
         // $count = 0;
-        return view('admin/schedule/list_schedule');
+        return view('admin/schedule/list_schedule_admin');
     }
 }
