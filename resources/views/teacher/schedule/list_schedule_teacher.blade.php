@@ -3,26 +3,28 @@
 @section('content')
     <div class="col-md-12">
         <div>
-            <a href="/list_schedule_teacher/add_schedule" class="btn btn-outline-success"></a>
+            <a href="/list_schedule_teacher" class="btn btn-outline-success"></a>
         </div>
          <div class="table-responsive m-b-40">
             <table class="table table-borderless table-data3">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>NIP</th>
-                        <th>NAMA GURU</th>
                         <th>MATA PELAJARAN</th>
-                        <th>JENIS KELAMIN</th>
+                        <th>HARI</th>
+                        <th>TANGGAL</th>
+                        <th>JAM</th>
+                        <th>GURU</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>123456789</td>
-                        <td>Denis, S.Pd</td>
                         <td>Komputer Jaringan</td>
-                        <td>Pria</td>
+                        <td>Senin</td>
+                        <td>2020-08-14</td>
+                        <td>12:00:00</td>
+                        <td>Denis</td>
                     </tr>
                 </tbody>
             </table>

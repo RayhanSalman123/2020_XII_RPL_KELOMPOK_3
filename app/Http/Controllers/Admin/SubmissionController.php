@@ -13,15 +13,9 @@ class SubmissionController extends Controller
         return view('admin/submission/list_submission');
     }
 
-
-     public function create()
-    {
-        return view('admin.submission.add_submission');
-    }
-
     public function list_submission()
     {
-        $Submissions=Submissions::all();
+        $submissions=Submissions::all();
         // $count = 0;
         return view('admin/submission/list_submission');
     }

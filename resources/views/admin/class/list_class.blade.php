@@ -3,7 +3,7 @@
 @section('content')
 	<div class="col-md-12">
         <div>
-            <a href="/list_class/add_class" class="btn btn-outline-success">Tambah</a>
+            <a href="/admin/list_class/add_class" class="btn btn-outline-success">Tambah</a>
         </div>
          <div class="table-responsive m-b-40">
             <table class="table table-borderless table-data3">

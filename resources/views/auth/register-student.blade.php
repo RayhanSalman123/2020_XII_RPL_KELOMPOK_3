@@ -81,7 +81,7 @@
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-user"></i>
                                                     </div>
-                                                    <input id="gender" type="gender" placeholder="Gander" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" autocomplete="gender" autofocus>
+                                                    <input id="gender" type="gender" placeholder="Gender" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" autocomplete="gender" autofocus>
 
                                 @error('gender')
                                 <span class="invalid-feedback" role="alert">

@@ -6,31 +6,31 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a href="/index_admin">
+                            <a href="/admin/index_admin">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
                         <li>
-                            <a href="{{ url('/admin/confirm_headmaster') }}">
+                            <a href="/admin/confirm_headmaster">
                                 <i class="fas fa-chart-bar"></i>Konfirmasi KEPSEK</a>
                         </li>
                         <li>
-                            <a href="/list_teacher">
+                            <a href="/admin/list_teacher">
                                 <i class="fas fa-table"></i>List Guru</a>
                         </li>
                         <li>
-                            <a href="/list_class">
+                            <a href="/admin/list_class">
                                 <i class="fas fa-calendar"></i>List Kelas</a>
                         </li>
                         <li>
-                            <a href="/list_subject_admin">
+                            <a href="/admin/list_subject_admin">
                                 <i class="far fa-check-square"></i>List Mata Pelajaran</a>
                         </li>
                         <li>
-                            <a href="/list_submission">
+                            <a href="/admin/list_submission_admin">
                                 <i class="fas fa-calendar-alt"></i>Pengajuan Guru</a>
                         </li>
                         <li>
-                            <a href="/list_schedule_admin">
+                            <a href="/admin/list_schedule_admin">
                                 <i class="fas fa-map-marker-alt"></i>Jadwal Pelajaran</a>
                         </li>
                         <li>

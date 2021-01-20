@@ -49,24 +49,25 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 });
 
 
-
+//ADMIN
 Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:admin']], function () {
-	Route::get('/index_admin', 'Admin\AdminController@index');
+	Route::get('/admin/index_admin', 'Admin\AdminController@index');
 // Route::get('/pages/admin/list-class', 'AdminController@store');
-	Route::get('/list_class', 'Admin\ClassController@list_class');
-	Route::get('/list_class/add_class', 'Admin\ClassController@create');
+	Route::get('/admin/list_class', 'Admin\ClassController@list_class');
+	Route::get('/admin/list_class/add_class', 'Admin\ClassController@create');
 
-	Route::get('/list_teacher', 'Admin\TeacherController@list_teacher');
-	Route::get('/list_teacher/add_teacher', 'Admin\TeacherController@create');
+	Route::get('/admin/list_teacher', 'Admin\TeacherController@list_teacher');
+	Route::get('/admin/list_teacher/add_teacher', 'Admin\TeacherController@create');
 
-	Route::get('/list_subject_admin', 'Admin\SubjectController@list_subject');
-	Route::get('/list_subject/add_subject', 'Admin\SubjectController@create');
+	Route::get('/admin/list_subject_admin', 'Admin\SubjectController@list_subject');
+	Route::get('/admin/list_subject/add_subject', 'Admin\SubjectController@create');
 
-	Route::get('/list_schedule_admin', 'Admin\ScheduleController@list_schedule');
-	Route::get('/list_schedule/add_schedule', 'Admin\ScheduleController@create');
+	Route::get('/admin/list_schedule_admin', 'Admin\ScheduleController@list_schedule');
+	Route::get('/admin/list_schedule_admin/add_schedule', 'Admin\ScheduleController@create');
 
-	Route::get('/list_submission', 'Admin\SubmissionController@list_submission');
-	Route::get('/list_submission/add_submission', 'Admin\SubmissionController@create');
+	Route::get('/admin/list_submission_admin', 'Admin\SubmissionController@list_submission');
+
+	Route::get('/admin/confirm_headmaster', 'Admin\ConfirmController@list_confirm');
 });
 
 
@@ -82,8 +83,8 @@ Route::group(['middleware' => [ 'role:student','auth', 'DisablePreventBack', 've
 
 Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:teacher']], function () {
 	Route::get('/index_teacher', 'Teacher\TeacherController@index');
-	Route::get('/list_schedule_teacher', 'Teacher\ScheduleController@list_schedule_teacher');
-	Route::get('/form-submission', 'Teacher\TeacherController@create');
+	Route::get('/teacher/list_schedule_teacher', 'Teacher\ScheduleController@list_schedule_teacher');
+	Route::get('/teacher/form-submission', 'Teacher\TeacherController@create');
 
 });
 

@@ -26,7 +26,7 @@ class ScheduleController extends Controller
      */
      public function create()
     {
-        return view('admin.schedule.add_schedule');
+        return view('admin/schedule/add_schedule');
     }
 
     /**

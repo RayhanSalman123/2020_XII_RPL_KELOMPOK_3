@@ -2,27 +2,26 @@
 
 @section('content')
 	<div class="col-md-12">
-         <<div>
-            <a href="/list_submission/add_submission" class="btn btn-outline-success">Tambah</a>
-        </div>
          <div class="table-responsive m-b-40">
             <table class="table table-borderless table-data3">
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>GURU</th>
                         <th>MATA PELAJARAN</th>
-                        <th>KELAS</th>
-                        <th>JURUSAN</th>
-                        <th>KURIKULUM</th>
+                        <th>HARI</th>
+                        <th>TANGGAL</th>
+                        <th>JAM</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
+                        <td>Denis</td>
                         <td>Komputer Jaringan</td>
-                        <td>XII</td>
-                        <td>RPL</td>
-                        <td>KTSP</td>
+                        <td>Senin</td>
+                        <td>2020-08-14</td>
+                        <td>12:00:00</td>
                     </tr>
                 </tbody>
             </table>

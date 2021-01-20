@@ -18,8 +18,8 @@ class StudentController extends Controller
     {
         return view('layouts.schedule');
     }
-    public function view(){
-    	return view('student.view');
-    }
+    // public function view(){
+    // 	return view('student.view');
+    // }
 
 }
