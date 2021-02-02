@@ -51,7 +51,7 @@ class ClassController extends Controller
 
          $message = ['required' => 'Inputan wajib di isi'];
          $request->validate([
-            'class' => 'required',
+            'class' => 'required|max:3',
             'major' => 'required',
           ], $message);
 
@@ -98,7 +98,7 @@ class ClassController extends Controller
 
         $message = ['required' => 'Inputan wajib di isi'];
          $request->validate([
-            'class' => 'required',
+            'class' => 'required|max:3',
             'major' => 'required',
           ], $message);
          
