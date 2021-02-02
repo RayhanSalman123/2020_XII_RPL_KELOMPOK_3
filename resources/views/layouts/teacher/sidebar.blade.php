@@ -1,6 +1,7 @@
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <h3>SMK MAHAPUTRA</h3>
+            <img src="{{asset('images/icon/2tebal-min.png')}}" alt="eRROR">
+                <h4>SMK MAHAPUTRA</h4>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">

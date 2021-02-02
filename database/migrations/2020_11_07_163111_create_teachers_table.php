@@ -22,6 +22,7 @@ class CreateTeachersTable extends Migration
             $table->integer('nip')->nullable();
             $table->string('gender');
             $table->timestamps();
+            $table->softdeletes();
         });
     }
 

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ClassesSeeder extends Seeder
+class MajorSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,9 +11,8 @@ class ClassesSeeder extends Seeder
      */
     public function run()
     {
-       DB::table('classes')->insert([
-            'cl_major_id' => '1',
-            'class' => 'X'
-        ]);
+        DB::table('majors')->insert([
+            'major_name'  => 'RPL',        
+            ]);
     }
 }

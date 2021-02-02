@@ -4,9 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
-class Classes extends Model
+class Majors extends Model
 {
-	protected $primaryKey = 'class_id';
     protected $guarded = [];
+    protected $primaryKey = 'major_id';
 }

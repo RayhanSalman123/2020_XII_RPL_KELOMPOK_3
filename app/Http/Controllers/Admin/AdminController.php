@@ -7,6 +7,7 @@ use App\Admin;
 use Illuminate\Http\Request;
 use App\subjects;
 use App\teacher;
+use App\classes;
 
 class AdminController extends Controller
 {
@@ -24,7 +25,8 @@ class AdminController extends Controller
     {
         $subject=subjects::count();
         $teacher=teacher::count();
-        return view('admin/dashboard',compact(['teacher','subject']));
+        $classes=classes::count();
+        return view('admin/dashboard',compact(['teacher','subject', 'classes']));
     }
 
     /**

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateClassesTable extends Migration
+class CreateMajorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateClassesTable extends Migration
      */
     public function up()
     {
-        Schema::create('classes', function (Blueprint $table) {
-            $table->id('class_id');
-            $table->string('class');
-            $table->foreignId('id_major');
-            $table->foreign('id_major')->references('id_majors')->on('majors');
+        Schema::create('majors', function (Blueprint $table) {
+            $table->id('major_id');
+            $table->string('major_name');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateClassesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('classes');
+        Schema::dropIfExists('majors');
     }
 }

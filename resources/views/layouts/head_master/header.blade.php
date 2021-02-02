@@ -1,13 +1,18 @@
 <header class="header-desktop">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="header-wrap">
-                            <form class="form-header" action="" method="POST">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="header-wrap">
+                <ul class="right-side-content d-flex align-items-center">
+                    <li class="fa fa-user-circle">
+                        <span style="font-size: 15px; color:#1E90FF; font-weight:bold;">{{Auth::user()->usr_name}}</span>
+                    </li>
+                </ul>
+                            <!-- <form class="form-header" action="" method="POST">
                                 <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
                                 <button class="au-btn--submit" type="submit">
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
-                            </form>
+                            </form> -->
                             <!-- <div class="header-button">
                                 <div class="noti-wrap">
                                     <div class="noti__item js-item-menu">
