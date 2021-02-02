@@ -13,17 +13,17 @@ class ClassesSeeder extends Seeder
     {
        DB::table('classes')->insert([
             'class' => 'X',
-            'major' => 'Rekayasa Perangkat Lunak ',
+            'id_major' => 1,
         ]);
 
        DB::table('classes')->insert([
             'class' => 'XI',
-            'major' => 'Multimedia ',
+            'id_major' => 2,
         ]);
 
        DB::table('classes')->insert([
             'class' => 'XII',
-            'major' => 'Rekayasa Perangkat Lunak ',
+            'id_major' => 3,
         ]);
     }
 }

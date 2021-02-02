@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Admin;
 use Illuminate\Http\Request;
+use App\subjects;
+use App\teacher;
 
 class AdminController extends Controller
 {
@@ -20,8 +22,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        
-        return view('admin/dashboard');
+        $subject=subjects::count();
+        $teacher=teacher::count();
+        return view('admin/dashboard',compact(['teacher','subject']));
     }
 
     /**

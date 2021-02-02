@@ -4,9 +4,9 @@
 
 	<body>
     <div class="page-wrapper">
-    @include('layouts.admin.sidebar');
+    @include('layouts.admin.sidebar')
  <div class="page-container">
-	@include('layouts.admin.header');
+	@include('layouts.admin.header')
 
 
 	<div class="main-content">
@@ -20,7 +20,7 @@
             </div>
         </div>
 
-	@include('layouts.admin.js');
+	@stack('js')
 
 
 </body>

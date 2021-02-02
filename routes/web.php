@@ -44,7 +44,7 @@ Route::post('/account/reset-password', 'Auth\AccountController@updatePassword')-
 
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
-		Route::get('/dashboard', 'User\UserController@index')->name('dashboard.users');
+		Route::get('admin/dashboard', 'User\UserController@index')->name('dashboard.users');
 
 });
 
@@ -55,9 +55,18 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:a
 // Route::get('/pages/admin/list-class', 'AdminController@store');
 	Route::get('/admin/list_class', 'Admin\ClassController@list_class');
 	Route::get('/admin/list_class/add_class', 'Admin\ClassController@create');
+	Route::post('/admin/list_class', 'Admin\ClassController@store');
+	Route::get('/admin/edit_class/{class_id}/edit', 'Admin\ClassController@edit');
+	Route::post('/admin/update/{class_id}', 'Admin\ClassController@update');
+	Route::delete('/admin/list_class/{class_id}/delete', 'Admin\ClassController@delete');
 
 	Route::get('/admin/list_teacher', 'Admin\TeacherController@list_teacher');
 	Route::get('/admin/list_teacher/add_teacher', 'Admin\TeacherController@create');
+	Route::post('/admin/list_teacher/add_teacher', 'Admin\TeacherController@store');
+	Route::get('/admin/edit_teacher/{teacher_id}/edit', 'Admin\TeacherController@edit');
+	Route::post('/admin/edit_teacher/{teacher_id}/edit', 'Admin\TeacherController@update');
+
+	Route::delete('/admin/list_teacher/{teacher_id}/delete', 'Admin\TeacherController@delete');
 
 	Route::get('/admin/list_subject_admin', 'Admin\SubjectController@list_subject');
 	Route::get('/admin/list_subject/add_subject', 'Admin\SubjectController@create');
@@ -68,6 +77,8 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:a
 	Route::get('/admin/list_submission_admin', 'Admin\SubmissionController@list_submission');
 
 	Route::get('/admin/confirm_headmaster', 'Admin\ConfirmController@list_confirm');
+
+
 });
 
 

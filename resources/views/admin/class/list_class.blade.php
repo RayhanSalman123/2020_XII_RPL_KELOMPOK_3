@@ -9,21 +9,33 @@
             <table class="table table-borderless table-data3">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>NO</th>
                         <th>KELAS</th>
                         <th>JURUSAN</th>
+                        <th>ACTION</th>
                     </tr>
                 </thead>
+
                 <tbody>
+                @foreach($class as $count => $classes)
                     <tr>
-                        <td>1</td>
-                        <td>XII</td>
-                        <td>RPL</td>
+                        <td>{{$count+1}}</td>
+                        <td>{{$classes->class}}</td>
+                        <td>{{$classes->major}}</td>
+                        <td>
+                          <form action="/admin/list_class/{{$classes->class_id}}/delete" method="post">
+                        <a href="{{URL::to('/admin/edit_class')}}/{{$classes->class_id}}/edit" value="EDIT" class="btn btn-outline-info fa fa-pencil-square-o"></a>
+                        <button type="submit" name="submit" class="btn btn-outline-danger">DELETE</button>
+                        {{csrf_field()}}
+                        <input type="hidden" name="_method" value="DELETE">
+                          </form>
+                        </td>
                     </tr>
-                    
+                    @endforeach
+
                 </tbody>
             </table>
-         </div>
-                    <!-- END DATA TABLE-->
+        </div>
     </div>
+
 @endsection

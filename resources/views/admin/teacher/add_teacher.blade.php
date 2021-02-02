@@ -2,57 +2,110 @@
 
 @section('content')
 <div class="card">
-                                    <div class="card-header">
-                                        Tambah
-                                        <strong>Guru</strong>
-                                    </div>
-                                    <div class="card-body card-block">
-                                        <form action="" method="post" class="form-horizontal">
+    <div class="card-header">
+        Tambah
+        <strong>Guru</strong>
+    </div>
+    <div class="card-body card-block">
+        <form action="" method="post" class="form-horizontal"> 
+            @csrf
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="nip" class=" form-control-label">NIP</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" class="form-control @error('nip') is-invalid @enderror" name="nip" placeholder="NIP" value="{{ old('nip') }}">
 
-                                            <div class="row form-group">
-                                                <div class="col col-sm-5">
-                                                    <label for="nip" class=" form-control-label">NIP</label>
-                                                </div>
-                                                <div class="col col-sm-6">
-                                                    <input type="text" id="input-normal" name="input-normal" placeholder="Masukkan NIP" class="form-control">
-                                                </div>
-                                            </div>
+                    @error('nip')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                       
+                </div>
+            </div>
 
-                                            <div class="row form-group">
-                                                <div class="col col-sm-5">
-                                                    <label for="nama guru" class=" form-control-label">Nama Guru</label>
-                                                </div>
-                                                <div class="col col-sm-6">
-                                                    <input type="text" id="input-normal" name="input-normal" placeholder="Masukkan Nama Guru" class="form-control">
-                                                </div>
-                                            </div>
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="nama guru" class=" form-control-label">Nama Guru</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" id="input-normal" name="usr_name" placeholder="Masukkan Nama Guru" class="form-control @error('usr_name') is-invalid @enderror" value="{{ old('usr_name') }}">
+                    @error('usr_name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
 
-                                            <div class="row form-group">
-                                                <div class="col col-sm-5">
-                                                    <label for="mata pelajaran" class=" form-control-label">Mata Pelajaran</label>
-                                                </div>
-                                                <div class="col col-sm-6">
-                                                    <input type="text" id="input-normal" name="input-normal" placeholder="Masukkan Mata Pelajaran" class="form-control">
-                                                </div>
-                                            </div>
+              <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="mata pelajaran" class=" form-control-label">Email</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="email" id="input-normal" name="usr_email" placeholder="Masukkan Email" class="form-control @error('usr_email') is-invalid @enderror" value="{{ old('usr_email') }}">
+                     @error('usr_email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
 
-                                            <div class="row form-group">
-                                                <div class="col col-sm-5">
-                                                    <label for="jenis kelamin" class=" form-control-label">Jenis Kelamin</label>
-                                                </div>
-                                                <div class="col col-sm-6">
-                                                    <input type="text" id="input-normal" name="input-normal" placeholder="Masukkan Jenis Kelamin" class="form-control">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-sm">
-                                            <i class="fa fa-dot-circle-o"></i> Submit
-                                        </button>
-                                        <a href="/admin/list_teacher" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-ban"></i>Back
-                                        </a>
-                                    </div>
-                                </div>
-                                @endsection
+
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="mata pelajaran" class=" form-control-label">Mata Pelajaran</label>
+                </div>
+                <div class="col col-sm-6">
+                    <select name="tcr_subject_id" id="select" class="form-control @error('tcr_subject_id') is-invalid @enderror">
+                        <option value="" selected="" disabled="" class="form-control">--- Pilih ---</option>
+                        @foreach($subjects as $subject)
+                        <option value="{{ $subject->subject_id }}" class="form-control">{{ $subject->name_subject }}</option>
+                        @endforeach
+                    </select>
+                     @error('tcr_subject_id')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="mata pelajaran" class=" form-control-label">Jenis Kelamin</label>
+                </div>
+                <div class="col col-sm-6">
+                    <select name="gender" id="select" class="form-control @error('gender') is-invalid @enderror">
+                        <option value="" selected="" disabled="" class="form-control">--- Pilih ---</option>
+                        <option value="Laki Laki" class="form-control">Laki Laki</option>
+                        <option value="Perempuan" class="form-control">Perempuan</option>
+                    </select>
+                      @error('gender')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
+
+           
+             
+        
+    </div>
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary btn-sm">
+            <i class="fa fa-dot-circle-o"></i>  Submit
+        </button>
+        <a href="/admin/list_teacher" class="btn btn-danger btn-sm">
+            <i class="fa fa-ban"></i>  Back
+        </a>
+    </div>
+    </form>
+</div>
+@push('js')
+
+@endpush
+@endsection

@@ -13,9 +13,10 @@ class ClassController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function list_class()
     {
-        return view('admin.class.list_class');
+        $class=Classes::all();
+        return view('admin.class.list_class', ['class' => $class]);
     }
 
     /**
@@ -28,6 +29,17 @@ class ClassController extends Controller
         return view('admin.class.add_class');
     }
 
+
+
+    public function add_major()   
+    {
+         $teachers=Teacher::join('users', 'teachers.user_id','=','users.usr_id')
+                ->join('subjects', 'teachers.tcr_subject_id', '=', 'subjects.subject_id')->get();
+
+             return view('admin/teacher/list_teacher',compact('teachers'));
+    }   
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -36,7 +48,19 @@ class ClassController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+         $message = ['required' => 'Inputan wajib di isi'];
+         $request->validate([
+            'class' => 'required',
+            'major' => 'required',
+          ], $message);
+
+
+        $class = new Classes();
+        $class->class = $request->input('class');
+        $class->major = $request->input('major');
+        $class->save();
+        return redirect('/admin/list_class');
     }
 
     /**
@@ -56,9 +80,10 @@ class ClassController extends Controller
      * @param  \App\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function edit(cr $cr)
+    public function edit($class_id)
     {
-        //
+        $class=Classes::find($class_id);
+        return view('admin/class/edit_class', ['class' => $class]);
     }
 
     /**
@@ -68,9 +93,21 @@ class ClassController extends Controller
      * @param  \App\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, cr $cr)
+    public function update(Request $request, $class_id)
     {
-        //
+
+        $message = ['required' => 'Inputan wajib di isi'];
+         $request->validate([
+            'class' => 'required',
+            'major' => 'required',
+          ], $message);
+         
+
+        $class = Classes::where('class_id', $class_id)->first();
+        $class->class = $request->class;
+        $class->major = $request->major;
+        $class->update();
+        return redirect('/admin/list_class');
     }
 
     /**
@@ -79,15 +116,12 @@ class ClassController extends Controller
      * @param  \App\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function destroy(cr $cr)
+    public function delete($class_id)
     {
-        //
-    }
-
-     public function list_class()
-    {
-        $class=Classes::all();
-        // $count = 0;
-        return view('admin/class/list_class');
+        $class = Classes::find($class_id);
+        $class->delete();
+        return redirect('/admin/list_class');
     }
 }
+
+               

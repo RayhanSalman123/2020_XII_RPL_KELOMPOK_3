@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subjects extends Model
 {
-      protected $guarded = [];
+	protected $table = 'subjects';
+     protected $guarded = [];
 }
