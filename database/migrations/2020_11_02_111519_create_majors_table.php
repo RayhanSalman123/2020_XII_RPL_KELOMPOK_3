@@ -17,6 +17,7 @@ class CreateMajorsTable extends Migration
             $table->id('major_id');
             $table->string('major_name');
             $table->timestamps();
+            $table->softdeletes();
         });
     }
 

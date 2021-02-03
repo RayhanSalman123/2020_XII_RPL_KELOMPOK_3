@@ -19,6 +19,7 @@ class CreateClassesTable extends Migration
             $table->foreign('cl_major_id')->references('major_id')->on('majors');
             $table->string('class');
             $table->timestamps();
+            $table->softdeletes();
         });
     }
 

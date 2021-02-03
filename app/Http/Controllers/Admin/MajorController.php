@@ -91,8 +91,10 @@ class MajorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($major_id)
     {
-        //
+        $major = Majors::find($major_id);
+        $major->delete();
+        return redirect('/admin/manage_major');
     }
 }

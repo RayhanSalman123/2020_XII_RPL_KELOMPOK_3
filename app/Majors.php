@@ -3,9 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Majors extends Model
 {
-    protected $guarded = [];
-    protected $primaryKey = 'major_id';
+    use SoftDeletes;
+    protected $table	   = 'majors';
+	protected $primaryKey= 'major_id';
+	protected $dates       = ['deleted_at'];
+    protected $guarded=[];
+
 }
