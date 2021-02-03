@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Classes;
 use Illuminate\Http\Request;
+use App\Majors;
 
 class ClassController extends Controller
 {
@@ -15,7 +16,8 @@ class ClassController extends Controller
      */
     public function list_class()
     {
-        $class=Classes::all();
+         $class=Classes::join('majors', 'majors.major_id','=','classes.cl_major_id')->get();
+
         return view('admin.class.list_class', ['class' => $class]);
     }
 
@@ -26,18 +28,12 @@ class ClassController extends Controller
      */
     public function create()
     {
-        return view('admin.class.add_class');
+        $major=Majors::all();
+
+        return view('admin.class.add_class',compact('major'));
+
     }
 
-
-
-    public function add_major()   
-    {
-         $teachers=Teacher::join('users', 'teachers.user_id','=','users.usr_id')
-                ->join('subjects', 'teachers.tcr_subject_id', '=', 'subjects.subject_id')->get();
-
-             return view('admin/teacher/list_teacher',compact('teachers'));
-    }   
 
 
     /**
@@ -51,14 +47,14 @@ class ClassController extends Controller
 
          $message = ['required' => 'Inputan wajib di isi'];
          $request->validate([
-            'class' => 'required|max:3',
+            'class' => 'required',
             'major' => 'required',
           ], $message);
 
 
         $class = new Classes();
         $class->class = $request->input('class');
-        $class->major = $request->input('major');
+        $class->cl_major_id = $request->input('major');
         $class->save();
         return redirect('/admin/list_class');
     }
@@ -98,7 +94,7 @@ class ClassController extends Controller
 
         $message = ['required' => 'Inputan wajib di isi'];
          $request->validate([
-            'class' => 'required|max:3',
+            'class' => 'required',
             'major' => 'required',
           ], $message);
          

@@ -1,6 +1,6 @@
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-            <img src="{{asset('images/icon/2tebal-min.png')}}" alt="eRROR">
+            <img src="{{asset('images/icon/22.png')}}" alt="eRROR">
                 <h4>SMK MAHAPUTRA</h4>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
@@ -17,6 +17,10 @@
                         <li  class="{{Request::path() === 'admin/list_teacher'?'active' : ''}} has-sub">
                             <a href="/admin/list_teacher">
                                 <i class="fas fa-table"></i>List Guru</a>
+                        </li>
+                          <li  class="{{Request::path() === 'admin/manage_major'?'active' : ''}} has-sub">
+                            <a href="/admin/manage_major    ">
+                                <i class="fas fa-table"></i>Kelola Jurusan</a>
                         </li>
                         <li class="{{Request::path() === 'admin/list_class'?'active' : ''}} has-sub">
                             <a href="/admin/list_class">

@@ -18,7 +18,12 @@
                                                     <label for="kelas" class=" form-control-label">Kelas</label>
                                             </div>
                                             <div class="col col-sm-6">
-                                                <input type="text" name="class" placeholder="Masukkan Kelas" class="form-control @error('class') is-invalid @enderror" value="{{old('class')}}">
+                                                <select name="class" class="form-control @error('class') is-invalid @enderror">
+                                                  <option>--PILIH--</option>
+                                                  <option>X</option>
+                                                  <option>XI</option>
+                                                  <option>XII</option>
+                                                </select>
                                                      @error('class')
                                                         <span class="invalid-feedback" role="alert">
                                                              <strong>{{ $message }}</strong>
@@ -34,7 +39,13 @@
                                                     <label for="jurusan" class=" form-control-label">Jurusan</label>
                                                 </div>
                                                 <div class="col col-sm-6">
-                                                    <input type="text" name="major" placeholder="Masukkan Jurusan" class="form-control  @error('major') is-invalid @enderror">
+                                                  <select name="major" class="form-control @error('class') is-invalid @enderror">
+                                                    <option>--PILIH--</option>
+                                                    @foreach($major as $major)
+                                                      <option value="{{$major->major_id}}">{{$major->major_name}}</option>
+                                                    @endforeach
+
+                                                  </select>
                                                       @error('major')
                                                           <span class="invalid-feedback" role="alert">
                                                              <strong>{{ $message }}</strong>

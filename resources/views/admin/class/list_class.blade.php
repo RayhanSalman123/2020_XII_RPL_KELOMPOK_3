@@ -21,7 +21,7 @@
                     <tr>
                         <td>{{$count+1}}</td>
                         <td>{{$classes->class}}</td>
-                        <td>{{$classes->major}}</td>
+                        <td>{{$classes->major_name}}</td>
                         <td>
                           <form action="/admin/list_class/{{$classes->class_id}}/delete" method="post">
                         <a href="{{URL::to('/admin/edit_class')}}/{{$classes->class_id}}/edit" value="EDIT" class="btn btn-outline-info fa fa-pencil-square-o"></a>

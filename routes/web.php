@@ -78,6 +78,10 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:a
 
 	Route::get('/admin/confirm_headmaster', 'Admin\ConfirmController@list_confirm');
 
+	Route::get('/admin/manage_major', 'Admin\MajorController@index');
+	Route::get('/admin/manage_major/add_major', 'Admin\MajorController@create');
+	Route::post('/admin/manage_major/add_major', 'Admin\MajorController@store');
+
 
 });
 
