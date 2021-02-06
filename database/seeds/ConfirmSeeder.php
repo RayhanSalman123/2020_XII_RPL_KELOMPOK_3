@@ -12,8 +12,8 @@ class ConfirmSeeder extends Seeder
     public function run()
     {
         DB::table('confirms')->insert([
-            'name_class'  => 'X',
-            'major'		  => 'RPL',
+            'con_class_id'  => '1',
+            'con_major_id'		  => '1',
         ]);
     }
 }

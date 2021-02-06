@@ -17,7 +17,8 @@ class CreateClassesTable extends Migration
             $table->id('class_id');
             $table->foreignId('cl_major_id');
             $table->foreign('cl_major_id')->references('major_id')->on('majors');
-            $table->string('class');
+            $table->string('class')->unique();
+            $table->string('group')->unique();
             $table->timestamps();
             $table->softdeletes();
         });

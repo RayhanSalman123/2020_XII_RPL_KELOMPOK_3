@@ -47,14 +47,16 @@ class ClassController extends Controller
 
          $message = ['required' => 'Inputan wajib di isi'];
          $request->validate([
-            'class' => 'required',
+            'class' => 'required|unique:classes,class|numeric',
             'major' => 'required',
+            'group' => 'required|unique:classes,group|numeric'
           ], $message);
 
 
         $class = new Classes();
         $class->class = $request->input('class');
         $class->cl_major_id = $request->input('major');
+        $class->group = $request->input('group');
         $class->save();
         return redirect('/admin/list_class');
     }
@@ -96,8 +98,9 @@ class ClassController extends Controller
 
         $message = ['required' => 'Inputan wajib di isi'];
          $request->validate([
-            'class' => 'required',
+            'class' => 'required|numeric',
             'major' => 'required',
+            'group' => 'required|numeric'
           ], $message);
          
 

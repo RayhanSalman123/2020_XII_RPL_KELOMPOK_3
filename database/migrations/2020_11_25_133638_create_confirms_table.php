@@ -15,8 +15,10 @@ class CreateConfirmsTable extends Migration
     {
         Schema::create('confirms', function (Blueprint $table) {
             $table->id('confirm_id');
-            $table->string('name_class');
-            $table->string('major');
+            $table->foreignId('con_class_id');
+            $table->foreign('con_class_id')->references('class_id')->on('classes');
+            $table->foreignId('con_major_id');
+            $table->foreign('con_major_id')->references('major_id')->on('majors');
             $table->timestamps();
 
         });

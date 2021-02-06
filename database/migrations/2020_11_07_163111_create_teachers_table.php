@@ -19,7 +19,7 @@ class CreateTeachersTable extends Migration
             $table->foreign('user_id')->references('usr_id')->on('users')->onDelete('cascade');
             $table->foreignId('tcr_subject_id');
             $table->foreign('tcr_subject_id')->references('subject_id')->on('subjects');
-            $table->integer('nip')->nullable();
+            $table->integer('nip')->nullable()->unique();
             $table->string('gender');
             $table->timestamps();
             $table->softdeletes();

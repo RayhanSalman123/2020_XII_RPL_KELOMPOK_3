@@ -40,7 +40,7 @@ class MajorController extends Controller
     {
          $message = ['required' => 'Inputan wajib di isi'];
          $request->validate([
-            'major' => 'required',
+            'major_name' => 'required|unique:majors,major_name',
           ], $message);
 
 

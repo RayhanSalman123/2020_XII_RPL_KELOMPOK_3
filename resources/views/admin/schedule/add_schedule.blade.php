@@ -59,7 +59,7 @@
             <i class="fa fa-dot-circle-o"></i> Submit
         </button>
         <a href="/admin/list_schedule_admin" " class="btn btn-danger btn-sm">
-            <i class="fa fa-ban"></i> Reset
+            <i class="fa fa-ban"></i>Cancel
         </a>
     </div>
 </div>

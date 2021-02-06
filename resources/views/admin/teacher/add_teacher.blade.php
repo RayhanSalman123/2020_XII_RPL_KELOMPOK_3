@@ -100,7 +100,7 @@
             <i class="fa fa-dot-circle-o"></i>  Submit
         </button>
         <a href="/admin/list_teacher" class="btn btn-danger btn-sm">
-            <i class="fa fa-ban"></i>  Back
+            <i class="fa fa-ban"></i>Cancel
         </a>
     </div>
     </form>

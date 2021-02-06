@@ -20,7 +20,7 @@
                         </li>
                           <li  class="{{Request::path() === 'admin/manage_major'?'active' : ''}} has-sub">
                             <a href="/admin/manage_major    ">
-                                <i class="fas fa-table"></i>Kelola Jurusan</a>
+                                <i class="fas fa-table"></i>List Jurusan</a>
                         </li>
                         <li class="{{Request::path() === 'admin/list_class'?'active' : ''}} has-sub">
                             <a href="/admin/list_class">

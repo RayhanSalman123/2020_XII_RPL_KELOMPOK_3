@@ -27,7 +27,7 @@ class TeacherController extends Controller
     {
         $message = ['required' => 'Inputan wajib di isi'];
         $request->validate([
-            'nip' => 'required',
+            'nip' => 'required|unique:teachers,nip|numeric|min:0',
             'usr_name' => 'required',
             'usr_email' => 'required',
             'tcr_subject_id' => 'required',
@@ -97,7 +97,7 @@ class TeacherController extends Controller
         // dd($teacher_id);
         $message = ['required' => 'Inputan wajib di isi'];
         $request->validate([
-            'nip' => 'required',
+            'nip' => 'required|numeric|min:5',
             'usr_name' => 'required',
             'tcr_subject_id' => 'required',
             'gender' => 'required',

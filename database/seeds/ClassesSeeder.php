@@ -13,7 +13,8 @@ class ClassesSeeder extends Seeder
     {
        DB::table('classes')->insert([
             'cl_major_id' => '1',
-            'class' => 'X'
+            'class' => 'X',
+            'group' => '1'
         ]);
     }
 }

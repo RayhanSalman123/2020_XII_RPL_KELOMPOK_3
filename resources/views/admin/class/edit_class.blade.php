@@ -33,16 +33,13 @@
                 <label for="jurusan" class=" form-control-label">Jurusan</label>
             </div>
             <div class="col col-sm-6">
-
                  <option value="{{ $class->major->_major_id }}" selected="" class="form-control">{{ $class->majors->major_name }}</option>
-
                 @foreach($class as $major)
                 @if($class->majors->major_id != $major_major_id)
                 <option value="{{$major->_major_id}}">{{$major->major_name}}</option>
                 @endif
                 @endforeach
                 </select>
-
                 @error('major')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -50,6 +47,7 @@
                 @enderror
             </div>
         </div>
+
         <button type="submit" class="btn btn-primary btn-sm">Submit</button>
         <a href="/admin/list_class" class="btn btn-dark btn-sm">Cancel</a>
     </form>
