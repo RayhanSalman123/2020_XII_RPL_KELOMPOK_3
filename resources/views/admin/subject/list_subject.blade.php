@@ -24,6 +24,13 @@
                         <td>RPL</td>
                         <td>KTSP</td>
                     </tr>
+                     <tr>
+                        <td>2</td>
+                        <td>Matematika</td>
+                        <td>XII</td>
+                        <td>RPL</td>
+                        <td>KTSP</td>
+                    </tr>
                 </tbody>
             </table>
          </div>

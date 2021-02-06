@@ -78,6 +78,8 @@ class ClassController extends Controller
      */
     public function edit($class_id)
     {
+         $class=Classes::join('majors', 'majors.major_id','=','classes.cl_major_id')->get();
+
         $class=Classes::find($class_id);
         return view('admin/class/edit_class', ['class' => $class]);
     }

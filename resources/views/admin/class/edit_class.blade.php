@@ -14,7 +14,12 @@
                     <label for="kelas" class=" form-control-label">Kelas</label>
                 </div>
                 <div class="col col-sm-6">
-                    <input type="text" name="class" placeholder="Masukkan Kelas" class="form-control  @error('class') is-invalid @enderror" value="{{$class -> class}}">
+                    <select name="class" class="form-control @error('class') is-invalid @enderror" >
+                                 <option>{{$class -> class}}</option>
+                                 <option>X</option>
+                                 <option>XI</option>
+                                 <option>XII</option>
+                                 </select>
                     @error('class')
                     <span class="invalid-feedback" role="alert">
                      <strong>{{ $message }}</strong>
@@ -28,7 +33,16 @@
                 <label for="jurusan" class=" form-control-label">Jurusan</label>
             </div>
             <div class="col col-sm-6">
-                <input type="text" name="major" placeholder="Masukkan Jurusan" class="form-control  @error('major') is-invalid @enderror" value="{{$class -> major}}">
+
+                 <option value="{{ $class->major->_major_id }}" selected="" class="form-control">{{ $class->majors->major_name }}</option>
+
+                @foreach($class as $major)
+                @if($class->majors->major_id != $major_major_id)
+                <option value="{{$major->_major_id}}">{{$major->major_name}}</option>
+                @endif
+                @endforeach
+                </select>
+
                 @error('major')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>

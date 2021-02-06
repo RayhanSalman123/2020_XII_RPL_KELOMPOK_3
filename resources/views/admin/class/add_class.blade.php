@@ -44,7 +44,6 @@
                                                     @foreach($major as $major)
                                                       <option value="{{$major->major_id}}">{{$major->major_name}}</option>
                                                     @endforeach
-
                                                   </select>
                                                       @error('major')
                                                           <span class="invalid-feedback" role="alert">
