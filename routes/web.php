@@ -60,16 +60,22 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:a
 	Route::post('/admin/update/{class_id}', 'Admin\ClassController@update');
 	Route::delete('/admin/list_class/{class_id}/delete', 'Admin\ClassController@delete');
 
+
 	Route::get('/admin/list_teacher', 'Admin\TeacherController@list_teacher');
 	Route::get('/admin/list_teacher/add_teacher', 'Admin\TeacherController@create');
 	Route::post('/admin/list_teacher/add_teacher', 'Admin\TeacherController@store');
 	Route::get('/admin/edit_teacher/{teacher_id}/edit', 'Admin\TeacherController@edit');
 	Route::post('/admin/edit_teacher/{teacher_id}/edit', 'Admin\TeacherController@update');
-
 	Route::delete('/admin/list_teacher/{teacher_id}/delete', 'Admin\TeacherController@delete');
 
+
 	Route::get('/admin/list_subject_admin', 'Admin\SubjectController@list_subject');
-	Route::get('/admin/list_subject/add_subject', 'Admin\SubjectController@create');
+	Route::get('/admin/list_subject_admin/add_subject', 'Admin\SubjectController@create');
+	Route::post('/admin/list_subject_admin/add_subject', 'Admin\SubjectController@store');
+	Route::get('/admin/list_subject/edit_subject/{subject_id}/edit', 'Admin\SubjectController@edit');
+	Route::post('/admin/list_subject/update/{subject_id}', 'Admin\SubjectController@update');
+	Route::delete('/admin/list_subject_admin/{subject_id}/delete', 'Admin\SubjectController@delete');
+
 
 	Route::get('/admin/list_schedule_admin', 'Admin\ScheduleController@list_schedule');
 	Route::get('/admin/list_schedule_admin/add_schedule', 'Admin\ScheduleController@create');

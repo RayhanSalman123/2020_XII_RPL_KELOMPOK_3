@@ -39,7 +39,7 @@
         <label for="jurusan" class=" form-control-label">Jurusan</label>
       </div>
       <div class="col col-sm-6">
-        <select name="major" class="form-control @error('class') is-invalid @enderror">
+        <select name="major" class="form-control @error('major') is-invalid @enderror">
           <option>--PILIH--</option>
           @foreach($major as $major)
           <option value="{{$major->major_id}}">{{$major->major_name}}</option>

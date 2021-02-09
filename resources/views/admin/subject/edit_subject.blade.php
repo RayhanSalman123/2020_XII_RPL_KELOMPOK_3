@@ -7,7 +7,7 @@
         <strong>Mata Pelajaran</strong>
     </div>
     <div class="card-body card-block">
-        <form action="{{URL::to('/admin/list_subject_admin/add_subject')}}" method="POST" class="form-horizontal">
+       <form action="{{URL::to('/admin/list_subject/update/'.$subjects->subject_id)}}" method="POST" class="form-horizontal">
       @csrf
 
             <div class="row form-group">
@@ -15,7 +15,7 @@
                     <label for="mata pelajaran" class=" form-control-label">Mata Pelajaran</label>
                 </div>
                 <div class="col col-sm-6">
-                    <input type="text" name="name_subject" placeholder="Masukkan Mata Pelajaran" class="form-control @error('name_subject') is-invalid @enderror" value="{{old('name_subject')}}">
+                    <input type="text" name="name_subject" placeholder="Masukkan Mata Pelajaran" class="form-control @error('name_subject') is-invalid @enderror" value="{{ $subjects->name_subject }}">
                     @error('name_subject')
                     <span class="invalid-feedback" role="alert">
                      <strong>{{ $message }}</strong>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="col col-sm-6">
                 <select name="sbj_major_id" id="select" class="form-control @error('sbj_major_id') is-invalid @enderror">
-                    <option value="" selected="" disabled="" class="form-control">--- PILIH ---</option>
+                    <option value="{{ $subjects->sbj_major_id }}" selected="" disabled="" class="form-control">--- PILIH ---</option>
                     @foreach ($Majors as $major)
                     <option value="{{$major->major_id}}" class="form-control">{{$major->major_name}}</option>
                     @endforeach
@@ -68,7 +68,7 @@
                     <label for="grup" class=" form-control-label">Grup</label>
                 </div>
                 <div class="col col-sm-6">
-                    <input type="text" name="group" placeholder="Masukkan Grup" class="form-control @error('group') is-invalid @enderror" value="{{old('group')}}">
+                    <input type="text" name="group" placeholder="Masukkan Grup" class="form-control @error('group') is-invalid @enderror" value="{{ $subjects->group }}">
                     @error('group')
                     <span class="invalid-feedback" role="alert">
                        <strong>{{ $message }}</strong>
@@ -82,7 +82,7 @@
                     <label for="curriculum" class=" form-control-label">Kurikulum</label>
                 </div>
                 <div class="col col-sm-6">
-                    <input type="text" name="curriculum" placeholder="Masukkan Kurikulum" class="form-control @error('curriculum') is-invalid @enderror" value="{{old('curriculum')}}">
+                    <input type="text" name="curriculum" placeholder="Masukkan Kurikulum" class="form-control @error('curriculum') is-invalid @enderror" value="{{ $subjects->curriculum }}">
                     @error('curriculum')
                     <span class="invalid-feedback" role="alert">
                      <strong>{{ $message }}</strong>
@@ -90,11 +90,16 @@
                  @enderror       
              </div>
          </div>
-         <button type="submit" class="btn btn-primary btn-sm">Submit</button>
-           <a href="/admin/list_subject_admin" " class="btn btn-danger btn-sm">Cancel</a>
+
+         <button type="submit" class="btn btn-primary btn-sm">
+                <i class="fa fa-dot-circle-o"></i> Submit
+            </button>
+                <a href="/admin/list_subject_admin" " class="btn btn-danger btn-sm">
+                 <i class="fa fa-ban"></i>Cancel</a>
         </form>
     </div>
-        <div class="card-footer"> 
+        <div class="card-footer">
+            
         </div>
 </div>
 @endsection
