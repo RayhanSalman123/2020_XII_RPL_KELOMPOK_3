@@ -27,6 +27,7 @@ class MajorController extends Controller
      */
     public function create()
     {
+
         return view('Admin.Major.add_major');
     }
 
@@ -38,9 +39,10 @@ class MajorController extends Controller
      */
     public function store(Request $request)
     {
+        
          $message = ['required' => 'Inputan wajib di isi'];
          $request->validate([
-            'major_name' => 'required|unique:majors,major_name',
+            'major' => 'required|unique:majors,major_name',
           ], $message);
 
 

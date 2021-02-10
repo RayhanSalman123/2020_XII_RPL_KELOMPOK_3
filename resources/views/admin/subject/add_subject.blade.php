@@ -31,9 +31,9 @@
         <div class="col col-sm-6">
           <select name="class" class="form-control @error('class') is-invalid @enderror">
             <option>--PILIH--</option>
-            <option>X</option>
-            <option>XI</option>
-            <option>XII</option>
+            <option value="1">X</option>
+            <option value="2">XI</option>
+            <option value="3">XII</option>
           </select>
           @error('class')
           <span class="invalid-feedback" role="alert">
@@ -43,39 +43,25 @@
        </div>
      </div>
 
-     <div class="row form-group">
-                <div class="col col-sm-5">
-                    <label for="jurusan" class=" form-control-label">Jurusan</label>
-                </div>
-                <div class="col col-sm-6">
-                <select name="sbj_major_id" id="select" class="form-control @error('sbj_major_id') is-invalid @enderror">
-                    <option value="" selected="" disabled="" class="form-control">--- PILIH ---</option>
-                    @foreach ($Majors as $major)
-                    <option value="{{$major->major_id}}" class="form-control">{{$major->major_name}}</option>
-                    @endforeach
-                </select>
-                    @error('sbj_major_id')
-                    <span class="invalid-feedback" role="alert">
-                       <strong>{{ $message }}</strong>
-                   </span>
-                   @enderror       
-               </div>
-           </div>
-
-
-     <div class="row form-group">
-                <div class="col col-sm-5">
-                    <label for="grup" class=" form-control-label">Grup</label>
-                </div>
-                <div class="col col-sm-6">
-                    <input type="text" name="group" placeholder="Masukkan Grup" class="form-control @error('group') is-invalid @enderror" value="{{old('group')}}">
-                    @error('group')
-                    <span class="invalid-feedback" role="alert">
-                       <strong>{{ $message }}</strong>
-                   </span>
-                   @enderror       
-               </div>
-           </div>
+          <div class="row form-group">
+      <div class="col col-sm-5">
+        <label for="jurusan" class=" form-control-label">Jurusan</label>
+      </div>
+      <div class="col col-sm-6">
+        <select name="major_name" class="form-control @error('majors') is-invalid @enderror">
+          <option>--PILIH--</option>
+          @foreach($majors as $majors)
+          <option value="{{$majors->major_id}}">{{$majors->major_name}}</option>
+          @endforeach
+        </select>
+        @error('major')
+        <span class="invalid-feedback" role="alert">
+         <strong>{{ $message }}</strong>
+       </span>
+       @enderror
+     </div>
+   </div>
+           
 
         <div class="row form-group">
                 <div class="col col-sm-5">
@@ -91,7 +77,7 @@
              </div>
          </div>
          <button type="submit" class="btn btn-primary btn-sm">Submit</button>
-           <a href="/admin/list_subject_admin" " class="btn btn-danger btn-sm">Cancel</a>
+           <a href="/admin/list_subject_admin" class="btn btn-danger btn-sm">Cancel</a>
         </form>
     </div>
         <div class="card-footer"> 

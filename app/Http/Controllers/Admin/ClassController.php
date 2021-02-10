@@ -47,11 +47,16 @@ class ClassController extends Controller
 
          $message = ['required' => 'Inputan wajib di isi'];
          $request->validate([
-            'class' => 'required|unique:classes,class|numeric',
+            'class' => 'required|',
             'major' => 'required',
-            'group' => 'required|unique:classes,group|numeric'
+            'group' => 'required|'
           ], $message);
 
+
+         $class= classes::where('class',$request->input('class'))->where('cl_major_id',$request->input('major'))->where('group',$request->input('group'))->first();
+         if ($class) {
+             return redirect()->back();
+         }
 
         $class = new Classes();
         $class->class = $request->input('class');
@@ -80,10 +85,11 @@ class ClassController extends Controller
      */
     public function edit($class_id)
     {
-         $class=Classes::join('majors', 'majors.major_id','=','classes.cl_major_id')->get();
+         $class=Classes::join('majors', 'majors.major_id','=','classes.cl_major_id')->where('classes.class_id',$class_id)->first();
+         $major=Majors::where('major_id','!=','cl_major_id')->get();
 
-        $class=Classes::find($class_id);
-        return view('admin/class/edit_class', ['class' => $class]);
+        // $class=Classes::find($class_id);
+        return view('admin/class/edit_class', compact(['class','major']));
     }
 
     /**
@@ -95,18 +101,19 @@ class ClassController extends Controller
      */
     public function update(Request $request, $class_id)
     {
-
+        // dd($request);
         $message = ['required' => 'Inputan wajib di isi'];
          $request->validate([
-            'class' => 'required|numeric',
-            'major' => 'required',
+            'class' => 'required|',
+            'major_name' => 'required',
             'group' => 'required|numeric'
           ], $message);
          
 
         $class = Classes::where('class_id', $class_id)->first();
-        $class->class = $request->class;
-        $class->major = $request->major;
+        $class->class = $request->input('class');
+        $class->cl_major_id = $request->input('major_name');
+        $class->group = $request->input('group');
         $class->update();
         return redirect('/admin/list_class');
     }

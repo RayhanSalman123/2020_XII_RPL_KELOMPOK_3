@@ -13,7 +13,6 @@
                 <th>MATA PELAJARAN</th>
                 <th>KELAS</th>
                 <th>JURUSAN</th>
-                <th>GRUP</th>
                 <th>KURIKULUM</th>
                 <th>ACTION</th>
             </tr>
@@ -23,10 +22,9 @@
             <tr>
 
                 <td>{{$count+1}}</td>
-                <td>{{$subjects->name_subject}}</td>
                 <td>{{$subjects->class}}</td>
                 <td>{{$subjects->major_name}}</td>
-                <td>{{$subjects->group}}</td>
+                <td>{{$subjects->name_subject}}</td>
                 <td>{{$subjects->curriculum}}</td>
                 <td>
                    <form action="/admin/list_subject/{{$subjects->subject_id}}/delete" method="post">

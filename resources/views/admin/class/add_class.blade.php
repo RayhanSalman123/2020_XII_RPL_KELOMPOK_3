@@ -32,8 +32,6 @@
        </div>
      </div>
 
-
-
      <div class="row form-group">
       <div class="col col-sm-5">
         <label for="jurusan" class=" form-control-label">Jurusan</label>

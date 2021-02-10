@@ -19,23 +19,24 @@ class SubjectController extends Controller
 
     public function create()
     {
-        $Majors=Majors::all();
-        return view('admin.subject.add_subject', compact('Majors'));
+        $majors=Majors::all();
+        return view('admin.subject.add_subject', compact('majors'));
     }
 
     public function store(Request $request)
     {
+        // dd($request);
         $message = ['required' => 'Inputan wajib di isi'];
         $request->validate([
-          'sbj_class_id' => 'required',
-          'sbj_major_id' => 'required',
+          'class' => 'required',
+          'major_name' => 'required',
           'name_subject' => 'required',
           'curriculum'   => 'required',
         ], $message);
 
         $subject = new Subjects();
-        $subject->sbj_class_id = $request->input('sbj_class_id');
-        $subject->sbj_major_id = $request->input('sbj_major_id');
+        $subject->sbj_class_id = $request->input('class');
+        $subject->sbj_major_id = $request->input('major_name');
         $subject->name_subject = $request->input('name_subject');
         $subject->curriculum = $request->input('curriculum');
         $subject->save();
@@ -44,12 +45,13 @@ class SubjectController extends Controller
 
     public function edit($subject_id)
     {
-        $subject = Subjects::all();
-        $subject=Subjects::join('classes', 'classes.class_id','=','subjects.sbj_class_id')
+         $majors= majors::all();
+        $subjects= Subjects::all();
+        $subject =Subjects::join('classes', 'classes.class_id','=','subjects.sbj_class_id')
                 ->join('majors',  'majors.major_id', '=','subjects.sbj_major_id')
                 ->where('subjects.subject_id',$subject_id)->first();
 
-        return view('admin/subject/list_subject', compact(['subject']));
+        return view('admin/subject/edit_subject', compact(['subject','subjects','majors']));
     }
 
     public function update(Request $request,$subject_id)
