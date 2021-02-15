@@ -16,9 +16,9 @@
                 <div class="col col-sm-6">
                     <select name="class" class="form-control @error('class') is-invalid @enderror" >
                                  <option>{{$class -> class}}</option>
-                                 <option>X</option>
-                                 <option>XI</option>
-                                 <option>XII</option>
+                                 <option value="1">X</option>
+                                 <option value="2">XI</option>
+                                 <option value="3">XII</option>
                                  </select>
                     @error('class')
                     <span class="invalid-feedback" role="alert">

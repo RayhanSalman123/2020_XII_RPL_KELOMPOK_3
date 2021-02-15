@@ -56,22 +56,24 @@ class SubjectController extends Controller
 
     public function update(Request $request,$subject_id)
     {
+     // dd($request);
       $message = ['required' => 'Inputan wajib di isi'];
       $request->validate([
-          'sbj_class_id' => 'required',
-          'sbj_major_id' => 'required',
           'name_subject' => 'required',
+          'class' => 'required',
+          'major_name' => 'required',
           'curriculum'   => 'required',
           ], $message);
 
-           $subject = new Subjects();
-           $subject->sbj_class_id = $request->input('sbj_class_id');
-           $subject->sbj_major_id = $request->input('sbj_major_id');
-           $subject->name_subject = $request->input('name_subject');
-           $subject->curriculum = $request->input('curriculum');
-           $subject->save();
-           return redirect('/admin/list_subject_admin');
+          $subject = Subjects::where('subject_id', $subject_id)->first();
+        $subject->name_subject = $request->input('name_subject');  
+        $subject->sbj_class_id = $request->input('class');
+        $subject->sbj_major_id = $request->input('major_name');
+        $subject->curriculum = $request->input('curriculum');
+        $subject->update();
+        return redirect('/admin/list_subject_admin');
     }
+    
 
     public function delete($subject_id)
     {

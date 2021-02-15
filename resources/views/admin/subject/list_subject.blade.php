@@ -10,7 +10,7 @@
         <thead>
             <tr>
                 <th>NO</th>
-                <th>MATA PELAJARAN</th>
+                <th>MATA PELAJARAN</th> 
                 <th>KELAS</th>
                 <th>JURUSAN</th>
                 <th>KURIKULUM</th>
@@ -22,14 +22,14 @@
             <tr>
 
                 <td>{{$count+1}}</td>
+                <td>{{$subjects->name_subject}}</td>
                 <td>{{$subjects->class}}</td>
                 <td>{{$subjects->major_name}}</td>
-                <td>{{$subjects->name_subject}}</td>
                 <td>{{$subjects->curriculum}}</td>
                 <td>
-                   <form action="/admin/list_subject/{{$subjects->subject_id}}/delete" method="post">
+                   <form action="/admin/list_subject_admin/{{$subjects->subject_id}}/delete" method="post">
                     <a href="{{URL::to('/admin/list_subject/edit_subject')}}/{{$subjects->subject_id}}/edit" value="EDIT" class="btn btn-outline-info fa fa-pencil-square-o"></a>
-                    <button type="submit" name="submit" class="btn btn-outline-danger">D</button>
+                    <button type="submit" name="submit" class="btn btn-outline-danger">DELETE</button>
                     {{csrf_field()}}
                     <input type="hidden" name="_method" value="DELETE">
                     </form>

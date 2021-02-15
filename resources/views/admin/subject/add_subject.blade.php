@@ -29,8 +29,8 @@
           <label for="kelas" class=" form-control-label">Kelas</label>
         </div>
         <div class="col col-sm-6">
-          <select name="class" class="form-control @error('class') is-invalid @enderror">
-            <option>--PILIH--</option>
+          <select name="class" class="form-control @error('class') is-invalid @enderror" required>
+            <option value="">--PILIH--</option>
             <option value="1">X</option>
             <option value="2">XI</option>
             <option value="3">XII</option>
