@@ -15,7 +15,7 @@ class SubjectSeeder extends Seeder
             'sbj_class_id'  => '1',
             'sbj_major_id'  => '1',
          	'name_subject' => 'Komputer Jaringan',
-            'curriculum' => 'KTSP'
+            'school_year' => '2018'
         ]);
     }
 }

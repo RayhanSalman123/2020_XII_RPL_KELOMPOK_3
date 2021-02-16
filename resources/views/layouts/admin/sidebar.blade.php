@@ -10,10 +10,6 @@
                             <a href="/admin/index_admin">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li >
-                        <li class="{{Request::path() === 'admin/confirm_headmaster'?'active' : ''}} has-sub">
-                            <a href="/admin/confirm_headmaster">
-                                <i class="fas fa-chart-bar"></i>Konfirmasi KEPSEK</a>
-                        </li>
                         <li  class="{{Request::path() === 'admin/list_teacher'?'active' : ''}} has-sub">
                             <a href="/admin/list_teacher">
                                 <i class="fas fa-table"></i>List Guru</a>
@@ -30,14 +26,19 @@
                             <a href="/admin/list_subject_admin">
                                 <i class="far fa-check-square"></i>List Mata Pelajaran</a>
                         </li>
-                        <li class="{{Request::path() === 'admin/list_submission_admin'?'active' : ''}} has-sub">
-                            <a href="/admin/list_submission_admin">
-                                <i class="fas fa-calendar-alt"></i>Pengajuan Guru</a>
-                        </li>
                         <li class="{{Request::path() === 'admin/list_schedule_admin'?'active' : ''}} has-sub">
                             <a href="/admin/list_schedule_admin">
                                 <i class="fas fa-map-marker-alt"></i>Jadwal Pelajaran</a>
                         </li>
+                        <li class="{{Request::path() === 'admin/list_submission_admin'?'active' : ''}} has-sub">
+                            <a href="/admin/list_submission_admin">
+                                <i class="fas fa-calendar-alt"></i>Pengajuan Guru</a>
+                        </li>
+                        <li class="{{Request::path() === 'admin/confirm_headmaster'?'active' : ''}} has-sub">
+                            <a href="/admin/confirm_headmaster">
+                                <i class="fas fa-chart-bar"></i>Konfirmasi KEPSEK</a>
+                        </li>
+                        
                         <li>
                             <a href="{{ url('/logout')}}">
                                 <i class="fa fa-power-off"></i>Logout</a>

@@ -42,23 +42,19 @@
             <div class="container">
                 <div class="login-wrap">
                     <div class="login-content">
-                        <!-- <div class="login-logo">
+                        <div class="login-logo">
                             
-                                <img src="{{ asset('images/icon/1.png')}}" alt="SMK Mahaputra">
+                            <img src="{{asset('images/icon/2tebal-min.png')}}" alt="SMK Mahaputra">
+                            <h3>SMK MAHAPUTRA</h3>
                             
-                        </div> -->
-                        <div class="container">
-                            
-                            <h2>SMK MAHAPUTRA</h2>
-
                         </div>
                         <div class="login-form">
                             @if ($message = Session::get('success'))
-                    <div class="alert alert-success alert-block">
-                        <button type="button" class="close" data-dismiss="alert">×</button>
-                        <strong>{{ $message }}</strong>
-                    </div>
-                    @endif
+                            <div class="alert alert-success alert-block">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>{{ $message }}</strong>
+                            </div>
+                            @endif
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class="form-group">

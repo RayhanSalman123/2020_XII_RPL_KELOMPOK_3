@@ -31,14 +31,14 @@ class SubjectController extends Controller
           'class' => 'required',
           'major_name' => 'required',
           'name_subject' => 'required',
-          'curriculum'   => 'required',
+          'school_year'   => 'required',
         ], $message);
 
         $subject = new Subjects();
         $subject->sbj_class_id = $request->input('class');
         $subject->sbj_major_id = $request->input('major_name');
         $subject->name_subject = $request->input('name_subject');
-        $subject->curriculum = $request->input('curriculum');
+        $subject->school_year = $request->input('school_year');
         $subject->save();
         return redirect('/admin/list_subject_admin');
     }
@@ -62,14 +62,14 @@ class SubjectController extends Controller
           'name_subject' => 'required',
           'class' => 'required',
           'major_name' => 'required',
-          'curriculum'   => 'required',
+          'school_year'   => 'required',
           ], $message);
 
           $subject = Subjects::where('subject_id', $subject_id)->first();
         $subject->name_subject = $request->input('name_subject');  
         $subject->sbj_class_id = $request->input('class');
         $subject->sbj_major_id = $request->input('major_name');
-        $subject->curriculum = $request->input('curriculum');
+        $subject->school_year = $request->input('school_year');
         $subject->update();
         return redirect('/admin/list_subject_admin');
     }

@@ -61,15 +61,14 @@
        @enderror
      </div>
    </div>
-           
-
+   
         <div class="row form-group">
                 <div class="col col-sm-5">
-                    <label for="curriculum" class=" form-control-label">Kurikulum</label>
+                    <label for="school_year" class=" form-control-label">Tahun Ajaran</label>
                 </div>
                 <div class="col col-sm-6">
-                    <input type="text" name="curriculum" placeholder="Masukkan Kurikulum" class="form-control @error('curriculum') is-invalid @enderror" value="{{old('curriculum')}}">
-                    @error('curriculum')
+                    <input type="text" name="school_year" placeholder="Masukkan Tahun Ajaran" class="form-control @error('school_year') is-invalid @enderror" value="{{old('school_year')}}">
+                    @error('school_year')
                     <span class="invalid-feedback" role="alert">
                      <strong>{{ $message }}</strong>
                  </span>
