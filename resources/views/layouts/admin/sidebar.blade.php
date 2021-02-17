@@ -22,6 +22,10 @@
                             <a href="/admin/list_class">
                                 <i class="fas fa-calendar"></i>List Kelas</a>
                         </li>
+                        <li class="{{Request::path() === 'admin/list_curriculum'?'active' : ''}} has-sub">
+                            <a href="/admin/list_curriculum">
+                                <i class="fas fa-calendar"></i>List Kurikulum</a>
+                        </li>
                         <li class="{{Request::path() === 'admin/list_subject_admin'?'active' : ''}} has-sub">
                             <a href="/admin/list_subject_admin">
                                 <i class="far fa-check-square"></i>List Mata Pelajaran</a>

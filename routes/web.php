@@ -88,6 +88,11 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:a
 	Route::get('/admin/manage_major/add_major', 'Admin\MajorController@create');
 	Route::post('/admin/manage_major/add_major', 'Admin\MajorController@store');
 	Route::delete('/admin/manage_major/{major_id}/delete', 'Admin\MajorController@delete');
+
+	Route::get('/admin/list_curriculum', 'Admin\CurriculumController@list_curriculum');
+	Route::get('/admin/list_curriculum/add_curriculum', 'Admin\CurriculumController@create');
+	Route::post('/admin/list_curriculum/add_curriculum', 'Admin\CurriculumController@store');
+	Route::delete('/admin/list_curriculum/{curriculum_id}/delete', 'Admin\CurriculumController@delete');
 	
 
 
