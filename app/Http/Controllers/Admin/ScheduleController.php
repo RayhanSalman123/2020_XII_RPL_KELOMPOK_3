@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Schedules;
-
+use App\Classes;
+use App\Majors;
 
 class ScheduleController extends Controller
 {
@@ -16,7 +17,11 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        return view('admin/schedule/list_schedule_admin');
+       
+        dd($class);
+      
+
+        return view('admin/schedule/list_schedule_admin',compact(['class']));
     }
 
     /**
@@ -87,8 +92,8 @@ class ScheduleController extends Controller
 
      public function list_schedule()
     {
-        $schedules=Schedules::all();
+        $class= Classes::join('majors','majors.major_id','=','cl_major_id')->orderBy('class','asc')->get();
         // $count = 0;
-        return view('admin/schedule/list_schedule_admin');
+        return view('admin/schedule/list_schedule_admin',compact(['class']));
     }
 }
