@@ -18,11 +18,11 @@
           <label for="kelas" class=" form-control-label">Kelas</label>
         </div>
         <div class="col col-sm-6">
-          <select name="class" class="form-control @error('class') is-invalid @enderror">
-            <option>--PILIH--</option>
-            <option>X</option>
-            <option>XI</option>
-            <option>XII</option>
+          <select name="class" class="form-control @error('class') is-invalid @enderror" required>
+            <option value="">--PILIH--</option>
+            <option value="3">X</option>
+            <option value="4">XI</option>
+            <option value="5">XII</option>
           </select>
           @error('class')
           <span class="invalid-feedback" role="alert">
@@ -37,8 +37,8 @@
         <label for="jurusan" class=" form-control-label">Jurusan</label>
       </div>
       <div class="col col-sm-6">
-        <select name="major" class="form-control @error('major') is-invalid @enderror">
-          <option>--PILIH--</option>
+        <select name="major" class="form-control @error('major') is-invalid @enderror" required>
+          <option value="" selected="" class="form-control">--PILIH--</option>
           @foreach($major as $major)
           <option value="{{$major->major_id}}">{{$major->major_name}}</option>
           @endforeach
@@ -56,7 +56,7 @@
     <label for="group" class=" form-control-label">Grup</label>
     </div>
     <div class="col col-sm-6">
-      <input type="text" name="group" placeholder="Masukkan Grup" class="form-control @error('group') is-invalid @enderror" value="{{old('group')}}">
+      <input type="text" name="group" placeholder="Masukkan Grup" class="form-control @error('group') is-invalid @enderror" value="{{old('group')}}" required>
       @error('group')
       <span class="invalid-feedback" role="alert">
        <strong>{{ $message }}</strong>

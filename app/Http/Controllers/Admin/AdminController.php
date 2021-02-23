@@ -10,6 +10,8 @@ use App\teacher;
 use App\classes;
 use App\Majors;
 use App\Curriculum;
+use App\SchoolYears;
+
 
 class AdminController extends Controller
 {
@@ -30,7 +32,8 @@ class AdminController extends Controller
         $classes=classes::count();
         $Majors=majors::count();
         $curriculum=curriculum::count();
-        return view('admin/dashboard',compact(['teacher','subject', 'classes', 'Majors', 'curriculum']));
+        $school_year=SchoolYears::count();
+        return view('admin/dashboard',compact(['teacher','subject', 'classes', 'Majors', 'curriculum', 'school_year']));
     }
 
     /**

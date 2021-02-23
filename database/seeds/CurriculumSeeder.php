@@ -14,5 +14,9 @@ class CurriculumSeeder extends Seeder
         DB::table('curriculums')->insert([
             'curriculum_name'  => 'KTSP',        
             ]);
+
+        DB::table('curriculums')->insert([
+            'curriculum_name'  => 'Kurikulum 2013',        
+            ]);
     }
 }

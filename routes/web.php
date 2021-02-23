@@ -93,6 +93,12 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:a
 	Route::get('/admin/list_curriculum/add_curriculum', 'Admin\CurriculumController@create');
 	Route::post('/admin/list_curriculum/add_curriculum', 'Admin\CurriculumController@store');
 	Route::delete('/admin/list_curriculum/{curriculum_id}/delete', 'Admin\CurriculumController@delete');
+
+
+	Route::get('/admin/list_school_year', 'Admin\SchoolYearController@list_school_year');
+	Route::get('/admin/list_school_year/add_school_year', 'Admin\SchoolYearController@create');
+	Route::post('/admin/list_school_year/add_school_year', 'Admin\SchoolYearController@store');
+	Route::delete('/admin/list_school_year/{school_year_id}/delete', 'Admin\SchoolYearController@delete');
 	
 
 

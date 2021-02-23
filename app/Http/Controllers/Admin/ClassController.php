@@ -49,7 +49,7 @@ class ClassController extends Controller
          $request->validate([
             'class' => 'required|',
             'major' => 'required',
-            'group' => 'required|'
+            'group' => 'required|numeric'
           ], $message);
 
 

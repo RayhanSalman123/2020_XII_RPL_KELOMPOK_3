@@ -44,7 +44,7 @@
                     <div class="login-content">
                         <div class="login-logo">
                             
-                            <img src="{{asset('images/icon/2tebal-min.png')}}" alt="SMK Mahaputra">
+                            <img src="{{asset('images/icon/2.png')}}" alt="SMK Mahaputra">
                             <h3>SMK MAHAPUTRA</h3>
                             
                         </div>

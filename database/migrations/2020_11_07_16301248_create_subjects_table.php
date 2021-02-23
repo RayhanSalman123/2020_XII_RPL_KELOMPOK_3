@@ -19,8 +19,11 @@ class CreateSubjectsTable extends Migration
             $table->foreign('sbj_class_id')->references('class_id')->on('classes');
             $table->foreignId('sbj_major_id');
             $table->foreign('sbj_major_id')->references('major_id')->on('majors');
+            $table->foreignId('sbj_curriculum_id');
+            $table->foreign('sbj_curriculum_id')->references('curriculum_id')->on('curriculums');
+            $table->foreignId('sbj_school_year_id');
+            $table->foreign('sbj_school_year_id')->references('school_year_id')->on('school_years');
             $table->string('name_subject');
-            $table->string('school_year');
             $table->timestamps();
             $table->softdeletes();
         });

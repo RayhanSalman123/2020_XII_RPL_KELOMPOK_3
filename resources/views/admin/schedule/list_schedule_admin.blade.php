@@ -7,9 +7,10 @@
                 <div class="login-wrap">
                     <div class="login-content">
                         <div class="login-logo">
-                            <a href="#">
-                                <img src="{{ asset('images/icon/logo.png')}}" alt="CoolAdmin">
-                            </a>
+                            
+                            <img src="{{asset('images/icon/2.png')}}" alt="SMK Mahaputra">
+                            <h3>SMK MAHAPUTRA</h3>
+                            
                         </div>
                      @foreach($class as $class)
                      <a type="button" href="{{ url('admin/list_schedule_admin/schedule')}}" class="btn btn-outline-primary btn-lg btn-block">Jadwal Kelas {{$class->class}}</a>

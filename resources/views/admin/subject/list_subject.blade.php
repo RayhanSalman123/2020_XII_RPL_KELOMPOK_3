@@ -14,6 +14,7 @@
                 <th>KELAS</th>
                 <th>JURUSAN</th>
                 <th>TAHUN AJARAN</th>
+                <th>KURIKULUM</th>
                 <th>ACTION</th>
             </tr>
         </thead>
@@ -25,7 +26,8 @@
                 <td>{{$subjects->name_subject}}</td>
                 <td>{{$subjects->class}}</td>
                 <td>{{$subjects->major_name}}</td>
-                <td>{{$subjects->school_year}}</td>
+                <td>{{$subjects->school_year_name}}</td>
+                <td>{{$subjects->curriculum_name}}</td>
                 <td>
                    <form action="/admin/list_subject_admin/{{$subjects->subject_id}}/delete" method="post">
                     <a href="{{URL::to('/admin/list_subject/edit_subject')}}/{{$subjects->subject_id}}/edit" value="EDIT" class="btn btn-outline-info fa fa-pencil-square-o"></a>

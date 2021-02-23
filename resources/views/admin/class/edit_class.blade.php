@@ -14,11 +14,11 @@
                     <label for="kelas" class=" form-control-label">Kelas</label>
                 </div>
                 <div class="col col-sm-6">
-                    <select name="class" class="form-control @error('class') is-invalid @enderror" >
+                    <select name="class" class="form-control @error('class') is-invalid @enderror" required>
                                  <option>{{$class -> class}}</option>
-                                 <option value="1">X</option>
-                                 <option value="2">XI</option>
-                                 <option value="3">XII</option>
+                                 <option value="3">X</option>
+                                 <option value="4">XI</option>
+                                 <option value="5">XII</option>
                                  </select>
                     @error('class')
                     <span class="invalid-feedback" role="alert">
@@ -33,7 +33,7 @@
                 <label for="jurusan" class=" form-control-label">Jurusan</label>
             </div>
             <div class="col col-sm-6">
-                <select name="major_name" class="form-control">
+                <select name="major_name" class="form-control @error('major') is-invalid @enderror" required>
                  <option value="{{ $class->major_id }}" selected="" class="form-control">{{ $class->major_name }}</option>
                @foreach($major as $major)
                <option>{{$major->major_name}}</option>
@@ -56,7 +56,7 @@
                     <label for="group" class=" form-control-label">Group</label>
                 </div>
                 <div class="col col-sm-6">
-                    <input type="text" id="input-normal" name="group" placeholder="Masukkan Group" class="form-control @error('group') is-invalid @enderror" value="{{ $class->group }}">
+                    <input type="text" id="input-normal" name="group" placeholder="Masukkan Group" class="form-control @error('group') is-invalid @enderror" value="{{ $class->group }}" required>
                     @error('group')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
