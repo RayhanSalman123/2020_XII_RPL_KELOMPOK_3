@@ -12,8 +12,8 @@ class ClassesSeeder extends Seeder
     public function run()
     {
        DB::table('classes')->insert([
+            'cl_grade_id' => '1',
             'cl_major_id' => '1',
-            'class' => 'X',
             'group' => '1'
         ]);
     }

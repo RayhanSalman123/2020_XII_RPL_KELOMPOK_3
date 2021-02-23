@@ -92,7 +92,7 @@ class ScheduleController extends Controller
 
      public function list_schedule()
     {
-        $class= Classes::join('majors','majors.major_id','=','cl_major_id')->orderBy('class','asc')->get();
+        $class= Classes::join('majors','majors.major_id','=','cl_major_id')->orderBy('class','asc')->groupBy('class')->get();
         // $count = 0;
         return view('admin/schedule/list_schedule_admin',compact(['class']));
     }

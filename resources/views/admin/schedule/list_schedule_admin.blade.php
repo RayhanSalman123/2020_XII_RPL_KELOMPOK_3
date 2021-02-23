@@ -13,7 +13,7 @@
                             
                         </div>
                      @foreach($class as $class)
-                     <a type="button" href="{{ url('admin/list_schedule_admin/schedule')}}" class="btn btn-outline-primary btn-lg btn-block">Jadwal Kelas {{$class->class}}</a>
+                     <a type="button" href="{{ url('admin/list_schedule_admin/'.$class->class_id.'/schedule')}}" class="btn btn-outline-primary btn-lg btn-block">Jadwal Kelas {{$class->class}}</a>
                      @endforeach
 
                         <div class="register-link">

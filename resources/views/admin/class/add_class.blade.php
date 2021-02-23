@@ -20,9 +20,9 @@
         <div class="col col-sm-6">
           <select name="class" class="form-control @error('class') is-invalid @enderror" required>
             <option value="">--PILIH--</option>
-            <option value="3">X</option>
-            <option value="4">XI</option>
-            <option value="5">XII</option>
+            <option value="X">X</option>
+            <option value="XII">XI</option>
+            <option value="XII">XII</option>
           </select>
           @error('class')
           <span class="invalid-feedback" role="alert">
