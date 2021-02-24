@@ -15,10 +15,10 @@ class CreateSchedulesTable extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->id('schedule_id');
-            $table->foreignId('sch_teacher_id');
-            $table->foreign('sch_teacher_id')->references('teacher_id')->on('teachers');
             $table->bigInteger('user_id')->nullable()->unsigned();
             $table->foreign('user_id')->references('usr_id')->on('users')->onDelete('cascade');
+            $table->foreignId('sch_teacher_id');
+            $table->foreign('sch_teacher_id')->references('teacher_id')->on('teachers');
             $table->foreignId('sch_class_id');
             $table->foreign('sch_class_id')->references('class_id')->on('classes');
             $table->foreignId('sch_school_year_id');

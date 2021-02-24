@@ -18,6 +18,10 @@
                             <a href="/admin/manage_major    ">
                                 <i class="fas fa-table"></i>List Jurusan</a>
                         </li>
+                        <li class="{{Request::path() === 'admin/list_grade'?'active' : ''}} has-sub">
+                            <a href="/admin/list_grade">
+                                <i class="fas fa-calendar"></i>List Tingkatan</a>
+                        </li>
                         <li class="{{Request::path() === 'admin/list_class'?'active' : ''}} has-sub">
                             <a href="/admin/list_class">
                                 <i class="fas fa-calendar"></i>List Kelas</a>

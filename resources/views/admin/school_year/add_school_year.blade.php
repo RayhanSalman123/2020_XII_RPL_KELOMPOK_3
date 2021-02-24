@@ -18,7 +18,7 @@
                     <label for="tahun ajaran" class=" form-control-label">Tahun Ajaran</label>
                 </div>
                 <div class="col col-sm-6">
-                    <input type="text" name="school_year_name" placeholder="Masukkan Tahun Ajaran" class="form-control @error('school_year_name') is-invalid @enderror" value="{{old('school_year_name')}}">
+                    <input type="text" name="school_year_name" placeholder="Masukkan Tahun Ajaran" class="form-control @error('school_year_name') is-invalid @enderror" value="{{old('school_year_name')}}" required>
                     @error('school_year_name')
                     <span class="invalid-feedback" role="alert">
                        <strong>{{ $message }}</strong>
