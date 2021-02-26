@@ -12,7 +12,7 @@ class SchedulesSeeder extends Seeder
     public function run()
     {
     	DB::table('schedules')->insert([
-            'user_id'           => '3',
+            // 'user_id'           => '3',
             'sch_teacher_id'        => '1',
             'sch_class_id'          => '1',
             'sch_school_year_id'    => '4',
@@ -23,7 +23,7 @@ class SchedulesSeeder extends Seeder
         ]);
 
         DB::table('schedules')->insert([
-            'user_id'           => '3',
+            // 'user_id'           => '3',
             'sch_teacher_id'        => '2',
             'sch_class_id'          => '1',
             'sch_school_year_id'    => '4',
@@ -34,7 +34,7 @@ class SchedulesSeeder extends Seeder
         ]);
 
         DB::table('schedules')->insert([
-            'user_id'           => '3',
+            // 'user_id'           => '3',
             'sch_teacher_id'        => '3',
             'sch_class_id'          => '1',
             'sch_school_year_id'    => '4',
@@ -45,7 +45,7 @@ class SchedulesSeeder extends Seeder
         ]);
 
         DB::table('schedules')->insert([
-            'user_id'           => '3',
+            // 'user_id'           => '3',
             'sch_teacher_id'        => '4',
             'sch_class_id'          => '1',
             'sch_school_year_id'    => '4',

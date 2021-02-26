@@ -29,15 +29,13 @@ class TeacherController extends Controller
         $request->validate([
             'nip' => 'required|unique:teachers,nip|numeric|min:0',
             'usr_name' => 'required',
-            'usr_email' => 'required',
-            'tcr_subject_id' => 'required',
+            'usr_email' => 'required|unique:users,usr_email',
             'gender' => 'required',
         ], $message);
 
         $nip = $request -> input('nip');
         $usr_name = $request -> input('usr_name');
         $usr_email = $request -> input('usr_email');
-        $tcr_subject_id = $request -> input('tcr_subject_id');
         $gender= $request -> input('gender');
 
         $user = new User;
@@ -52,7 +50,6 @@ class TeacherController extends Controller
        if ($user->save()) {
             $teacher = new Teacher();
             $teacher->user_id = $user->usr_id;
-            $teacher->tcr_subject_id = $tcr_subject_id;
             $teacher->nip = $nip;
             $teacher->gender = $gender;
             $teacher->save();
@@ -66,8 +63,7 @@ class TeacherController extends Controller
 
     public function list_teacher()
     {
-        $teachers=Teacher::join('users', 'teachers.user_id','=','users.usr_id')
-                ->join('subjects', 'teachers.tcr_subject_id', '=', 'subjects.subject_id')->get();
+        $teachers=Teacher::join('users', 'teachers.user_id','=','users.usr_id')->get();
 
         return view('admin/teacher/list_teacher',compact('teachers'));
     }
@@ -84,9 +80,7 @@ class TeacherController extends Controller
      public function edit($teacher_id)
     {
         $subjects = Subjects::all();
-         $teacher=Teacher::join('users', 'teachers.user_id','=','users.usr_id')
-                ->join('subjects', 'teachers.tcr_subject_id', '=', 'subjects.subject_id')->where('teachers.teacher_id',$teacher_id)
-                ->first();
+         $teacher=Teacher::join('users', 'teachers.user_id','=','users.usr_id')->where('teacher_id', $teacher_id)->first();
 
 
         return view('admin/teacher/edit_teacher', compact(['teacher', 'subjects']));
@@ -99,13 +93,11 @@ class TeacherController extends Controller
         $request->validate([
             'nip' => 'required|numeric|min:5',
             'usr_name' => 'required',
-            'tcr_subject_id' => 'required',
             'gender' => 'required',
         ], $message);
 
         $teacher = Teacher::where('teacher_id',$teacher_id)->first();
         $teacher->nip = $request->input('nip');
-        $teacher->tcr_subject_id = $request->input('tcr_subject_id');
         $teacher->gender = $request->input('gender');
         $teacher->update();
 

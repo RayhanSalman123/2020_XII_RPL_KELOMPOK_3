@@ -21,7 +21,7 @@
                 @foreach($class as $count => $classes)
                     <tr>
                         <td>{{$count+1}}</td>
-                        <td>{{$classes->class}}</td>
+                        <td>{{$classes->grade_name}}</td>
                         <td>{{$classes->major_name}}</td>
                         <td>{{$classes->group}}</td>
                         <td>

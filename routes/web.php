@@ -79,6 +79,9 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:a
 
 	Route::get('/admin/list_schedule_admin', 'Admin\ScheduleController@list_schedule');
 	Route::get('/admin/list_schedule_admin/add_schedule', 'Admin\ScheduleController@create');
+	Route::post('/admin/list_schedule_admin/add_schedule', 'Admin\ScheduleController@store');
+	Route::get('/admin/edit_schedule/{schedule_id}/edit', 'Admin\ScheduleController@edit');
+
 
 	Route::get('/admin/list_submission_admin', 'Admin\SubmissionController@list_submission');
 

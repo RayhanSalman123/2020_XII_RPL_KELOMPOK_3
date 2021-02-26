@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Classes;
 use Illuminate\Http\Request;
 use App\Majors;
+use App\Grades;
 
 class ClassController extends Controller
 {
@@ -16,7 +17,9 @@ class ClassController extends Controller
      */
     public function list_class()
     {
-         $class=Classes::join('majors', 'majors.major_id','=','classes.cl_major_id')->get();
+         $class=Classes::join('majors', 'majors.major_id','=','classes.cl_major_id')->
+                         join('grades', 'grades.grade_id','=','classes.cl_grade_id')->get();
+
 
         return view('admin.class.list_class', ['class' => $class]);
     }
@@ -29,8 +32,8 @@ class ClassController extends Controller
     public function create()
     {
         $major=Majors::all();
-
-        return view('admin.class.add_class',compact('major'));
+        $grades = Grades::all();
+        return view('admin.class.add_class',compact('major','grades'));
 
     }
 
@@ -47,19 +50,19 @@ class ClassController extends Controller
 
          $message = ['required' => 'Inputan wajib di isi'];
          $request->validate([
-            'class' => 'required|',
+            'grade' => 'required|',
             'major' => 'required',
             'group' => 'required|numeric'
           ], $message);
 
 
-         $class= classes::where('class',$request->input('class'))->where('cl_major_id',$request->input('major'))->where('group',$request->input('group'))->first();
+         $class= classes::where('cl_grade_id',$request->input('grade'))->where('cl_major_id',$request->input('major'))->where('group',$request->input('group'))->first();
          if ($class) {
              return redirect()->back();
          }
 
         $class = new Classes();
-        $class->class = $request->input('class');
+        $class->cl_grade_id = $request->input('grade');
         $class->cl_major_id = $request->input('major');
         $class->group = $request->input('group');
         $class->save();
@@ -85,11 +88,12 @@ class ClassController extends Controller
      */
     public function edit($class_id)
     {
+         $grades = Grades::all();
          $class=Classes::join('majors', 'majors.major_id','=','classes.cl_major_id')->where('classes.class_id',$class_id)->first();
          $major=Majors::where('major_id','!=','cl_major_id')->get();
 
         // $class=Classes::find($class_id);
-        return view('admin/class/edit_class', compact(['class','major']));
+        return view('admin/class/edit_class', compact(['class','major','grades']));
     }
 
     /**
@@ -101,17 +105,17 @@ class ClassController extends Controller
      */
     public function update(Request $request, $class_id)
     {
-        // dd($request);
+      // dd($request);
         $message = ['required' => 'Inputan wajib di isi'];
          $request->validate([
-            'class' => 'required|',
+            'grade' => 'required|',
             'major_name' => 'required',
             'group' => 'required|numeric'
           ], $message);
          
 
         $class = Classes::where('class_id', $class_id)->first();
-        $class->class = $request->input('class');
+        $class->cl_grade_id = $request->input('grade');
         $class->cl_major_id = $request->input('major_name');
         $class->group = $request->input('group');
         $class->update();

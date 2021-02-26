@@ -12,7 +12,6 @@
                 <th>ID</th>
                 <th>NIP</th>
                 <th>NAMA GURU</th>
-                <th>MATA PELAJARAN</th>
                 <th>JENIS KELAMIN</th>
                 <th>ACTION</th>
             </tr>
@@ -23,7 +22,6 @@
                 <td>{{ $nomor+1 }}</td>
                 <td>{{ $teacher->nip }}</td>
                 <td>{{ $teacher->usr_name }}</td>
-                <td>{{ $teacher->name_subject }}</td>
                 <td>{{ $teacher->gender }}</td>
                 <td>
                    <form action="/admin/list_teacher/{{$teacher->teacher_id}}/delete" method="post">

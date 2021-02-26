@@ -1,53 +1,47 @@
 @extends('layouts.admin.master')
 
 @section('content')
-<body> <div class="page-wrapper">
-        <div class="page-content--bge5">
-            <div class="container">
-                <div class="login-wrap">
-                    <div class="login-content">
-                        <div class="login-logo">
-                            
-                            <img src="{{asset('images/icon/2.png')}}" alt="SMK Mahaputra">
-                            <h3>SMK MAHAPUTRA</h3>
-                            
-                        </div>
-                     @foreach($class as $class)
-                     <a type="button" href="{{ url('admin/list_schedule_admin/'.$class->class_id.'/schedule')}}" class="btn btn-outline-primary btn-lg btn-block">Jadwal Kelas {{$class->class}}</a>
-                     @endforeach
-
-                        <div class="register-link">
-                               
-                            </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-       <!-- Jquery JS-->
-    <script src="{{ asset('vendor/jquery-3.2.1.min.js')}}"></script>
-    <!-- Bootstrap JS-->
-    <script src="{{ asset('vendor/bootstrap-4.1/popper.min.js')}}"></script>
-    <script src="{{ asset('vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
-    <!-- Vendor JS       -->
-    <script src="{{ asset('vendor/slick/slick.min.js')}}">
-    </script>
-    <script src="{{ asset('vendor/wow/wow.min.js')}}"></script>
-    <script src="{{ asset('vendor/animsition/animsition.min.js')}}"></script>
-    <script src="{{ asset('vendor/bootstrap-progressbar/bootstrap-progressbar.min.js')}}">
-    </script>
-    <script src="{{ asset('vendor/counter-up/jquery.waypoints.min.js')}}"></script>
-    <script src="{{ asset('vendor/counter-up/jquery.counterup.min.js')}}">
-    </script>
-    <script src="{{ asset('vendor/circle-progress/circle-progress.min.js')}}"></script>
-    <script src="{{ asset('vendor/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
-    <script src="{{ asset('vendor/chartjs/Chart.bundle.min.js')}}"></script>
-    <script src="{{ asset('vendor/select2/select2.min.js')}}">
-    </script>
-
-    <!-- Main JS-->
-    <script src="{{ asset('js/main.js')}}"></script>
-
-</body>
+<div class="col-md-12">
+   <div>
+    <a href="/admin/list_schedule_admin/add_schedule" class="btn btn-outline-success">Tambah</a>
+</div>
+<div class="table-responsive m-b-40">
+    <table class="table table-borderless table-data3" style="width: 100%;">
+        <thead>
+            <tr>
+                <th>NO</th>
+                <th>HARI</th>
+                <th>JAM</th>
+                <th>KELAS</th>
+                <th>MATA PELAJARAN</th>
+                <th>TAHUN AJARAN</th>
+                <th>NAMA TEACHER</th>
+                <th>OPTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($schedules as $key => $schedule)
+            <tr>
+                <td>{{ $key+1 }}</td>
+                <td>{{ $schedule->day }}</td>
+                <td>{{ $schedule->hour }}</td>
+                <td>{{ $schedule->grade_name }} {{ $schedule->major_name }} {{ $schedule->group }}</td>
+                <td>{{ $schedule->name_subject }}</td>
+                <td>{{ $schedule->school_year_name }}</td>
+                <td>{{ $schedule->usr_name }}</td>
+                  <td>
+                        <form action="/admin/list_schedule/{{$schedule->schedule_id}}/delete" method="post">
+                        <a href="{{URL::to('/admin/edit_schedule')}}/{{$schedule->schedule_id}}/edit" value="EDIT" class="btn btn-outline-info fa fa-pencil-square-o"></a>
+                        <button type="submit" name="submit" class="btn btn-outline-danger">DELETE</button>
+                        {{csrf_field()}}
+                        <input type="hidden" name="_method" value="DELETE">
+                          </form>
+                        </td>
+            </tr>
+            @endforeach
+        </tbody>
+</table>
+</div>
+<!-- END DATA TABLE-->
+</div>
 @endsection

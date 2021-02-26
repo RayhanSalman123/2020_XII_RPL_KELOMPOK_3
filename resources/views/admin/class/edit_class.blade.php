@@ -11,16 +11,15 @@
             @csrf
             <div class="row form-group">
                 <div class="col col-sm-5">
-                    <label for="kelas" class=" form-control-label">Kelas</label>
+                    <label for="kelas" class="form-control-label">Kelas</label>
                 </div>
                 <div class="col col-sm-6">
-                    <select name="class" class="form-control @error('class') is-invalid @enderror" required>
-                                 <option>{{$class -> class}}</option>
-                                 <option value="3">X</option>
-                                 <option value="4">XI</option>
-                                 <option value="5">XII</option>
-                                 </select>
-                    @error('class')
+                    <select name="grade" class="form-control @error('grade') is-invalid @enderror" required>
+                        @foreach($grades as $grade)
+                            <option value="{{ $grade->grade_id }}">{{ $grade->grade_name }}</option>
+                        @endforeach
+                    </select>
+                    @error('grade')
                     <span class="invalid-feedback" role="alert">
                      <strong>{{ $message }}</strong>
                  </span>
@@ -36,7 +35,7 @@
                 <select name="major_name" class="form-control @error('major') is-invalid @enderror" required>
                  <option value="{{ $class->major_id }}" selected="" class="form-control">{{ $class->major_name }}</option>
                @foreach($major as $major)
-               <option>{{$major->major_name}}</option>
+               <option value="{{ $major->major_id }}">{{$major->major_name}}</option>
 
                @endforeach
               

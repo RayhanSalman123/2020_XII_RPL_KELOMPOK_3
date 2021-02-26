@@ -18,13 +18,13 @@
           <label for="kelas" class=" form-control-label">Kelas</label>
         </div>
         <div class="col col-sm-6">
-          <select name="class" class="form-control @error('class') is-invalid @enderror" required>
+          <select name="grade" class="form-control @error('grade') is-invalid @enderror" required>
             <option value="">--PILIH--</option>
-            <option value="X">X</option>
-            <option value="XII">XI</option>
-            <option value="XII">XII</option>
+             @foreach($grades as $grade)
+             <option value="{{ $grade->grade_id }}">{{ $grade->grade_name }}</option>
+             @endforeach
           </select>
-          @error('class')
+          @error('grade')
           <span class="invalid-feedback" role="alert">
            <strong>{{ $message }}</strong>
          </span>

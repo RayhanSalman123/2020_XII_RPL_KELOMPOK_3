@@ -8,4 +8,5 @@ class Schedules extends Model
 {
     protected $guarded = [];
     protected $primaryKey = 'schedule_id';
+    protected $table = 'Schedules';
 }

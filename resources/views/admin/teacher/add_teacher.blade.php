@@ -55,25 +55,6 @@
 
             <div class="row form-group">
                 <div class="col col-sm-5">
-                    <label for="mata pelajaran" class=" form-control-label">Mata Pelajaran</label>
-                </div>
-                <div class="col col-sm-6">
-                    <select name="tcr_subject_id" id="select" class="form-control @error('tcr_subject_id') is-invalid @enderror" required>
-                        <option value="" selected="" disabled="" class="form-control">--- Pilih ---</option>
-                        @foreach($subjects as $subject)
-                        <option value="{{ $subject->subject_id }}" class="form-control">{{ $subject->name_subject }}</option>
-                        @endforeach
-                    </select>
-                     @error('tcr_subject_id')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-            </div>
-
-            <div class="row form-group">
-                <div class="col col-sm-5">
                     <label for="mata pelajaran" class=" form-control-label">Jenis Kelamin</label>
                 </div>
                 <div class="col col-sm-6">

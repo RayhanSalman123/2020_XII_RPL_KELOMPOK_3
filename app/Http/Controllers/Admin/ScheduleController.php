@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Schedules;
 use App\Classes;
 use App\Majors;
+use App\Subjects;
+use App\SchoolYears;
+use App\Teacher;
 
 class ScheduleController extends Controller
 {
@@ -31,7 +34,13 @@ class ScheduleController extends Controller
      */
      public function create()
     {
-        return view('admin/schedule/add_schedule');
+        $subjects = Subjects::all();
+        $classes = Classes::join('majors','classes.cl_major_id','=','majors.major_id')
+        ->join('grades','classes.cl_grade_id','=','grades.grade_id')->get();
+        $school_years = SchoolYears::all();
+        $teachers = Teacher::join('users','teachers.user_id','=','users.usr_id')->get();
+
+        return view('admin/schedule/add_schedule', compact('subjects','classes','school_years','teachers'));
     }
 
     /**
@@ -42,7 +51,17 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $schedule = new Schedules;
+        $schedule->sch_teacher_id = $request->teacher;
+        $schedule->sch_class_id = $request->class;
+        $schedule->sch_school_year_id = $request->school_year;
+        $schedule->sch_subject_id = $request->subject;
+        $schedule->day = $request->day;
+        $schedule->lesson_to = $request->lesson_to;
+        $schedule->hour = $request->hour;
+        $schedule->save();
+        return redirect('/admin/list_schedule_admin');
     }
 
     /**
@@ -62,9 +81,23 @@ class ScheduleController extends Controller
      * @param  \App\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function edit(cr $cr)
-    {
-        //
+    public function edit($schedule_id)
+    { 
+        $subjects = Subjects::all();
+        $teachers = Teacher::all();
+        $classes = Classes::all();
+        $subjects = Subjects::all();
+       $school_years = SchoolYears::all();
+       $schedules = Schedules::join('teachers','schedules.sch_teacher_id','=','teachers.teacher_id')
+        ->join('users','teachers.user_id','=','users.usr_id')
+        ->join('subjects','schedules.sch_subject_id','=','subjects.subject_id')
+        ->join('curriculums','subjects.sbj_curriculum_id','=','curriculums.curriculum_id')
+        ->join('school_years','schedules.sch_school_year_id','=','school_years.school_year_id')
+        ->join('classes','schedules.sch_class_id','=','classes.class_id')
+        ->join('majors','classes.cl_major_id','=','majors.major_id')
+        ->join('grades','classes.cl_grade_id','=','grades.grade_id')->where('schedules.schedule_id',$schedule_id)->first();
+        // dd($schedules);
+        return view('admin/schedule/edit_schedule', compact('schedules','school_years','subjects','classes','teachers'));
     }
 
     /**
@@ -92,8 +125,16 @@ class ScheduleController extends Controller
 
      public function list_schedule()
     {
-        $class= Classes::join('majors','majors.major_id','=','cl_major_id')->orderBy('class','asc')->groupBy('class')->get();
-        // $count = 0;
-        return view('admin/schedule/list_schedule_admin',compact(['class']));
+        $schedules = Schedules::join('teachers','schedules.sch_teacher_id','=','teachers.teacher_id')
+        ->join('users','teachers.user_id','=','users.usr_id')
+        ->join('subjects','schedules.sch_subject_id','=','subjects.subject_id')
+        ->join('curriculums','subjects.sbj_curriculum_id','=','curriculums.curriculum_id')
+        ->join('school_years','schedules.sch_school_year_id','=','school_years.school_year_id')
+        ->join('classes','schedules.sch_class_id','=','classes.class_id')
+        ->join('majors','classes.cl_major_id','=','majors.major_id')
+        ->join('grades','classes.cl_grade_id','=','grades.grade_id')->get();
+        // dd($schedules);
+        return view('admin/schedule/list_schedule_admin', compact('schedules'));
     }
+
 }
