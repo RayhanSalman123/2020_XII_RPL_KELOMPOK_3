@@ -69,6 +69,10 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:a
 	Route::delete('/admin/list_teacher/{teacher_id}/delete', 'Admin\TeacherController@delete');
 
 
+	Route::get('/admin/manage_subject', 'Admin\ManageSubjectController@createSubject');
+	Route::post('/admin/manage_subject', 'Admin\ManageSubjectController@StoreSubject');
+
+
 	Route::get('/admin/list_subject_admin', 'Admin\SubjectController@list_subject');
 	Route::get('/admin/list_subject_admin/add_subject', 'Admin\SubjectController@create');
 	Route::post('/admin/list_subject_admin/add_subject', 'Admin\SubjectController@store');
@@ -77,11 +81,7 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:a
 	Route::delete('/admin/list_subject_admin/{subject_id}/delete', 'Admin\SubjectController@delete');
 
 
-	Route::get('/admin/list_schedule_admin', 'Admin\ScheduleController@list_schedule');
-	Route::get('/admin/list_schedule_admin/add_schedule', 'Admin\ScheduleController@create');
-	Route::post('/admin/list_schedule_admin/add_schedule', 'Admin\ScheduleController@store');
-	Route::get('/admin/edit_schedule/{schedule_id}/edit', 'Admin\ScheduleController@edit');
-
+	Route::get('/admin/manage_schedule', 'Admin\ScheduleController@AddSchedule');
 
 	Route::get('/admin/list_submission_admin', 'Admin\SubmissionController@list_submission');
 

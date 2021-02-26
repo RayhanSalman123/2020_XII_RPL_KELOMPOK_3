@@ -34,12 +34,18 @@
                             <a href="/admin/list_school_year">
                                 <i class="fas fa-calendar"></i>List Tahun Ajaran</a>
                         </li>
+
+                        </li>
+                          <li  class="{{Request::path() === 'admin/manage_subject'?'active' : ''}} has-sub">
+                            <a href="/admin/manage_subject    ">
+                                <i class="fas fa-table"></i>Manage Mata Pelajaran</a>
+
                         <li class="{{Request::path() === 'admin/list_subject_admin'?'active' : ''}} has-sub">
                             <a href="/admin/list_subject_admin">
                                 <i class="far fa-check-square"></i>List Mata Pelajaran</a>
                         </li>
                         <li class="{{Request::path() === 'admin/list_schedule_admin'?'active' : ''}} has-sub">
-                            <a href="/admin/list_schedule_admin">
+                            <a href="/admin/manage_schedule">
                                 <i class="fas fa-map-marker-alt"></i>Jadwal Pelajaran</a>
                         </li>
                         <li class="{{Request::path() === 'admin/list_submission_admin'?'active' : ''}} has-sub">
