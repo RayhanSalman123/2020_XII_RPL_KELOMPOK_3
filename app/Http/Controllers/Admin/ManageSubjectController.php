@@ -23,7 +23,7 @@ class ManageSubjectController extends Controller
    {
 
    	$teacher_id=$request->input('teacher_id');
-   	$subject_id = $request->input('subject_id');		
+   	$subject_id = $request->input('subject_id');
    	$chek=TeacherSubject::whereTsTeacherId($teacher_id)
    	->whereTsSubjectId($subject_id)
    	->first();

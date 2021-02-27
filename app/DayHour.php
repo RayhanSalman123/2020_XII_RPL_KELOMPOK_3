@@ -4,9 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Hours extends Model
+class DayHour extends Model
 {
     protected $guarded = [];
-    protected $primaryKey = 'hour_id';
-    protected $table = 'hours';
+    protected $primaryKey =  'dh_id';
 }

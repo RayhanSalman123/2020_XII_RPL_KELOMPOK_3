@@ -53,7 +53,7 @@
         <a href="/admin/list_subject_admin" class="btn btn-danger btn-sm">Cancel</a>
       </form>
     </div>
-  <div class="card-footer"> 
+  <div class="card-footer">
   </div>
 </div>
 @endsection

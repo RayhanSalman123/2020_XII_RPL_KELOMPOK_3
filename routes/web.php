@@ -39,7 +39,7 @@ Route::post('/account/reset-password', 'Auth\AccountController@updatePassword')-
 	Route::get('/register-teacher', 'Auth\RegisterController@registerTeacher');
 	Route::get('/register-select', 'Auth\RegisterController@registerSelect');
 
-	//Route Untuk Admin, Student, Teacher, Staff TU, jika register dan login maka akan ke halaman ini 
+	//Route Untuk Admin, Student, Teacher, Staff TU, jika register dan login maka akan ke halaman ini
 
 
 
@@ -82,6 +82,7 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:a
 
 
 	Route::get('/admin/manage_schedule', 'Admin\ScheduleController@AddSchedule');
+    Route::post('/admin/manage_schedule', 'Admin\ScheduleController@SaveSchedule');
 
 	Route::get('/admin/list_submission_admin', 'Admin\SubmissionController@list_submission');
 
@@ -106,7 +107,7 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:a
 	Route::get('/admin/list_grade/add_grade', 'Admin\GradeController@create');
 	Route::post('/admin/list_grade/add_grade', 'Admin\GradeController@store');
 	Route::delete('/admin/list_grade/{grade_id}/delete', 'Admin\GradeController@delete');
-	
+
 
 
 
