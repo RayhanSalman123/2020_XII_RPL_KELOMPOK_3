@@ -47,12 +47,18 @@ class ScheduleController extends Controller
         if($schedule){
             return 'gagal, Jam sudah Terisi';
         } else {
-            Schedule::create([
-                'sch_teacher_subject_id' => $subject_id,
-                'sch_day_hour_id' =>  $dayHour->dh_id,
-                'sch_class_id'  => $class_id
-            ]);
-            return 'berhasil';
+            $cek = Schedule::where('sch_teacher_subject_id' , $subject_id)->where('sch_day_hour_id', $dayHour->dh_id)->first();
+            if($cek){
+                return ('guru sudah ada jam pelajar di kelas lain');
+            } else {
+                Schedule::create([
+                    'sch_teacher_subject_id' => $subject_id,
+                    'sch_day_hour_id' =>  $dayHour->dh_id,
+                    'sch_class_id'  => $class_id
+                ]);
+                return 'berhasil';
+            }
+
         }
         return $request->all();
 
