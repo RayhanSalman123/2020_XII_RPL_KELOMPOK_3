@@ -31,7 +31,7 @@
                     <select name="subject_id" class="form-control" required>
                         <option disabled selected value="">-- Pilih --</option>
                         @foreach($teacher as $data)
-                        <option value="{{ $data->subject_id }}">{{$data->name_subject.' '.' - '.' '. $data->usr_name }}</option>
+                        <option value="{{ $data->ts_id }}">{{$data->name_subject.' '.' - '.' '. $data->usr_name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -42,7 +42,7 @@
                 <label for="nama guru" class=" form-control-label">Hari</label>
                 </div>
                 <div class="col col-sm-6">
-                    <select name="day_id" class="form-control" required>
+                    <select name="day_id" class="form-control select2" required>
                         <option disabled selected value="">-- Pilih --</option>
                         @foreach($day as $data)
                         <option value="{{ $data->day_id }}">{{$data->days_name}}</option>

@@ -46,8 +46,13 @@
                         </li>
                         <li class="{{Request::path() === 'admin/list_schedule_admin'?'active' : ''}} has-sub">
                             <a href="/admin/manage_schedule">
-                                <i class="fas fa-map-marker-alt"></i>Jadwal Pelajaran</a>
+                                <i class="fas fa-map-marker-alt"></i>Manage Pelajaran</a>
                         </li>
+                        <li class="{{Request::path() === 'admin/list_schedule_admin'?'active' : ''}} has-sub">
+                            <a href="/admin/list_schedule">
+                                <i class="fas fa-map-marker-alt"></i>Mata Pelajaran</a>
+                        </li>
+
                         <li class="{{Request::path() === 'admin/list_submission_admin'?'active' : ''}} has-sub">
                             <a href="/admin/list_submission_admin">
                                 <i class="fas fa-calendar-alt"></i>Pengajuan Guru</a>
@@ -56,7 +61,7 @@
                             <a href="/admin/confirm_headmaster">
                                 <i class="fas fa-chart-bar"></i>Konfirmasi KEPSEK</a>
                         </li>
-                        
+
                         <li>
                             <a href="{{ url('/logout')}}">
                                 <i class="fa fa-power-off"></i>Logout</a>
