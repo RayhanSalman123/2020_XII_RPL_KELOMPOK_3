@@ -29,17 +29,20 @@ class SubjectController extends Controller
     public function store(Request $request)
     {
         // dd($request);
-        $message = ['required' => 'Inputan wajib di isi'];
-        $request->validate([
+        // $message = ['required' => 'Inputan wajib di isi'];
+        if($request->validate([
           'curriculum_name' => 'required',
           'name_subject' => 'required',
-        ], $message);
+        ])){
 
         $subject = new Subjects();
         $subject->sbj_curriculum_id = $request->input('curriculum_name');
         $subject->name_subject = $request->input('name_subject');
         $subject->save();
-        return redirect('/admin/list_subject_admin');
+        return redirect('/admin/list_subject_admin')->withSuccess('Berhasil', 'Data Berhasil DiSimpan');
+        }else{
+            return back();  
+        }
     }
 
     public function edit($subject_id)

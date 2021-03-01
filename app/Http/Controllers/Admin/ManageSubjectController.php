@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Teacher;
 use App\Subjects;
 use App\TeacherSubject;
@@ -28,13 +29,14 @@ class ManageSubjectController extends Controller
    	->whereTsSubjectId($subject_id)
    	->first();
    	if ($chek) {
-   		return back();
+   		return redirect('/admin/manage_subject')->withSuccess('Data Berhasil DiSimpan');
    	}else{
    		TeacherSubject::create([
 
    			'ts_teacher_id'=>$teacher_id,
    			'ts_subject_id'=>$subject_id
    		]);
+         
    		return back();
 
    	}

@@ -84,6 +84,8 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:a
 	Route::get('/admin/manage_schedule', 'Admin\ScheduleController@AddSchedule');
     Route::post('/admin/manage_schedule', 'Admin\ScheduleController@SaveSchedule');
 
+    Route::get('/admin/list_schedule'  , 'Admin\ScheduleController@ListSchedule');
+
 	Route::get('/admin/list_submission_admin', 'Admin\SubmissionController@list_submission');
 
 	Route::get('/admin/confirm_headmaster', 'Admin\ConfirmController@list_confirm');
@@ -107,6 +109,8 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:a
 	Route::get('/admin/list_grade/add_grade', 'Admin\GradeController@create');
 	Route::post('/admin/list_grade/add_grade', 'Admin\GradeController@store');
 	Route::delete('/admin/list_grade/{grade_id}/delete', 'Admin\GradeController@delete');
+
+
 
 
 
@@ -143,3 +147,6 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:h
 	Route::get('/block', 'HeadMaster\HeadMasterController@block');
 	// Route::post('/list_submission','HeadMaster\HeadMasterController@store');
 });
+
+
+Route::get('/asdf' , 'Admin\ScheduleController@asdf');

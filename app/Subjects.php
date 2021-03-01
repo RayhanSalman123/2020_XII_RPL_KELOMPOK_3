@@ -9,6 +9,6 @@ class Subjects extends Model
 {
 	use SoftDeletes;
 	protected $dates       = ['deleted_at'];
-    protected $primaryKey='sch_id';
+    protected $primaryKey='subject_id';
      protected $guarded = [];
 }
