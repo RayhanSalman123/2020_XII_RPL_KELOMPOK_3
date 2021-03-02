@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Schedule;
 use App\Day;
 use App\Hours;
@@ -46,18 +47,20 @@ class ScheduleController extends Controller
             ->where('sch_class_id', $class_id)
             ->first();
         if ($schedule) {
-            return 'gagal, Jam sudah Terisi';
+            Alert::error('gagal', 'Jam sudah Terisi');
+            return back();
         } else {
             $cek = Schedule::where('sch_teacher_subject_id', $subject_id)->where('sch_day_hour_id', $dayHour->dh_id)->first();
             if ($cek) {
-                return ('guru sudah ada jam pelajar di kelas lain');
+                Alert::error('guru sudah ada jam pelajar di kelas lain');
+                return back();
             } else {
                 Schedule::create([
                     'sch_teacher_subject_id' => $subject_id,
                     'sch_day_hour_id' => $dayHour->dh_id,
                     'sch_class_id' => $class_id
                 ]);
-                return back()->withSucess('Jadwal Berhasil Ditambahkan');
+                return redirect()->withSucess('Jadwal Berhasil Ditambahkan');
             }
 
         }

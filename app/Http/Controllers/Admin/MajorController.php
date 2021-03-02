@@ -50,7 +50,6 @@ class MajorController extends Controller
         $major->save();
         return redirect('/admin/manage_major')->withSuccess('Berhasil', 'Data Berhasil DiSimpan');
         }else{
-            Alert::error('Gagal', 'Text Tidak Boleh Kosong');
             return back();
             
         }
