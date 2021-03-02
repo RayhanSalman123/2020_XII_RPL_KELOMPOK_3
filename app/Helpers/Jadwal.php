@@ -31,16 +31,15 @@ class Jadwal
 
     public static function MapelDay($class_id, $day, $hour){
         return  Schedule::whereSchClassId($class_id)
+            ->join('day_hours', 'schedules.sch_day_hour_id', '=', 'day_hours.dh_id')
+            ->join('hours' , 'day_hours.id_hour' , '=' , 'hours.hour_id')
+            ->where('day_hours.id_day', $day)
+            ->where('day_hours.id_hour', $hour)
             ->join('teacher_subjects' , 'schedules.sch_teacher_subject_id' ,  '=' ,  'teacher_subjects.ts_id')
             ->join('teachers', 'teacher_subjects.ts_teacher_id', '=', 'teachers.teacher_id')
             ->join('users', 'teachers.user_id', '=', 'users.usr_id')
             ->join('subjects', 'ts_subject_id', '=', 'subjects.subject_id')
-            ->join('day_hours', 'schedules.sch_day_hour_id', '=', 'day_hours.dh_id')
-            ->join('hours', 'day_hours.id_hour', '=', 'hours.hour_id')
-            ->where('day_hours.id_day', $day)
-            ->where('day_hours.id_hour', $hour)
-            ->orderBy('hours.hour_id' , 'ASC')
-            ->select('users.usr_name', 'subjects.name_subject')
+            ->select('users.usr_name', 'subjects.name_subject','hours.hour_notes')
             ->get ();
 
     }

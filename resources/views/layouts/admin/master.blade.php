@@ -21,10 +21,15 @@
         </div>
     @include('sweetalert::alert')
 	@stack('js')
+<<<<<<< HEAD
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script type="text/javascript">
         $('.select2').select2({
         });
+=======
+    @include('sweetalert::alert')
+
+>>>>>>> b2c173aa8e6040701bdd573fafff18e504b29ab5
 </body>
 </html>
 

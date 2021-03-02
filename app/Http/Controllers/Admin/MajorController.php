@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Majors;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class MajorController extends Controller
 {
@@ -40,16 +41,19 @@ class MajorController extends Controller
     public function store(Request $request)
     {
         
-         $message = ['required' => 'Inputan wajib di isi'];
-         $request->validate([
-            'major' => 'required|unique:majors,major_name',
-          ], $message);
-
+       if($request->validate([
+        'major' => 'required|unique:majors,major_name',
+        ])){  
 
         $major = new Majors();
         $major->major_name = $request->input('major');
         $major->save();
-        return redirect('/admin/manage_major');
+        return redirect('/admin/manage_major')->withSuccess('Berhasil', 'Data Berhasil DiSimpan');
+        }else{
+            Alert::error('Gagal', 'Text Tidak Boleh Kosong');
+            return back();
+            
+        }
     }
     
 

@@ -14,44 +14,33 @@
 
                             <thead>
                             <tr>
-                                <th class="text-left">Jam</th>
+
                                 @foreach($day as $dataDay)
                                     <th class="text-left" style="width: 18%">{{$dataDay->days_name}}</th>
                                 @endforeach
                             </tr>
                             </thead>
                             <tbody>
-                            <?php
-                            for ($no = 1; $no <= 10; $no++){ ?>
 
-                            @forelse(\App\Helpers\Jadwal::MapelJam($dataClass->class_id, $no) as $dataMapel)
-                                <tr class="text-left">
-                                    <td class="text-left">{{$dataMapel->start_time . ' - ' . $dataMapel->end_time}}</td>
+                                <?php
+                                for ($i=1; $i<=10; $i++) {  ?>
+                                   <tr class="text-left">
                                     <?php
-                                    for ($noDay = 2; $noDay <= 6; $noDay++)     {
-                                    ?>
-                                    @forelse (\App\Helpers\Jadwal::MapelDay($dataClass->class_id,$noDay, $no) as $Mapel)
-                                        <td class="text-left">{{$Mapel->name_subject.' '.' - '.' '.$Mapel->usr_name}}</td>
-                                    @empty
-                                        <td class="text-left text-white" style="background-color: darkred">Kosong</td>
-                                    @endforelse
-                                    <?php  } ?>
+                                    for ($d=2; $d<=6; $d++) {  ?>
+                                        @forelse (\App\Helpers\Jadwal::MapelDay($dataClass->class_id,$d, $i) as $Mapel)
+                                            <td class="text-left">{{$Mapel->name_subject.' '.' - '.' '.$Mapel->usr_name . ' ' . '-' . ' ' . $Mapel->hour_notes}}</td>
+                                        @empty
+                                            <td class="text-left text-white" style="background-color: darkred">Kosong</td>
+                                        @endforelse
+
+
+                                        <?php  } ?>
                                 </tr>
-                            @empty
-                                <tr>
-                                    <td class="text-left text-white" style="background-color: darkred">Kosong</td>
-                                    <td class="text-left text-white" style="background-color: darkred">Kosong</td>
-                                    <td class="text-left text-white" style="background-color: darkred">Kosong</td>
-                                    <td class="text-left text-white" style="background-color: darkred">Kosong</td>
-                                    <td class="text-left text-white" style="background-color: darkred">Kosong</td>
-                                    <td class="text-left text-white" style="background-color: darkred">Kosong</td>
-
-                                </tr>
+                                <?php  }  ?>
 
 
-                            @endforelse
 
-                            <?php } ?>
+
                             </tbody>
 
 
