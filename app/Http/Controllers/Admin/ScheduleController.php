@@ -43,6 +43,9 @@ class ScheduleController extends Controller
         $dayHour = DayHour::whereIdDay($day_id)
             ->whereIdHour($hour_id)
             ->first();
+        $teacher = TeacherSubject::whereTsId($subject_id)->first();
+        $teacher_id = $teacher->ts_teacher_id;
+
         $schedule = Schedule::where('sch_day_hour_id', $dayHour->dh_id)
             ->where('sch_class_id', $class_id)
             ->first();
@@ -50,27 +53,41 @@ class ScheduleController extends Controller
             Alert::error('gagal', 'Jam sudah Terisi');
             return back();
         } else {
-            $cek = Schedule::where('sch_teacher_subject_id', $subject_id)->where('sch_day_hour_id', $dayHour->dh_id)->first();
+            $cek = Schedule::where('sch_teacher_subject_id', $subject_id)->where('sch_day_hour_id', $dayHour->dh_id)
+                ->first();
+
             if ($cek) {
                 Alert::error('guru sudah ada jam pelajar di kelas lain');
                 return back();
             } else {
-                Schedule::create([
-                    'sch_teacher_subject_id' => $subject_id,
-                    'sch_day_hour_id' => $dayHour->dh_id,
-                    'sch_class_id' => $class_id
-                ]);
-                return redirect()->withSucess('Jadwal Berhasil Ditambahkan');
+                $cek_jam = Schedule::join('teacher_subjects','schedules.sch_teacher_subject_id' , '=' , 'teacher_subjects.ts_id')
+                    ->join('subjects','teacher_subjects.ts_subject_id' , '='  , 'subjects.subject_id')
+                    ->join('day_hours' , 'schedules.sch_day_hour_id' , '=' , 'day_hours.dh_id')
+                    ->where('teacher_subjects.ts_teacher_id',$teacher_id)
+                    ->where('day_hours.id_hour', $hour_id)
+                    ->first();
+                if($cek_jam){
+                    Alert::error('Gagal', 'Guru Sudah Mengajar Dikelas Lain dengan Mapel   '.' '.$cek_jam->name_subject);
+                    return  back();
+                } else {
+                    Schedule::create([
+                        'sch_teacher_subject_id' => $subject_id,
+                        'sch_day_hour_id' => $dayHour->dh_id,
+                        'sch_class_id' => $class_id
+                    ]);
+                    return back()->withSuccess('berhasil ditambahkan');
+                }
+
+
             }
 
         }
-        return $request->all();
 
     }
 
-
     public function ListSchedule()
     {
+        
         $data ['class'] = Classes::join('majors', 'classes.cl_major_id', '=', 'majors.major_id')
             ->join('grades', 'classes.cl_grade_id', '=', 'grades.grade_id')
             ->get();

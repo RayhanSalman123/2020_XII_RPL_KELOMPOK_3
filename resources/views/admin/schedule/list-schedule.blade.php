@@ -25,8 +25,8 @@
                             <?php for ($i = 1; $i <= 10; $i++) { ?>
                             <tr
                                 class="text-left">
-                                <?php for ($d = 2; $d <= 6; $d++) { ?> @forelse
-                                        (\App\Helpers\Jadwal::MapelDay($dataClass->class_id,$d, $i) as $Mapel)
+                                <?php for ($d = 2; $d <= 6; $d++) { ?>
+                                 @forelse(\App\Helpers\Jadwal::MapelDay($dataClass->class_id,$d, $i) as $Mapel)
                                     <td class="text-left">
                                         {{ $Mapel->name_subject . ' ' . ' - ' . ' ' . $Mapel->usr_name . ' ' . '-' . ' ' . $Mapel->hour_notes }}
                                     </td>

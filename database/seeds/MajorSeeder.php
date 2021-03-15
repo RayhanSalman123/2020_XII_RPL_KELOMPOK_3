@@ -12,11 +12,11 @@ class MajorSeeder extends Seeder
     public function run()
     {
         DB::table('majors')->insert([
-            'major_name'  => 'Rekayasa Perangkat Lunak',        
+            'major_name'  => 'RPL',        
             ]);
 
         DB::table('majors')->insert([
-            'major_name'  => 'Multimedia',        
+            'major_name'  => 'MM',        
             ]);
     }
 }

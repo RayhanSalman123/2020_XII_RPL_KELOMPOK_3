@@ -10,7 +10,7 @@ class Jadwal
 {
     public static function Mapel()
     {
-        return 'Rehan Gelo';
+        return 'Rehan ';
     }
 
     public static function MapelJam($class_id, $hour)
