@@ -43,7 +43,7 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <img src="images/icon/logo.png" alt="CoolAdmin">
+                                 <img src="{{asset('images/icon/2.png')}}" alt="SMK Mahaputra">
                             </a>
                         </div>
                             <form method="POST" action="{{ route('register') }}" id="submitForm">
@@ -76,27 +76,17 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-user"></i>
-                                                    </div>
-                                                    <input id="teacher_subject" placeholder="Mata Pelajaran" type="teacher_subject" class="form-control @error('teacher_subject') is-invalid @enderror" name="teacher_subject" value="{{ old('teacher_subject') }}" autocomplete="teacher_subject">
-
-                                                    @error('teacher_subject')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror                         
-                                                </div>
-                                            </div>
+                                    
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-envelope"></i>
                                                     </div>
-                                                     <input id="gender" type="gender" placeholder="Jenis Kelamin" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" autocomplete="gender">
-
+                                                     <select name="gender" id="select" class="form-control @error('gender') is-invalid @enderror" required>
+                                                <option value="" selected="" disabled="" class="form-control"> Jenis Kelamin</option>
+                                                <option value="Laki Laki" class="form-control">Laki Laki</option>
+                                                <option value="Perempuan" class="form-control">Perempuan</option>
+                                                    </select>
                                                     @error('gender')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>

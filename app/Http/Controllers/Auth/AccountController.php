@@ -23,9 +23,18 @@ class AccountController extends Controller
         $user = User::where('usr_id', $userID)->where('usr_verification_token', $verifyToken)->firstOrFail();
         if ($user) {
             $user->usr_email_verified_at = now();
-            $user->save();
+            $user->save();         
 
-            return redirect('/dashboard')->with(['success' => 'Selamat akun anda berhasil diverifikasi']);;
+            if (!Auth::check()) {
+                abort(404);
+            }
+        if (Auth()->user()->hasRole('student')) {
+            return redirect('/index_student')->with(['success' => 'Selamat akun anda berhasil diverifikasi']);
+        }elseif(Auth()->user()->hasRole('teacher')){
+            return redirect('index_teacher')->with(['success' => 'Selamat akun anda berhasil diverifikasi']);
+        }else{
+            abort(404);
+        }
         }
     }
 

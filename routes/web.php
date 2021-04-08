@@ -120,7 +120,7 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:a
 
 
 
-Route::group(['middleware' => [ 'role:student','auth', 'DisablePreventBack', 'verified']], function () {
+Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified','role:student']], function () {
 	Route::get('/index_student', 'Student\StudentController@index');
 	// Route::get('/student/schedule', 'StudentController@schedule');
 	Route::get('/list_schedule', 'Student\ScheduleController@list_schedule');
@@ -132,6 +132,8 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:t
 	Route::get('/index_teacher', 'Teacher\TeacherController@index');
 	Route::get('/teacher/list_schedule_teacher', 'Teacher\ScheduleController@list_schedule_teacher');
 	Route::get('/teacher/form-submission', 'Teacher\TeacherController@create');
+
+	Route::post('/teacher/form-submission', 'Admin\TeacherController@store');
 
 });
 

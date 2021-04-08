@@ -43,7 +43,7 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <img src="images/icon/logo.png" alt="CoolAdmin">
+                                 <img src="{{asset('images/icon/2.png')}}" alt="SMK Mahaputra">
                             </a>
                         </div>
                             <form method="POST" action="{{ route('register') }}" id="submitForm">
@@ -53,7 +53,7 @@
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-user"></i>
                                                     </div>
-                                                    <input id="nis" type="nis" class="form-control @error('nis') is-invalid @enderror" name="nis" placeholder="NIS" value="{{ old('nis') }}" autocomplete="nis" autofocus>
+                                                    <input id="nis" type="nis" class="form-control @error('nis') is-invalid @enderror" name="nis" placeholder="NIS" value="{{ old('nis') }}" autocomplete="nis" autofocus required> 
 
                                                     @error('nis')
                                                     <span class="invalid-feedback" role="alert">
@@ -62,12 +62,13 @@
                                                     @enderror
                                                 </div>
                                             </div>
+
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-envelope"></i>
                                                     </div>
-                                                    <input id="usr_name" type="text" class="form-control @error('usr_name') is-invalid @enderror" placeholder="Username" name="usr_name" value="{{ old('usr_name') }}" autocomplete="usr_name" autofocus>
+                                                    <input id="usr_name" type="text" class="form-control @error('usr_name') is-invalid @enderror" placeholder="Username" name="usr_name" value="{{ old('usr_name') }}" autocomplete="usr_name" autofocus required>
 
                                                     @error('usr_name')
                                                     <span class="invalid-feedback" role="alert">
@@ -76,55 +77,57 @@
                                                     @enderror
                                                 </div>
                                             </div>
+
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-user"></i>
                                                     </div>
-                                                    <input id="gender" type="gender" placeholder="Gender" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" autocomplete="gender" autofocus>
-
-                                @error('gender')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                                                    <select name="gender" id="select" class="form-control @error('gender') is-invalid @enderror" required>
+                                                <option value="" selected="" disabled="" class="form-control"> Jenis Kelamin</option>
+                                                <option value="Laki Laki" class="form-control">Laki Laki</option>
+                                                <option value="Perempuan" class="form-control">Perempuan</option>
+                                                    </select>
+                                                    @error('gender')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
                                                 </div>
                                             </div>
+
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-envelope"></i>
                                                     </div>
-                                                     <input id="class" type="class" placeholder="Kelas" class="form-control @error('class') is-invalid @enderror" name="class" value="{{ old('class') }}" autocomplete="class" autofocus>
-
-                                @error('class')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                                                 <select name="class_id" class="form-control" required>
+                                                    <option disabled selected value="">Kelas</option>
+                                                    @foreach($class as $data)
+                                                    <option value="{{ $data->class_id }}">{{$data->grade_name}} &nbsp; {{ $data->major_name.' '.''.' '.$data->group}}</option>
+                                                    @endforeach
+                                                 </select>
+                                                    @error('class')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-asterisk"></i>
-                                                    </div>
-                                                    <input id="major" type="major" placeholder="Jurusan" class="form-control @error('major') is-invalid @enderror" name="major" value="{{ old('major') }}" autocomplete="major" autofocus>
-
-                                @error('major')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                                                </div>
-                                            </div> 
-
+                                            
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-user"></i>
                                                     </div>
-                                                    <input id="school_year" type="school_year" placeholder="Tahun Ajaran" class="form-control @error('school_year') is-invalid @enderror" name="school_year" value="{{ old('school_year') }}" autocomplete="school_year" autofocus>
+                                                    <select name="school_year" class="form-control" required>
+                                                        <option>
+                                                             <option disabled selected value="">Tahun Ajaran</option>
+                                                            @foreach($school_year as $data)
+                                                            <option value="{{$data->school_year_id}}">{{$data->school_year_name}}</option>
+                                                            @endforeach
+                                                        </option>
+                                                    </select>
 
                                 @error('school_year')
                                 <span class="invalid-feedback" role="alert">
@@ -138,7 +141,7 @@
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-envelope"></i>
                                                     </div>
-                                                      <input id="usr_email" type="email" class="form-control @error('usr_email') is-invalid @enderror" placeholder="Email Address" name="usr_email" value="{{ old('usr_email') }}" autocomplete="usr_email">
+                                                      <input id="usr_email" type="email" class="form-control @error('usr_email') is-invalid @enderror" placeholder="Email Address" name="usr_email" value="{{ old('usr_email') }}" autocomplete="usr_email" required>
 
                                 @error('usr_email')
                                 <span class="invalid-feedback" role="alert">
@@ -153,7 +156,7 @@
                                                         <i class="fa fa-user"></i>
                                                     </div>
                                                    
-                                     <input id="password" type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
+                                     <input id="password" type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password" required>
 
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -168,7 +171,7 @@
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-envelope"></i>
                                                     </div>
-                                                    <input class="form-control" type="password" name="password_confirmation" placeholder=" Confirm Password">
+                                                    <input class="form-control" type="password" name="password_confirmation" placeholder=" Confirm Password" required>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="role" value="1">

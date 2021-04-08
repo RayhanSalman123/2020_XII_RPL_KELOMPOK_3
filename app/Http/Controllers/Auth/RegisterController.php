@@ -13,6 +13,8 @@ use App\Mail\SendMail;
 use Illuminate\Support\Str;
 use App\Teacher;
 use App\Student;
+use App\Classes;
+use App\SchoolYears;
 
 class RegisterController extends Controller
 {
@@ -33,7 +35,12 @@ class RegisterController extends Controller
 
     public function registerStudent()
     {
-        return view('auth.register-student');
+        $data ['class'] = Classes::join('grades', 'classes.cl_grade_id', '=', 'grades.grade_id')
+            ->join('majors', 'classes.cl_major_id', '=', 'majors.major_id')
+            ->get();
+        $data ['school_year'] = SchoolYears::all();
+
+        return view('auth.register-student', $data);
     }
 
     public function registerTeacher()
@@ -53,7 +60,15 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    public function redirectTo() {
+        if (Auth()->user()->hasRole('student')) {
+            return '/index_student';
+        }else if(Auth()->user()->hasRole('teacher')){
+            return '/index_teacher';
+        }else{
+            abort(404);
+        }
+    }
 
     /**
      * Create a new controller instance.
@@ -104,8 +119,7 @@ class RegisterController extends Controller
             'user_id'   => $user->usr_id,
             'nis'=> $data['nis'],
             'gender'=>$data['gender'],
-            'class'=>$data['class'],
-            'major'=>$data['major'],
+            'st_class_id'=>$data['class_id'],
             'school_year'=> $data['school_year'], 
             
         ]);
@@ -120,7 +134,6 @@ class RegisterController extends Controller
             Teacher::create([
             'user_id'   => $user->usr_id,
             'nip'=> $data['nip'],
-            'teacher_subject'=> $data['teacher_subject'], 
             'gender'=>$data['gender'],
         ]);
             

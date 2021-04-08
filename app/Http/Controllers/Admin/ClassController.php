@@ -15,7 +15,7 @@ class ClassController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    ubplic function list_class()
+    public function list_class()
     {
          $class=Classes::join('majors', 'majors.major_id','=','classes.cl_major_id')->
                          join('grades', 'grades.grade_id','=','classes.cl_grade_id')->get();

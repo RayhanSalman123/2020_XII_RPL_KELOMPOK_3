@@ -11,7 +11,7 @@
         <form action="" method="post" class="form-horizontal">
             <div class="row form-group">
                 <div class="col col-sm-5">
-                    <label for="nama guru" class=" form-control-label">Nama Guru</label>
+                    <label for="nama guru">Nama Guru</label>
                 </div>
                 <div class="col col-sm-6">
                     <input type="text" id="input-normal" name="input-normal" placeholder="Masukkan Nama Guru" class="form-control">
@@ -53,7 +53,7 @@
                     <input type="text" id="input-normal" name="input-normal" placeholder="Masukkan Jam" class="form-control">
                 </div>
             </div>
-        </form>
+       
     </div>
     <div class="card-footer">
         <button type="submit" class="btn btn-primary btn-sm">
@@ -63,4 +63,5 @@
             <i class="fa fa-ban"></i> Reset
         </button> -->
     </div>
+     </form>
 @endsection
