@@ -12,8 +12,19 @@ class SubjectSeeder extends Seeder
     public function run()
     {
         DB::table('subjects')->insert([
-            'sbj_curriculum_id'  => '1',
-         	'name_subject' => 'Komputer Jaringan',
+            'sbj_curriculum_id'     => '2',
+         	'name_subject'          => 'PJOK (X)'
+        ]);
+
+        DB::table('subjects')->insert([
+            'sbj_curriculum_id'     => '2',
+            'name_subject'          => 'PJOK (XI)'
+        ]);
+
+        DB::table('subjects')->insert([
+            'sbj_major_id'          => '1',
+            'sbj_curriculum_id'     => '2',
+            'name_subject'          => 'Komjar'
         ]);
     }
 }

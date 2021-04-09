@@ -6,13 +6,17 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
-                            <a href="/list_schedule"> 
-                                <i class="fas fa-chart-bar"></i>Dashboard</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                            </ul>
+                        <li class="{{Request::path() === 'list_schedule'?'active' : ''}} has-sub">
+                            <a href="/list_schedule">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                        </li >
+                        
+                        <li  class="{{Request::path() === 'student/list_note'?'active' : ''}} has-sub">
+                            <a href="/student/list_note">
+                                <i class="fas fa-edit"></i>List Catatan</a>
                         </li>
-                        <li>
+
+                       <li>
                             <a href="{{ url('/logout')}}">
                                 <i class="fa fa-power-off"></i>Logout</a>
                         </li>

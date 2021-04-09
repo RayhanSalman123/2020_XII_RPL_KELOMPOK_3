@@ -17,10 +17,8 @@ class CreateConfirmsTable extends Migration
             $table->id('confirm_id');
             $table->foreignId('con_class_id');
             $table->foreign('con_class_id')->references('class_id')->on('classes');
-            $table->foreignId('con_major_id');
-            $table->foreign('con_major_id')->references('major_id')->on('majors');
             $table->timestamps();
-
+            $table->softdeletes();
         });
     }
 

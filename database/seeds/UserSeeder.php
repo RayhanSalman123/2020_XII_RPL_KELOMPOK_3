@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
         $admin->assignRole('admin');
 
         $siswa = User::create([
-            'usr_name' => 'Anisa',
+            'usr_name' => 'Rayhan',
             'usr_email' => 'student@gmail.com',
             'usr_password' => Hash::make('student'),
             'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),

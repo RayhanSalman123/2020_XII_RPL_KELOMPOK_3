@@ -12,11 +12,11 @@ class StudentSeeder extends Seeder
     public function run()
     {
         DB::table('students')->insert([
-            'user_id'   => '2',
+            'user_id'       => '2',
             'st_class_id'   => '1',
-        	'nis' => '1819.10.007',
-        	'gender' => 'Perempuan',
-            'school_year' => '2018'
+        	'nis'           => '1819.10.007',
+        	'gender'        => 'laki-laki',
+            'school_year'   => '2018'
         ]);
     }
 }

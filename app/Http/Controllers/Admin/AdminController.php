@@ -11,6 +11,7 @@ use App\classes;
 use App\Majors;
 use App\Curriculum;
 use App\SchoolYears;
+use App\SchoolActivitiesAgenda;
 
 
 class AdminController extends Controller
@@ -33,7 +34,8 @@ class AdminController extends Controller
         $Majors=majors::count();
         $curriculum=curriculum::count();
         $school_year=SchoolYears::count();
-        return view('admin/dashboard',compact(['teacher','subject', 'classes', 'Majors', 'curriculum', 'school_year']));
+        $sa_agenda=SchoolActivitiesAgenda::count();
+        return view('admin/dashboard',compact(['teacher','subject', 'classes', 'Majors', 'curriculum', 'school_year', 'sa_agenda']));
     }
 
     /**

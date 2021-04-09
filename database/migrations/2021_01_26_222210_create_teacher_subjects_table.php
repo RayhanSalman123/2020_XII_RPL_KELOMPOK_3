@@ -14,10 +14,13 @@ class CreateTeacherSubjectsTable extends Migration
     public function up()
     {
         Schema::create('teacher_subjects', function (Blueprint $table) {
-            $table->increments('ts_id');
-            $table->integer('ts_teacher_id');
-            $table->integer('ts_subject_id');
+            $table->bigIncrements('ts_id');
+            $table->foreignId('ts_teacher_id');
+            $table->foreign('ts_teacher_id')->references('teacher_id')->on('teachers');
+            $table->foreignId('ts_subject_id');
+            $table->foreign('ts_subject_id')->references('subject_id')->on('subjects');
             $table->timestamps();
+            $table->softdeletes();
         });
     }
 

@@ -65,7 +65,7 @@
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
-                                                        <i class="fa fa-envelope"></i>
+                                                        <i class="fa fa-user"></i>
                                                     </div>
                                                     <input id="nip" type="nip" placeholder="NIP" class="form-control @error('nip') is-invalid @enderror" name="nip" value="{{ old('nip') }}" autocomplete="nip">
 
@@ -80,7 +80,7 @@
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
-                                                        <i class="fa fa-envelope"></i>
+                                                        <i class="fa fa-user"></i>
                                                     </div>
                                                      <select name="gender" id="select" class="form-control @error('gender') is-invalid @enderror" required>
                                                 <option value="" selected="" disabled="" class="form-control"> Jenis Kelamin</option>
@@ -97,7 +97,7 @@
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
-                                                        <i class="fa fa-asterisk"></i>
+                                                        <i class="fa fa-at"></i>
                                                     </div>
                                                    <input id="usr_email" type="email" placeholder="Email Adress" class="form-control @error('usr_email') is-invalid @enderror" name="usr_email" value="{{ old('usr_email') }}" autocomplete="usr_email">
 
@@ -112,7 +112,7 @@
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
-                                                        <i class="fa fa-user"></i>
+                                                        <i class="fa fa-asterisk"></i>
                                                     </div>
                                                     <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
 
@@ -126,7 +126,7 @@
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
-                                                        <i class="fa fa-envelope"></i>
+                                                        <i class="fa fa-asterisk"></i>
                                                     </div>
                                                       <input class="form-control" type="password" name="password_confirmation" placeholder=" Confirm Password">
                                                 </div>

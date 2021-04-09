@@ -13,7 +13,10 @@ class ConfirmSeeder extends Seeder
     {
         DB::table('confirms')->insert([
             'con_class_id'  => '1',
-            'con_major_id'		  => '1',
+        ]);
+
+        DB::table('confirms')->insert([
+            'con_class_id'  => '2',
         ]);
     }
 }

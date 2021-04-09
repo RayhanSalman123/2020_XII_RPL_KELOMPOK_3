@@ -16,5 +16,11 @@ class ClassesSeeder extends Seeder
             'cl_major_id' => '1',
             'group' => '1'
         ]);
+
+       DB::table('classes')->insert([
+            'cl_grade_id' => '1',
+            'cl_major_id' => '2',
+            'group' => '2'
+        ]);
     }
 }

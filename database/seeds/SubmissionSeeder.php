@@ -11,11 +11,11 @@ class SubmissionSeeder extends Seeder
      */
     public function run()
     {
-          DB::table('submissions')->insert([
+        DB::table('submissions')->insert([
             'user_id'           => '3',
-            'sbj_subject_id'    => '1',
-            'time'         => '10:00:00',
-         	'day' 		   => 'selasa'
+            'sbm_subject_id'    => '1',
+            'time'              => '10:00:00',
+         	'day' 		        => 'selasa'
         ]);
     }
 }

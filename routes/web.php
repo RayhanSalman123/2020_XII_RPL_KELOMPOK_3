@@ -86,6 +86,13 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:a
 
     Route::get('/admin/list_schedule'  , 'Admin\ScheduleController@ListSchedule');
 
+    Route::get('/admin/list_sa_agenda', 'Admin\SaAgendaController@list_sa_agenda');
+	Route::get('/admin/list_sa_agenda/add_sa_agenda', 'Admin\SaAgendaController@create');
+	Route::post('/admin/list_sa_agenda', 'Admin\SaAgendaController@store');
+	Route::get('/admin/edit_sa_agenda/{sa_id}/edit', 'Admin\SaAgendaController@edit');
+	Route::post('/admin/edit_sa_agenda/{sa_id}/edit', 'Admin\SaAgendaController@update');
+	Route::delete('/admin/list_sa_agenda/{sa_id}/delete', 'Admin\SaAgendaController@delete');
+
 	Route::get('/admin/list_submission_admin', 'Admin\SubmissionController@list_submission');
 
 	Route::get('/admin/confirm_headmaster', 'Admin\ConfirmController@list_confirm');
@@ -124,6 +131,13 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified','role:st
 	Route::get('/index_student', 'Student\StudentController@index');
 	// Route::get('/student/schedule', 'StudentController@schedule');
 	Route::get('/list_schedule', 'Student\ScheduleController@list_schedule');
+
+	Route::get('/student/list_note', 'Student\NoteController@list_note');
+	Route::get('/student/list_note/add_note', 'Student\NoteController@create');
+	Route::post('/student/list_note', 'Student\NoteController@store');
+	Route::get('/student/edit_note/{nt_id}/edit', 'Student\NoteController@edit');
+	Route::post('/student/update/{nt_id}', 'Student\NoteController@update');
+	Route::delete('/student/list_note/{nt_id}/delete', 'Student\NoteController@delete');
 });
 
 
