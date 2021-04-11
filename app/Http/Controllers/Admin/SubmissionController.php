@@ -15,8 +15,11 @@ class SubmissionController extends Controller
 
     public function list_submission()
     {
-        $submissions=Submissions::all();
-        // $count = 0;
-        return view('admin/submission/list_submission');
+        $submissions=Submissions::join('users','users.usr_id','=','submissions.user_id')
+                                  ->join('subjects', 'subjects.subject_id', 'submissions.sbm_subject_id')
+                                  ->orderBy('submissions.created_at','asc')
+                                  ->get();
+       
+        return view('admin/submission/list_submission', ['submissions' => $submissions]);
     }
 }

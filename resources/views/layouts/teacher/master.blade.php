@@ -19,7 +19,7 @@
             </div>
         </div>
 
-
+  @include('sweetalert::alert')
 	@include('layouts.teacher.js');
 
 

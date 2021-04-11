@@ -45,7 +45,7 @@
                     <select name="day_id" class="form-control select2" required>
                         <option disabled selected value="">-- Pilih --</option>
                         @foreach($day as $data)
-                        <option value="{{ $data->day_id }}">{{$data->days_name}}</option>
+                        <option value="{{ $data->day_id }}">{{$data->day_name}}</option>
                         @endforeach
                     </select>
                 </div>

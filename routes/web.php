@@ -143,11 +143,18 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified','role:st
 
 
 Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:teacher']], function () {
-	Route::get('/index_teacher', 'Teacher\TeacherController@index');
-	Route::get('/teacher/list_schedule_teacher', 'Teacher\ScheduleController@list_schedule_teacher');
-	Route::get('/teacher/form-submission', 'Teacher\TeacherController@create');
 
-	Route::post('/teacher/form-submission', 'Admin\TeacherController@store');
+	Route::get('/index_teacher', 'Teacher\TeacherController@index');
+
+	Route::get('/teacher/list_schedule_teacher', 'Teacher\ScheduleController@list_schedule_teacher');
+
+	Route::get('/teacher/mysubmission', 'Teacher\TeacherController@submission');
+
+	Route::get('/teacher/mysubmission/form-submission', 'Teacher\TeacherController@create');
+	Route::post('/teacher/mysubmission/form-submission', 'Teacher\TeacherController@store');
+
+	Route::delete('/teacher/mysubmission/{submission_id}/delete', 'Teacher\TeacherController@delete');
+
 
 });
 
