@@ -120,6 +120,6 @@ class TeacherController extends Controller
     {
          $submissions = Submissions::find($submission_id);
         $submissions->delete();
-        return redirect('/teacher/mysubmission');
+        return redirect('/teacher/mysubmission')->withSuccess('Data Berhasil DiHapus');
     }
 }

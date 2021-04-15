@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Classes;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+use App\Classes;
 use App\Majors;
 use App\Grades;
 
@@ -48,12 +49,12 @@ class ClassController extends Controller
     public function store(Request $request)
     {
 
-         $message = ['required' => 'Inputan wajib di isi'];
-         $request->validate([
+         // $message = ['required' => 'Inputan wajib di isi'];
+         if($request->validate([
             'grade' => 'required|',
             'major' => 'required',
             'group' => 'required|numeric'
-          ], $message);
+          ])){
 
 
          $class= classes::where('cl_grade_id',$request->input('grade'))->where('cl_major_id',$request->input('major'))->where('group',$request->input('group'))->first();
@@ -66,7 +67,10 @@ class ClassController extends Controller
         $class->cl_major_id = $request->input('major');
         $class->group = $request->input('group');
         $class->save();
-        return redirect('/admin/list_class');
+        return redirect('/admin/list_class')->withSuccess('Berhasil', 'Data Berhasil DiSimpan');
+        }else{
+            return back();  
+        }
     }
 
     /**
@@ -106,12 +110,12 @@ class ClassController extends Controller
     public function update(Request $request, $class_id)
     {
       // dd($request);
-        $message = ['required' => 'Inputan wajib di isi'];
-         $request->validate([
+        // $message = ['required' => 'Inputan wajib di isi'];
+         if($request->validate([
             'grade' => 'required|',
             'major_name' => 'required',
             'group' => 'required|numeric'
-          ], $message);
+          ])){
          
 
         $class = Classes::where('class_id', $class_id)->first();
@@ -119,7 +123,11 @@ class ClassController extends Controller
         $class->cl_major_id = $request->input('major_name');
         $class->group = $request->input('group');
         $class->update();
-        return redirect('/admin/list_class');
+        return redirect('/admin/list_class')->withSuccess('Berhasil', 'Data Berhasil DiSimpan');
+        }else{ 
+            return back();  
+        }
+          
     }
 
     /**
@@ -132,7 +140,7 @@ class ClassController extends Controller
     {
         $class = Classes::find($class_id);
         $class->delete();
-        return redirect('/admin/list_class');
+        return redirect('/admin/list_class')->withSuccess('Data Berhasil DiHapus');
     }
 }
 

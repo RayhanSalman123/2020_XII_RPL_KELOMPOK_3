@@ -18,6 +18,7 @@ class CreateUniformSchedulesTable extends Migration
             $table->foreignId('unf_day_id');
             $table->foreign('unf_day_id')->references('day_id')->on('days');
             $table->string('unf_name_uniform');
+            $table->string('unf_week');
             $table->timestamps();
             $table->softdeletes();
         });

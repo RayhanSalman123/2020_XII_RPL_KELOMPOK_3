@@ -117,10 +117,12 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:a
 	Route::post('/admin/list_grade/add_grade', 'Admin\GradeController@store');
 	Route::delete('/admin/list_grade/{grade_id}/delete', 'Admin\GradeController@delete');
 
-
-
-
-
+	Route::get('/admin/list_uniform', 'Admin\UniformScheduleController@list_uniform');
+	Route::get('/admin/list_uniform/add_uniform', 'Admin\UniformScheduleController@create');
+	Route::post('/admin/list_uniform', 'Admin\UniformScheduleController@store');
+	Route::get('/admin/list_uniform/edit_uniform/{unf_id}/edit', 'Admin\UniformScheduleController@edit');
+	Route::post('/admin/list_uniform/update/{unf_id}', 'Admin\UniformScheduleController@update');
+	Route::delete('/admin/list_uniform/{unf_id}/delete', 'Admin\UniformScheduleController@delete');
 
 });
 

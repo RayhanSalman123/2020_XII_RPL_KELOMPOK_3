@@ -13,12 +13,14 @@ class UniformScheduleSeeder extends Seeder
     {
         DB::table('uniform_schedules')->insert([
         	'unf_day_id'		=> '2',
-			'unf_name_uniform'	=> 'Putih Abu'
+			'unf_name_uniform'	=> 'Putih Abu',
+            'unf_week'          =>  '1'
         ]);
 
         DB::table('uniform_schedules')->insert([
         	'unf_day_id'		=> '3',
-			'unf_name_uniform'	=> 'Kotak-kotak'
+			'unf_name_uniform'	=> 'Kotak-kotak',
+            'unf_week'          =>  '1'
         ]);
     }
 }

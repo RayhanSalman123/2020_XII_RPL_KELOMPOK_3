@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Subjects;
 use App\Majors;
 use App\Classes;
@@ -60,17 +61,20 @@ class SubjectController extends Controller
     public function update(Request $request,$subject_id)
     {
      // dd($request);
-      $message = ['required' => 'Inputan wajib di isi'];
-      $request->validate([
+      // $message = ['required' => 'Inputan wajib di isi'];
+      if($request->validate([
           'name_subject' => 'required',
           'curriculum_name' => 'required',
-          ], $message);
+          ])){
 
         $subject = Subjects::where('subject_id', $subject_id)->first();
         $subject->name_subject = $request->input('name_subject');  
         $subject->sbj_curriculum_id = $request->input('curriculum_name');
         $subject->update();
-        return redirect('/admin/list_subject_admin');
+        return redirect('/admin/list_subject_admin')->withSuccess('Berhasil', 'Data Berhasil DiSimpan');
+        }else{
+            return back();  
+        }
     }
     
 
@@ -78,6 +82,6 @@ class SubjectController extends Controller
     {
         $subject = Subjects::find($subject_id);
         $subject->delete();
-        return redirect('/admin/list_subject_admin');
+        return redirect('/admin/list_subject_admin')->withSuccess('Data Berhasil DiHapus');;
     }
 }

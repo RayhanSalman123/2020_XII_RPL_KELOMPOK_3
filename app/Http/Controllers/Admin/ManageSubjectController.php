@@ -36,7 +36,6 @@ class ManageSubjectController extends Controller
    			'ts_teacher_id'=>$teacher_id,
    			'ts_subject_id'=>$subject_id
    		]);
-         
    		return back();
 
    	}

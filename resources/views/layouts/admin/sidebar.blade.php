@@ -63,6 +63,11 @@
                                 <i class="fas fa-file-alt"></i>Jadwal Pelajaran</a>
                         </li>
 
+                        <li class="{{Request::path() === 'admin/list_uniform'?'active' : ''}} has-sub">
+                            <a href="/admin/list_uniform">
+                                <i class="fas fa-file-alt"></i>Jadwal Seragam</a>
+                        </li>
+
                         <li class="{{Request::path() === 'admin/list_sa_agenda'?'active' : ''}} has-sub">
                             <a href="/admin/list_sa_agenda">
                                 <i class="fas fa-calendar-alt"></i>Agenda Sekolah</a>

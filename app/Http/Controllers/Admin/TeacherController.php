@@ -9,6 +9,7 @@ use App\Subjects;
 use App\User;
 use Hash;
 use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class TeacherController extends Controller
 {
@@ -25,13 +26,13 @@ class TeacherController extends Controller
 
     public function store(Request $request)
     {
-        $message = ['required' => 'Inputan wajib di isi'];
-        $request->validate([
+        
+        if($request->validate([
             'nip' => 'required|unique:teachers,nip|numeric|min:0',
             'usr_name' => 'required',
             'usr_email' => 'required|unique:users,usr_email',
             'gender' => 'required',
-        ], $message);
+        ])){
 
         $nip = $request -> input('nip');
         $usr_name = $request -> input('usr_name');
@@ -54,9 +55,10 @@ class TeacherController extends Controller
             $teacher->gender = $gender;
             $teacher->save();
        }
-
-        return redirect('admin/list_teacher');
-        
+       return redirect('admin/list_teacher')->withSuccess('Berhasil', 'Data Berhasil DiSimpan');
+        }else{
+            return back();  
+        }
 
     }
 
@@ -74,7 +76,8 @@ class TeacherController extends Controller
         $teacher = Teacher::where('teacher_id', $teacher_id)->first();
 
         $teacher->delete();
-        return redirect('/admin/list_teacher');
+        return redirect('/admin/list_teacher')->withSuccess('Data Berhasil DiHapus');
+        
     }
 
      public function edit($teacher_id)
@@ -90,11 +93,11 @@ class TeacherController extends Controller
     {
         // dd($teacher_id);
         $message = ['required' => 'Inputan wajib di isi'];
-        $request->validate([
+        if($request->validate([
             'nip' => 'required|numeric|min:5',
             'usr_name' => 'required',
             'gender' => 'required',
-        ], $message);
+        ])){
 
         $teacher = Teacher::where('teacher_id',$teacher_id)->first();
         $teacher->nip = $request->input('nip');
@@ -104,6 +107,9 @@ class TeacherController extends Controller
         $user = User::where('usr_id',$teacher->user_id)->first();
         $user->usr_name = $request->input('usr_name');
         $user->update();
-        return redirect('/admin/list_teacher');
+        return redirect('/admin/list_teacher')->withSuccess('Berhasil', 'Data Berhasil DiSimpan');
+        }else{
+            return back();  
+        }  
     }
 }

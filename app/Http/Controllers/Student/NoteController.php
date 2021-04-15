@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Note;
 use App\Subjects;
 
@@ -26,20 +27,22 @@ class NoteController extends Controller
     public function store(Request $request)
     {
         
-         $message = ['required' => 'Inputan wajib di isi'];
-         $request->validate([
+         // $message = ['required' => 'Inputan wajib di isi'];
+         if($request->validate([
             'subject' => 'required|unique:subjects,name_subject',
             'nt_date' => 'required',
             'nt_name' => 'required|',
-          ], $message);
-
+          ])){
 
         $note = new Note();
         $note->nt_subject_id = $request->input('subject');
         $note->nt_date = $request->input('nt_date');
         $note->nt_name = $request->input('nt_name');
         $note->save();
-        return redirect('/student/list_note');
+        return redirect('/student/list_note')->withSuccess('Berhasil', 'Data Berhasil DiSimpan');
+        }else{
+            return back();   
+        }
     }
 
      public function edit($nt_id)
@@ -55,26 +58,28 @@ class NoteController extends Controller
     public function update(Request $request,$nt_id)
     {
         // dd($teacher_id);
-        $message = ['required' => 'Inputan wajib di isi'];
-        $request->validate([
+        // $message = ['required' => 'Inputan wajib di isi'];
+        if($request->validate([
             'subject' => 'required|unique:subjects,name_subject',
             'nt_date' => 'required',
             'nt_name' => 'required',
-        ], $message);
+        ])){
 
         $note = Note::where('nt_id',$nt_id)->first();
         $note->nt_subject_id= $request->input('subject');
         $note->nt_date = $request->input('nt_date');
         $note->nt_name = $request->input('nt_name');
         $note->update();
-
-        return redirect('/student/list_note');
+        return redirect('/student/list_note')->withSuccess('Berhasil', 'Data Berhasil DiSimpan');
+        }else{
+            return back();   
+        }
     }
 
     public function delete($nt_id)
     {
         $note = Note::find($nt_id);
         $note->delete();
-        return redirect('/student/list_note');
+        return redirect('/student/list_note')->withSuccess('Data Berhasil DiHapus');
     }
 }

@@ -17,7 +17,7 @@
                             <tr>
 
                                 @foreach ($day as $dataDay)
-                                    <th class="text-left" style="width: 18%">{{ $dataDay->days_name }}</th>
+                                    <th class="text-left" style="width: 18%">{{ $dataDay->day_name }}</th>
                                 @endforeach
                             </tr>
                             </thead>

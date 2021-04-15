@@ -50,8 +50,7 @@ class MajorController extends Controller
         $major->save();
         return redirect('/admin/manage_major')->withSuccess('Berhasil', 'Data Berhasil DiSimpan');
         }else{
-            return back();
-            
+            return back();   
         }
     }
     
@@ -100,6 +99,6 @@ class MajorController extends Controller
     {
         $major = Majors::find($major_id);
         $major->delete();
-        return redirect('/admin/manage_major');
+        return redirect('/admin/manage_major')->withSuccess('Data Berhasil DiHapus');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\SchoolYears;
 
 class SchoolYearController extends Controller
@@ -24,22 +25,25 @@ class SchoolYearController extends Controller
     public function store(Request $request)
     {
         
-         $message = ['required' => 'Inputan wajib di isi'];
-         $request->validate([
+         // $message = ['required' => 'Inputan wajib di isi'];
+         if($request->validate([
             'school_year_name' => 'required|numeric|unique:school_years,school_year_name',
-          ], $message);
+          ])){
 
 
         $school_year = new SchoolYears();
         $school_year->school_year_name = $request->input('school_year_name');
         $school_year->save();
-        return redirect('/admin/list_school_year');
+        return redirect('/admin/list_school_year')->withSuccess('Berhasil', 'Data Berhasil DiSimpan');
+        }else{ 
+            return back();  
+        }
     }
 
     public function delete($school_year_id)
     {
         $school_year = SchoolYears::find($school_year_id);
         $school_year->delete();
-        return redirect('/admin/list_school_year');
+        return redirect('/admin/list_school_year')->withSuccess('Data Berhasil DiHapus');
     }
 }

@@ -17,6 +17,7 @@ class CreateSchoolActivitiesAgendaTable extends Migration
             $table->id('sa_id');
             $table->date('sa_date');
             $table->string('sa_description');
+            $table->string('sa_place');
             $table->timestamps();
             $table->softdeletes();
         });

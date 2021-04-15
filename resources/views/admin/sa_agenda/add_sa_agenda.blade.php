@@ -38,6 +38,20 @@
        </div>
        </div>
 
+       <div class="row form-group">
+        <div class="col col-sm-5">
+          <label for="tempat" class=" form-control-label">Tempat</label>
+        </div>
+        <div class="col col-sm-6">
+          <input type="text" name="sa_place" placeholder="Masukkan Nama Tempat" class="form-control @error('sa_place') is-invalid @enderror" value="{{old('sa_place')}}" required>
+          @error('sa_place')
+          <span class="invalid-feedback" role="alert">
+           <strong>{{ $message }}</strong>
+         </span>
+         @enderror       
+       </div>
+       </div>
+
      <button type="submit" class="btn btn-primary btn-sm">Submit</button>
      <a href="/admin/list_sa_agenda" class="btn btn-danger btn-sm">Cancel</a>
    </form>

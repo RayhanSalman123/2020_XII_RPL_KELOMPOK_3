@@ -12,6 +12,7 @@
                 <th>NO</th>
                 <th>TANGGAL KEGIATAN</th>
                 <th>DESKRIPSI</th>
+                <th>TEMPAT</th>
                 <th>ACTION</th>
             </tr>
         </thead>
@@ -22,6 +23,7 @@
                 <td>{{$count+1}}</td>
                 <td>{{$sa_agenda->sa_date}}</td>
                 <td>{{$sa_agenda->sa_description}}</td>
+                <td>{{$sa_agenda->sa_place}}</td>
                 <td>
                     <form action="/admin/list_sa_agenda/{{$sa_agenda->sa_id}}/delete" method="post">
                     <a href="{{URL::to('/admin/edit_sa_agenda')}}/{{$sa_agenda->sa_id}}/edit" value="EDIT" class="btn btn-outline-info fa fa-pencil-square-o"></a>

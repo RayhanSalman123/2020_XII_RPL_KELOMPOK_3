@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Curriculum;
 
 class CurriculumController extends Controller
@@ -25,21 +26,24 @@ class CurriculumController extends Controller
     {
         
          $message = ['required' => 'Inputan wajib di isi'];
-         $request->validate([
+         if($request->validate([
             'curriculum_name' => 'required|unique:curriculums,curriculum_name',
-          ], $message);
+          ])){
 
 
         $curriculum = new Curriculum();
         $curriculum->curriculum_name = $request->input('curriculum_name');
         $curriculum->save();
-        return redirect('/admin/list_curriculum');
+        return redirect('/admin/list_curriculum')->withSuccess('Berhasil', 'Data Berhasil DiSimpan');
+        }else{ 
+            return back();  
+        }
     }
 
     public function delete($curriculum_id)
     {
         $curriculum = Curriculum::find($curriculum_id);
         $curriculum->delete();
-        return redirect('/admin/list_curriculum');
+        return redirect('/admin/list_curriculum')->withSuccess('Data Berhasil DiHapus');
     }
 }
