@@ -59,7 +59,8 @@ class ClassController extends Controller
 
          $class= classes::where('cl_grade_id',$request->input('grade'))->where('cl_major_id',$request->input('major'))->where('group',$request->input('group'))->first();
          if ($class) {
-             return redirect()->back();
+            Alert::error('Gagal', 'Data Sudah Tersedia'); 
+             return back();
          }
 
         $class = new Classes();

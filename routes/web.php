@@ -113,16 +113,20 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:a
 	Route::delete('/admin/list_school_year/{school_year_id}/delete', 'Admin\SchoolYearController@delete');
 
 	Route::get('/admin/list_grade', 'Admin\GradeController@list_grade');
-	Route::get('/admin/list_grade/add_grade', 'Admin\GradeController@create');
-	Route::post('/admin/list_grade/add_grade', 'Admin\GradeController@store');
-	Route::delete('/admin/list_grade/{grade_id}/delete', 'Admin\GradeController@delete');
 
-	Route::get('/admin/list_uniform', 'Admin\UniformScheduleController@list_uniform');
-	Route::get('/admin/list_uniform/add_uniform', 'Admin\UniformScheduleController@create');
-	Route::post('/admin/list_uniform', 'Admin\UniformScheduleController@store');
-	Route::get('/admin/list_uniform/edit_uniform/{unf_id}/edit', 'Admin\UniformScheduleController@edit');
-	Route::post('/admin/list_uniform/update/{unf_id}', 'Admin\UniformScheduleController@update');
-	Route::delete('/admin/list_uniform/{unf_id}/delete', 'Admin\UniformScheduleController@delete');
+	Route::get('/admin/list_uniform', 'Admin\UniformController@list_uniform');
+	Route::get('/admin/list_uniform/add_uniform', 'Admin\UniformController@create');
+	Route::post('/admin/list_uniform', 'Admin\UniformController@store');
+	Route::get('/admin/list_uniform/edit_uniform/{urm_id}/edit', 'Admin\UniformController@edit');
+	Route::post('/admin/list_uniform/update/{urm_id}', 'Admin\UniformController@update');
+	Route::delete('/admin/list_uniform/{urm_id}/delete', 'Admin\UniformController@delete');
+
+	Route::get('/admin/list_schedule_uniform', 'Admin\UniformScheduleController@list_schedule_uniform');
+	Route::get('/admin/list_schedule_uniform/add_schedule_uniform', 'Admin\UniformScheduleController@create');
+	Route::post('/admin/list_schedule_uniform', 'Admin\UniformScheduleController@store');
+	Route::get('/admin/list_schedule_uniform/edit_schedule_uniform/{unf_id}/edit', 'Admin\UniformScheduleController@edit');
+	Route::post('/admin/list_schedule_uniform/update/{unf_id}', 'Admin\UniformScheduleController@update');
+	Route::delete('/admin/list_schedule_uniform/{unf_id}/delete', 'Admin\UniformScheduleController@delete');
 
 });
 
@@ -140,6 +144,11 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified','role:st
 	Route::get('/student/edit_note/{nt_id}/edit', 'Student\NoteController@edit');
 	Route::post('/student/update/{nt_id}', 'Student\NoteController@update');
 	Route::delete('/student/list_note/{nt_id}/delete', 'Student\NoteController@delete');
+
+	Route::get('/student/list_sa_agenda', 'Student\SaAgendaController@list_sa_agenda');
+
+	Route::get('/student/list_schedule_uniform', 'Student\SchUniformController@list_sch_uniform');
+
 });
 
 
@@ -156,6 +165,8 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:t
 	Route::post('/teacher/mysubmission/form-submission', 'Teacher\TeacherController@store');
 
 	Route::delete('/teacher/mysubmission/{submission_id}/delete', 'Teacher\TeacherController@delete');
+
+	Route::get('/teacher/list_sa_agenda', 'Teacher\SaAgendaController@list_sa_agenda');
 
 
 });

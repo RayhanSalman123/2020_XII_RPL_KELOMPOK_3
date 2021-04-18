@@ -27,7 +27,7 @@ class SchoolYearController extends Controller
         
          // $message = ['required' => 'Inputan wajib di isi'];
          if($request->validate([
-            'school_year_name' => 'required|numeric|unique:school_years,school_year_name',
+            'school_year_name' => 'required|unique:school_years,school_year_name',
           ])){
 
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSchoolYearsTable extends Migration
+class CreateUniformsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateSchoolYearsTable extends Migration
      */
     public function up()
     {
-        Schema::create('school_years', function (Blueprint $table) {
-            $table->id('school_year_id');
-            $table->string('school_year_name')->unique();
+        Schema::create('uniforms', function (Blueprint $table) {
+            $table->id('urm_id');
+            $table->string('urm_name')->unique();
             $table->timestamps();
             $table->softdeletes();
         });
+         
     }
 
     /**
@@ -28,6 +29,6 @@ class CreateSchoolYearsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('school_years');
+        Schema::dropIfExists('uniforms');
     }
 }

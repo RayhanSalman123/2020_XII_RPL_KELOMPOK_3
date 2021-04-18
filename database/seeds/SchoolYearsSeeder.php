@@ -12,19 +12,15 @@ class SchoolYearsSeeder extends Seeder
     public function run()
     {
         DB::table('school_years')->insert([
-            'school_year_name'  => '2018',        
+            'school_year_name'  => '2018 - 2019',        
             ]);
 
         DB::table('school_years')->insert([
-            'school_year_name'   => '2019',        
+            'school_year_name'   => '2019 - 2020',        
             ]);
 
         DB::table('school_years')->insert([
-            'school_year_name'   => '2020',        
-            ]);
-
-        DB::table('school_years')->insert([
-            'school_year_name'   => '2021',        
+            'school_year_name'   => '2020 -2021',        
             ]);
     }
 }

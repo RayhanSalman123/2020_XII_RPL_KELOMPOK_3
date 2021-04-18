@@ -1,4 +1,4 @@
-@extends('layouts.admin.master')
+@extends('layouts.student.master')
 
 @section('content')
 <div class="col-md-12">
@@ -7,17 +7,22 @@
         <thead>
             <tr>
                 <th>NO</th>
-                <th>TINGKATAN</th>
+                <th>HARI</th>
+                <th>SERAGAM</th>
+                <th>MINGGU KE</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($grade as $count => $grade)
+            @foreach($sch_uniform as $count => $sch_uniform)
             <tr>
 
                 <td>{{$count+1}}</td>
-                <td>{{$grade->grade_name}}</td>
-            </tbody>
+                <td>{{$sch_uniform->day_name}}</td>
+                <td>{{$sch_uniform->urm_name}}</td>
+                <td>{{$sch_uniform->unf_week}}</td>
+            </tr>
             @endforeach
+        </tbody>    
         </table>
     </div>
     <!-- END DATA TABLE-->

@@ -41,6 +41,12 @@
                         </li>
 
 
+                        <li class="{{Request::path() === 'admin/list_uniform'?'active' : ''}} has-sub">
+                            <a href="/admin/list_uniform">
+                                <i class="fas fa-list"></i>List Seragam</a>
+                        </li>
+
+
                         <li class="{{Request::path() === 'admin/list_subject_admin'?'active' : ''}} has-sub">
                             <a href="/admin/list_subject_admin">
                                 <i class="far fa-newspaper"></i>List Mata Pelajaran</a>
@@ -63,8 +69,8 @@
                                 <i class="fas fa-file-alt"></i>Jadwal Pelajaran</a>
                         </li>
 
-                        <li class="{{Request::path() === 'admin/list_uniform'?'active' : ''}} has-sub">
-                            <a href="/admin/list_uniform">
+                        <li class="{{Request::path() === 'admin/list_schedule_uniform'?'active' : ''}} has-sub">
+                            <a href="/admin/list_schedule_uniform">
                                 <i class="fas fa-file-alt"></i>Jadwal Seragam</a>
                         </li>
 

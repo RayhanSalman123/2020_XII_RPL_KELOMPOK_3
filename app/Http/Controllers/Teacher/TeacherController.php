@@ -25,17 +25,17 @@ class TeacherController extends Controller
     }
 
 
-    public function submission()
+    // public function submission()
 
-    {
-         $submissions=Submissions::join('users','users.usr_id','=','submissions.user_id')
-                                    ->where('users.usr_id','=',auth()->user()->usr_id)
-                                    ->join('subjects', 'subjects.subject_id', 'submissions.sbm_subject_id')
-                                    ->orderBy('submissions.created_at','asc')->get();
+    // {
+    //      $submissions=Submissions::join('users','users.usr_id','=','submissions.user_id')
+    //                                 ->where('users.usr_id','=',auth()->user()->usr_id)
+    //                                 ->join('subjects', 'subjects.subject_id', 'submissions.sbm_subject_id')
+    //                                 ->orderBy('submissions.created_at','asc')->get();
         
                                   
-        return view ('teacher/submission/mysubmission', ['submissions' => $submissions]);
-    }
+    //     return view ('teacher/submission/mysubmission', ['submissions' => $submissions]);
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -116,10 +116,10 @@ class TeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete($submission_id)
-    {
-         $submissions = Submissions::find($submission_id);
-        $submissions->delete();
-        return redirect('/teacher/mysubmission')->withSuccess('Data Berhasil DiHapus');
-    }
+    // public function delete($submission_id)
+    // {
+    //      $submissions = Submissions::find($submission_id);
+    //     $submissions->delete();
+    //     return redirect('/teacher/mysubmission')->withSuccess('Data Berhasil DiHapus');
+    // }
 }

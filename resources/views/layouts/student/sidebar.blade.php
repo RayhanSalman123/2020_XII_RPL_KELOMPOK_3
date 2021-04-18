@@ -16,6 +16,16 @@
                                 <i class="fas fa-edit"></i>List Catatan</a>
                         </li>
 
+                        <li class="{{Request::path() === 'student/list_schedule_uniform'?'active' : ''}} has-sub">
+                            <a href="/student/list_schedule_uniform">
+                                <i class="fas fa-file-alt"></i>Jadwal Seragam</a>
+                        </li>
+
+                        <li class="{{Request::path() === 'student/list_sa_agenda'?'active' : ''}} has-sub">
+                            <a href="/student/list_sa_agenda">
+                                <i class="fas fa-calendar-alt"></i>Agenda Sekolah</a>
+                        </li>
+
                        <li>
                             <a href="{{ url('/logout')}}">
                                 <i class="fa fa-power-off"></i>Logout</a>
