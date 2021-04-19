@@ -49,7 +49,7 @@ class UniformController extends Controller
     {
         // $message = ['required' => 'Inputan wajib di isi'];
         if($request->validate([
-            'urm_name' => 'required|unique:uniforms,urm_name',
+            'urm_name' => 'required',
         ])){
 
         $uniform = Uniform::where('urm_id',$urm_id)->first();;

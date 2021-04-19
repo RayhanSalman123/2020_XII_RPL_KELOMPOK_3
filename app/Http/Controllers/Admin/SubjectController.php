@@ -36,6 +36,12 @@ class SubjectController extends Controller
           'name_subject' => 'required',
         ])){
 
+            $subject= Subjects::where('sbj_curriculum_id',$request->input('curriculum_name'))->where('name_subject',$request->input('name_subject'))->first();
+         if ($subject) {
+            Alert::error('Gagal', 'Data Sudah Tersedia'); 
+             return back();
+         }
+
         $subject = new Subjects();
         $subject->sbj_curriculum_id = $request->input('curriculum_name');
         $subject->name_subject = $request->input('name_subject');

@@ -12,31 +12,31 @@ class DaySeeder extends Seeder
     public function run()
     {
         DB::table('days')->insert([
-            'day_name' => 'minggu'
+            'day_name' => 'Minggu'
         ]);
 
         DB::table('days')->insert([
-        	'day_name' => 'senin'
+        	'day_name' => 'Senin'
         ]);
 
         DB::table('days')->insert([
-        	'day_name' => 'selasa'
+        	'day_name' => 'Selasa'
         ]);
 
         DB::table('days')->insert([
-        	'day_name' => 'rabu'
+        	'day_name' => 'Rabu'
         ]);
 
         DB::table('days')->insert([
-        	'day_name' => 'kamis'
+        	'day_name' => 'Kamis'
         ]);
 
         DB::table('days')->insert([
-        	'day_name' => 'jumat'
+        	'day_name' => 'Jumat'
         ]);
 
          DB::table('days')->insert([
-        	'day_name' => 'sabtu'
+        	'day_name' => 'Sabtu'
         ]);
     }
 }

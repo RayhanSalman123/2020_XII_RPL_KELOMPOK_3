@@ -38,6 +38,12 @@ class UniformScheduleController extends Controller
             'unf_week' 			 => 'required',
           ])){
 
+            $schedule_uniform= UniformSchedules::where('unf_day_id ',$request->input('day_id'))->where('unf_urm_id',$request->input('uniform'))->where('unf_week',$request->input('unf_week'))->first();
+         if ($class) {
+            Alert::error('Gagal', 'Data Sudah Tersedia'); 
+             return back();
+         }
+
 
         $schedule_uniform = new UniformSchedules();
         $schedule_uniform->unf_day_id 		= $request->input('day_id');

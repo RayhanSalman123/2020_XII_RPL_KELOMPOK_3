@@ -117,6 +117,12 @@ class ClassController extends Controller
             'major_name' => 'required',
             'group' => 'required|numeric'
           ])){
+
+            $class= classes::where('cl_grade_id',$request->input('grade'))->where('cl_major_id',$request->input('major'))->where('group',$request->input('group'))->first();
+         if ($class) {
+            Alert::error('Gagal', 'Data Sudah Tersedia'); 
+             return back();
+         }
          
 
         $class = Classes::where('class_id', $class_id)->first();

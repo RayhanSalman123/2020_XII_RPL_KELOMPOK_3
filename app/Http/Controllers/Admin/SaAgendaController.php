@@ -32,6 +32,12 @@ class SaAgendaController extends Controller
             'sa_place'       => 'required'
           ])){
 
+            $sa_agenda= SchoolActivitiesAgenda::where('sa_date',$request->input('sa_date'))->where('sa_description',$request->input('sa_description'))->where('sa_place',$request->input('sa_place'))->first();
+         if ($sa_agenda) {
+            Alert::error('Gagal', 'Data Sudah Tersedia'); 
+             return back();
+         }
+
         $sa_agenda = new SchoolActivitiesAgenda();
         $sa_agenda->sa_date          = $request->input('sa_date');
         $sa_agenda->sa_description   = $request->input('sa_description');

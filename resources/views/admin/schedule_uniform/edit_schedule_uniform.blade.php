@@ -16,7 +16,6 @@
         </div>
         <div class="col col-sm-6">
           <select name="day_id" class="form-control @error('day') is-invalid @enderror" required>
-            <option value="">--PILIH--</option>
             @foreach($day as $data)
               <option value="{{ $data->day_id }}">{{$data->day_name}}</option>
             @endforeach
@@ -30,7 +29,6 @@
         </div>
         <div class="col col-sm-6">
           <select name="uniform" class="form-control @error('uniform') is-invalid @enderror" required>
-            <option value="">--PILIH--</option>
              @foreach($uniform as $uniform)
              <option value="{{ $uniform->urm_id }}">{{ $uniform->urm_name }}</option>
              @endforeach
