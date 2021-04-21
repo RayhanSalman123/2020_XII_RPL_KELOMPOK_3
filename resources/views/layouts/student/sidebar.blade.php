@@ -6,12 +6,18 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="{{Request::path() === 'list_schedule'?'active' : ''}} has-sub">
-                            <a href="/list_schedule">
+
+                        <li class="{{Request::path() === 'index_student'?'active' : ''}} has-sub">
+                            <a href="/index_student">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li >
                         
-                        <li  class="{{Request::path() === 'student/list_note'?'active' : ''}} has-sub">
+                        <li  class="{{Request::path() === 'student/list_schedule'?'active' : ''}} has-sub">
+                            <a href="/student/list_schedule">
+                                <i class="fas fa-calendar-alt"></i>Jadwal Pelajaran</a>
+                        </li>
+
+                          <li  class="{{Request::path() === 'student/list_note'?'active' : ''}} has-sub">
                             <a href="/student/list_note">
                                 <i class="fas fa-edit"></i>List Catatan</a>
                         </li>

@@ -6,10 +6,12 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
+
                         <li class="{{Request::path() === 'admin/index_admin'?'active' : ''}} has-sub">
                             <a href="/admin/index_admin">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li >
+                        
                         <li  class="{{Request::path() === 'admin/list_teacher'?'active' : ''}} has-sub">
                             <a href="/admin/list_teacher">
                                 <i class="fa fa-group"></i>List Guru</a>

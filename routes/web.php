@@ -136,7 +136,7 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:a
 Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified','role:student']], function () {
 	Route::get('/index_student', 'Student\StudentController@index');
 	// Route::get('/student/schedule', 'StudentController@schedule');
-	Route::get('/list_schedule', 'Student\ScheduleController@list_schedule');
+	Route::get('student/list_schedule', 'Student\ScheduleController@list_schedule');
 
 	Route::get('/student/list_note', 'Student\NoteController@list_note');
 	Route::get('/student/list_note/add_note', 'Student\NoteController@create');
@@ -158,6 +158,7 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:t
 	Route::get('/index_teacher', 'Teacher\TeacherController@index');
 
 	Route::get('/teacher/list_schedule_teacher', 'Teacher\ScheduleController@list_schedule_teacher');
+	Route::get('/teacher/list_schedule_teacher/{id}/schedule', 'Teacher\ScheduleController@schedule');
 
 	Route::get('/teacher/mysubmission', 'Teacher\TeacherController@submission');
 
@@ -167,6 +168,8 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:t
 	Route::delete('/teacher/mysubmission/{submission_id}/delete', 'Teacher\TeacherController@delete');
 
 	Route::get('/teacher/list_sa_agenda', 'Teacher\SaAgendaController@list_sa_agenda');
+
+
 
 
 });

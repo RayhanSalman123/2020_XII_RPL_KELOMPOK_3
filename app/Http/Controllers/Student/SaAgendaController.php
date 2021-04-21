@@ -12,6 +12,6 @@ class SaAgendaController extends Controller
     {
         $sa_agenda=SchoolActivitiesAgenda::all();
 
-        return view('teacher.sa_agenda.list_sa_agenda', ['sa_agenda' => $sa_agenda]);
+        return view('student.sa_agenda.list_sa_agenda', ['sa_agenda' => $sa_agenda]);
     }
 }

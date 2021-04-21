@@ -26,7 +26,7 @@ class ScheduleController extends Controller
             ->join('subjects', 'ts_subject_id', '=', 'subjects.subject_id')
             ->get();
         $data ['day'] = Day::whereNotIn('day_id', [1, 7])->get();
-        $data  ['hour'] = Hours::whereNotIn('hour_id', [11, 12, 13])->get();
+        $data  ['hour'] = Hours::all();
         $data ['class'] = Classes::join('grades', 'classes.cl_grade_id', '=', 'grades.grade_id')
             ->join('majors', 'classes.cl_major_id', '=', 'majors.major_id')
             ->get();

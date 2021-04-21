@@ -22,7 +22,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <?php for ($i = 1; $i <= 10; $i++) { ?>
+                            <?php for ($i = 1; $i <= 13; $i++) { ?>
                             <tr
                                 class="text-left">
                                 <?php for ($d = 2; $d <= 6; $d++) { ?>

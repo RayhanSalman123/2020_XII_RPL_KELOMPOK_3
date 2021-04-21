@@ -46,7 +46,7 @@ class Jadwal
 
     public static function JamMapel()
     {
-        return Hours::whereNotIn('hour_id', [11, 12, 13])
+        return Hours::all()
             ->orderBy('hour_id', 'ASC')
             ->get();
     }
