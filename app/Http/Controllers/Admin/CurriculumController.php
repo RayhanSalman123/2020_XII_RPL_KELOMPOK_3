@@ -30,13 +30,17 @@ class CurriculumController extends Controller
             'curriculum_name' => 'required|unique:curriculums,curriculum_name',
           ])){
 
+        $curriculum= Curriculum::where('curriculum_name',$request->input('curriculum_name'))->first();
+         if ($curriculum) {
+            Alert::error('Gagal', 'Kurikulum Sudah Tersedia'); 
+             return back();
+         }
+
 
         $curriculum = new Curriculum();
         $curriculum->curriculum_name = $request->input('curriculum_name');
         $curriculum->save();
         return redirect('/admin/list_curriculum')->withSuccess('Berhasil', 'Data Berhasil DiSimpan');
-        }else{ 
-            return back();  
         }
     }
 

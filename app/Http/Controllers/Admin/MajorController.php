@@ -45,6 +45,12 @@ class MajorController extends Controller
         'major' => 'required|unique:majors,major_name',
         ])){  
 
+        $major= Majors::where('major_name', $request->input('major'))->first();
+         if ($major) {
+            Alert::error('Gagal', 'Jurusan Sudah Tersedia'); 
+             return back();
+         }
+
         $major = new Majors();
         $major->major_name = $request->input('major');
         $major->save();

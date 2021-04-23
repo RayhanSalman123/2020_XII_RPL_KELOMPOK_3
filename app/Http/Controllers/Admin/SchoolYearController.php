@@ -30,6 +30,11 @@ class SchoolYearController extends Controller
             'school_year_name' => 'required|unique:school_years,school_year_name',
           ])){
 
+            $school_year_check= SchoolYears::where('school_year_name',$request->input('school_year_name'))->first();
+         if ($school_year_check) {
+            Alert::error('Gagal', 'Data Sudah Tersedia'); 
+             return back();
+         }
 
         $school_year = new SchoolYears();
         $school_year->school_year_name = $request->input('school_year_name');

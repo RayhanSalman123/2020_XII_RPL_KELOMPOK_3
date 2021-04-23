@@ -34,7 +34,7 @@ class SaAgendaController extends Controller
 
             $sa_agenda= SchoolActivitiesAgenda::where('sa_date',$request->input('sa_date'))->where('sa_description',$request->input('sa_description'))->where('sa_place',$request->input('sa_place'))->first();
          if ($sa_agenda) {
-            Alert::error('Gagal', 'Data Sudah Tersedia'); 
+            Alert::error('Gagal', 'Agenda Sudah Tersedia'); 
              return back();
          }
 
@@ -65,14 +65,26 @@ class SaAgendaController extends Controller
             'sa_place'       => 'required'
         ])){
 
+
+            $sa_agenda = SchoolActivitiesAgenda::where('sa_id', $sa_id)->first();
+            $sa_agenda_check = SchoolActivitiesAgenda::where('sa_date',$request->input('sa_date'))->where('sa_description',$request->input('sa_description'))->where('sa_place',$request->input('sa_place'))->first();
+            // dd($sa_agenda_check);
+
+            if ($sa_agenda_check) {
+            Alert::error('Gagal', 'Agenda Sudah Tersedia'); 
+             return back();
+         }
+
+         if($sa_agenda->sa_date == $request->sa_date && $sa_agenda->sa_description == $request->sa_description && $sa_agenda->sa_place == $request->sa_place){
+            return redirect('/admin/list_sa_agenda');
+         }
+
         $sa_agenda = SchoolActivitiesAgenda::where('sa_id', $sa_id)->first();
         $sa_agenda->sa_date          = $request->input('sa_date');
         $sa_agenda->sa_description   = $request->input('sa_description');
         $sa_agenda->sa_place         = $request->input('sa_place');
         $sa_agenda->update();
-        return redirect('/admin/list_sa_agenda')->withSuccess('Berhasil', 'Data Berhasil DiSimpan');
-        }else{
-            return back();   
+        return redirect('/admin/list_sa_agenda')->withSuccess('Berhasil', 'Agenda Berhasil DiUbah');
         }
     }
 

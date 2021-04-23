@@ -33,7 +33,7 @@ class TeacherController extends Controller
             'usr_email' => 'required|unique:users,usr_email',
             'gender' => 'required',
         ])){
-
+        	
         $nip = $request -> input('nip');
         $usr_name = $request -> input('usr_name');
         $usr_email = $request -> input('usr_email');

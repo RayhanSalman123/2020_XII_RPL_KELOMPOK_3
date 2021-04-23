@@ -59,7 +59,7 @@ class ClassController extends Controller
 
          $class= classes::where('cl_grade_id',$request->input('grade'))->where('cl_major_id',$request->input('major'))->where('group',$request->input('group'))->first();
          if ($class) {
-            Alert::error('Gagal', 'Data Sudah Tersedia'); 
+            Alert::error('Gagal', 'Kelas Sudah Tersedia'); 
              return back();
          }
 
@@ -118,12 +118,19 @@ class ClassController extends Controller
             'group' => 'required|numeric'
           ])){
 
-            $class= classes::where('cl_grade_id',$request->input('grade'))->where('cl_major_id',$request->input('major'))->where('group',$request->input('group'))->first();
-         if ($class) {
-            Alert::error('Gagal', 'Data Sudah Tersedia'); 
+            $class = Classes::where('class_id', $class_id)->first();
+            $class_check = Classes::where('cl_grade_id',$request->input('grade'))->where('cl_major_id',$request->input('major_name'))->where('group',$request->input('group'))->first();
+            
+
+            if ($class_check) {
+            Alert::error('Gagal', 'Kelas Sudah Tersedia'); 
              return back();
          }
-         
+
+         if($class->cl_grade_id == $request->grade && $class->cl_major_id == $request->major_name && $class->group == $request->group){
+            return redirect('/admin/list_class');
+         }
+
 
         $class = Classes::where('class_id', $class_id)->first();
         $class->cl_grade_id = $request->input('grade');
@@ -131,8 +138,6 @@ class ClassController extends Controller
         $class->group = $request->input('group');
         $class->update();
         return redirect('/admin/list_class')->withSuccess('Berhasil', 'Data Berhasil DiSimpan');
-        }else{ 
-            return back();  
         }
           
     }

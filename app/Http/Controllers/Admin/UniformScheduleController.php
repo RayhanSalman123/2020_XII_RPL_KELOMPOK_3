@@ -37,14 +37,7 @@ class UniformScheduleController extends Controller
             'uniform'	         => 'required|unique:uniform_schedules,unf_urm_id',
             'unf_week' 			 => 'required',
           ])){
-
-            $schedule_uniform= UniformSchedules::where('unf_day_id ',$request->input('day_id'))->where('unf_urm_id',$request->input('uniform'))->where('unf_week',$request->input('unf_week'))->first();
-         if ($class) {
-            Alert::error('Gagal', 'Data Sudah Tersedia'); 
-             return back();
-         }
-
-
+            
         $schedule_uniform = new UniformSchedules();
         $schedule_uniform->unf_day_id 		= $request->input('day_id');
         $schedule_uniform->unf_urm_id   	= $request->input('uniform');
@@ -75,6 +68,19 @@ class UniformScheduleController extends Controller
             'uniform'            => 'required',
             'unf_week' 			 => 'required',
         ])){
+
+            $schedule_uniform = UniformSchedules::where('unf_id', $unf_id)->first();
+            $schedule_uniform_check = UniformSchedules::where('unf_day_id',$request->input('day_id'))->where('unf_urm_id',$request->input('uniform'))->where('unf_week',$request->input('unf_week'))->first();
+            
+
+            if ($schedule_uniform_check) {
+            Alert::error('Gagal', 'Jadwal Sudah Tersedia'); 
+             return back();
+         }
+
+         if($schedule_uniform->unf_day_id == $request->day_id && $schedule_uniform->unf_urm_id == $request->uniform && $schedule_uniform->unf_week == $request->unf_week){
+            return redirect('/admin/list_schedule_uniform');
+         }
 
         $schedule_uniform = UniformSchedules::where('unf_id',$unf_id)->first();
         $schedule_uniform->unf_day_id		= $request->input('day_id');

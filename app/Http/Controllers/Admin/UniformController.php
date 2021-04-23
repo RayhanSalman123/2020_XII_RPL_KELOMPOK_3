@@ -30,6 +30,12 @@ class UniformController extends Controller
         'urm_name' => 'required|unique:uniforms,urm_name',
         ])){  
 
+            $uniform= Uniform::where('urm_name',$request->input('urm_name'))->first();
+         if ($uniform) {
+            Alert::error('Gagal', 'Seragam Sudah Tersedia'); 
+             return back();
+         }
+
         $uniform = new Uniform();
         $uniform->urm_name = $request->input('urm_name');
         $uniform->save();
@@ -52,10 +58,23 @@ class UniformController extends Controller
             'urm_name' => 'required',
         ])){
 
+            $uniform = Uniform::where('urm_id', $urm_id)->first();
+            $uniform_check = Uniform::where('urm_name',$request->input('urm_name'))->first();
+            
+
+            if ($uniform_check) {
+            Alert::error('Gagal', 'Seragam Sudah Tersedia'); 
+             return back();
+         }
+
+         if($uniform->urm_name == $request->urm_name){
+            return redirect('/admin/list_uniform');
+         }
+
         $uniform = Uniform::where('urm_id',$urm_id)->first();;
         $uniform->urm_name         = $request->input('urm_name');
         $uniform->update();
-        return redirect('/admin/list_uniform')->withSuccess('Berhasil', 'Data Berhasil DiSimpan');
+        return redirect('/admin/list_uniform')->withSuccess('Berhasil', 'Data Berhasil DiUbah');
         }else{ 
             return back();  
         }

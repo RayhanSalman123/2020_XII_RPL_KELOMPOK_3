@@ -22,7 +22,10 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <?php for ($i = 1; $i <= 13; $i++) { ?>
+                            <?php for ($i = 1; $i <= 11; $i++) { ?>
+                            <?php if($i == 5 OR $i == 8){
+                                ?> <tr><td>Istirahat</td></tr> <?php
+                                } ?>
                             <tr
                                 class="text-left">
                                 <?php for ($d = 2; $d <= 6; $d++) { ?>
