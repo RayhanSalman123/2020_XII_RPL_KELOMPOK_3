@@ -21,6 +21,16 @@ class SubjectSeeder extends Seeder
             'name_subject'          => 'PJOK (XI)'
         ]);
 
+         DB::table('subjects')->insert([
+            'sbj_curriculum_id'     => '2',
+            'name_subject'          => 'Upacara'
+        ]);
+
+          DB::table('subjects')->insert([
+            'sbj_curriculum_id'     => '2',
+            'name_subject'          => 'Keagamaan'
+        ]);
+
         DB::table('subjects')->insert([
             'sbj_major_id'          => '1',
             'sbj_curriculum_id'     => '2',

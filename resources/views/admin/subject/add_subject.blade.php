@@ -24,6 +24,25 @@
             </div>
           </div>
 
+          <div class="row form-group">
+            <div class="col col-sm-5">
+              <label for="major_name" class=" form-control-label">Jurusan</label>
+            </div>
+            <div class="col col-sm-6">
+              <select name="name_major" class="form-control @error('major') is-invalid @enderror" required>
+                  <option value="">--PILIH--</option>
+                  @foreach($majors as $major)
+                  <option value="{{$major->major_id}}">{{$major->major_name}}</option>
+                  @endforeach
+              </select>
+                 @error('major_name')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+                @enderror
+            </div>
+        </div>
+
         <div class="row form-group">
             <div class="col col-sm-5">
               <label for="curriculum_name" class=" form-control-label">Kurikulum</label>

@@ -13,8 +13,8 @@ class ManageSubjectController extends Controller
 {
    public function CreateSubject()
    {
-   	$data['teacher']=Teacher::join('users','teachers.user_id','=','users.usr_id')->get();
-   	$data['subject']=Subjects::join('curriculums','subjects.sbj_curriculum_id','=','curriculums.curriculum_id')->get();
+   	$data['teacher']=Teacher::join('users','teachers.user_id','=','users.usr_id')->whereNotIn('teacher_id', [2])->get();
+   	$data['subject']=Subjects::join('curriculums','subjects.sbj_curriculum_id','=','curriculums.curriculum_id')->whereNotIn('subject_id', [3, 4])->get();
 
    	return view('admin.manage_subject.add',$data);
    }

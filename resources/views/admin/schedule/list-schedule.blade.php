@@ -43,7 +43,7 @@
 
                                  @forelse(\App\Helpers\Jadwal::MapelDay($dataClass->class_id,$d, $i) as $Mapel)
                                     <td class="text-left">
-                                        {{ $Mapel->name_subject . ' ' . ' - ' . ' ' . $Mapel->usr_name . ' ' . '-' . ' ' . $Mapel->hour_notes }}
+                                        {{ $Mapel->name_subject . ' ' . ' - ' . ' ' . $Mapel->usr_name }}
                                     </td>
                                 @empty
                                     <td class="text-left text-white" style="background-color: darkred">Kosong</td>

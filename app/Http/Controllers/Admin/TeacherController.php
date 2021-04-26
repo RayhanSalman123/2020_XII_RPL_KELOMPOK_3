@@ -65,7 +65,7 @@ class TeacherController extends Controller
 
     public function list_teacher()
     {
-        $teachers=Teacher::join('users', 'teachers.user_id','=','users.usr_id')->get();
+        $teachers=Teacher::join('users', 'teachers.user_id','=','users.usr_id')->whereNotIn('teacher_id', [2])->get();
 
         return view('admin/teacher/list_teacher',compact('teachers'));
     }

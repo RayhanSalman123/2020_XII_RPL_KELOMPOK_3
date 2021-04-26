@@ -72,6 +72,12 @@ class DayHourSeeder extends Seeder
         ]);
 
         DB::table('day_hours')->insert([
+            'id_day'    => '2',
+            'id_hour'   => '11',
+            'dh_notes'  => ''
+        ]);
+
+        DB::table('day_hours')->insert([
             'id_day' 	=> '3',
             'id_hour' 	=> '1',
             'dh_notes' 	=> ''
@@ -131,6 +137,12 @@ class DayHourSeeder extends Seeder
             'dh_notes' 	=> ''
         ]);
 
+         DB::table('day_hours')->insert([
+            'id_day'    => '3',
+            'id_hour'   => '11',
+            'dh_notes'  => ''
+        ]);
+
         DB::table('day_hours')->insert([
             'id_day' 	=> '4',
             'id_hour' 	=> '1',
@@ -191,6 +203,12 @@ class DayHourSeeder extends Seeder
             'dh_notes' 	=> ''
         ]);
 
+         DB::table('day_hours')->insert([
+            'id_day'    => '4',
+            'id_hour'   => '11',
+            'dh_notes'  => ''
+        ]);
+
         DB::table('day_hours')->insert([
             'id_day' 	=> '5',
             'id_hour' 	=> '1',
@@ -251,6 +269,12 @@ class DayHourSeeder extends Seeder
             'dh_notes' 	=> ''
         ]);
 
+         DB::table('day_hours')->insert([
+            'id_day'    => '5',
+            'id_hour'   => '11',
+            'dh_notes'  => ''
+        ]);
+
         DB::table('day_hours')->insert([
             'id_day' 	=> '6',
             'id_hour' 	=> '1',
@@ -309,6 +333,12 @@ class DayHourSeeder extends Seeder
             'id_day' 	=> '6',
             'id_hour' 	=> '10',
             'dh_notes' 	=> ''
+        ]);
+
+         DB::table('day_hours')->insert([
+            'id_day'    => '6',
+            'id_hour'   => '11',
+            'dh_notes'  => ''
         ]);
     }
 }

@@ -46,17 +46,17 @@ class UserSeeder extends Seeder
             'usr_is_active' => true,
         ]);
 
-        $guru->assignRole('teacher');
-
-        $head_master = User::create([
-            'usr_name' => 'Dedi Hidayat',
-            'usr_email' => 'dedihidayat@gmail.com',
-            'usr_password' => Hash::make('12345678'),
+         $guru = User::create([
+            'usr_name' => '-',
+            'usr_email' => '-@gmail',
+            'usr_password' => Hash::make('-'),
             'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'usr_verification_token' => str_replace('/', '', Hash::make(Str::random(12))),
             'usr_is_active' => true,
         ]);
 
-        $head_master->assignRole('head_master');
+        $guru->assignRole('teacher');
+
+       
     }
 }

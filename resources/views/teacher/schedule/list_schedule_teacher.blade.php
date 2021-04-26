@@ -23,12 +23,24 @@
                             </thead>
                             <tbody>
                             <?php for ($i = 1; $i <= 11; $i++) { ?>
-                            <?php if($i == 5 OR $i == 8){
-                                ?> <tr><td>Istirahat</td></tr> <?php
-                                } ?>
+                            <?php 
+                            if($i == 5 OR $i == 8){
+                                ?> <tr>
+                                       <td class="bg-warning text-white text-center">Istirahat</td>
+                                       <td class="bg-warning text-white text-center">Istirahat</td>
+                                       <td class="bg-warning text-white text-center">Istirahat</td>
+                                       <td class="bg-warning text-white text-center">Istirahat</td>
+                                       <td class="bg-warning text-white text-center">Istirahat</td>
+                                 </tr>
+
+                                 <?php
+                                }
+                                 
+                            ?>
                             <tr
                                 class="text-left">
                                 <?php for ($d = 2; $d <= 6; $d++) { ?>
+
                                  @forelse(\App\Helpers\Jadwal::MapelDay($dataClass->class_id,$d, $i) as $Mapel)
                                     <td class="text-left">
                                         {{ $Mapel->name_subject . ' ' . ' - ' . ' ' . $Mapel->usr_name . ' ' . '-' . ' ' . $Mapel->hour_notes }}

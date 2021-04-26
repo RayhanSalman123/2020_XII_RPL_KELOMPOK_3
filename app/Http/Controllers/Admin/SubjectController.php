@@ -15,7 +15,10 @@ class SubjectController extends Controller
 {
     public function list_subject()
     {
-        $subject=Subjects::join('curriculums', 'curriculums.curriculum_id' , '=', 'subjects.sbj_curriculum_id')->get();
+        $subject=Subjects::join('curriculums', 'curriculums.curriculum_id' , '=', 'subjects.sbj_curriculum_id')
+                          ->join('majors', 'majors.major_id' , '=', 'subjects.sbj_major_id')
+                          ->whereNotIn('subject_id', [3, 4])->where('sbj_major_id',null)->orWhere('sbj_major_id','!=',null)
+                          ->get();
           return view('admin/subject/list_subject', ['subject' => $subject]);
     }
 

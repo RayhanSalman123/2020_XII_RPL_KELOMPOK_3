@@ -9,26 +9,8 @@
     <div class="card-body card-block">
         <form action="" method="post" class="form-horizontal">
             @csrf
-
-            <div class="row form-group">
-                <div class="col col-sm-5">
-                <label for="nama guru" class=" form-control-label">Kategori</label>
-                </div>
-                <div class="col col-sm-6">
-                    <select id="class" onchange="myFunction()" name="class_id" class="form-control" required>
-                        <option disabled selected value="">-- Pilih --</option>
-                        <option value="Istirahat">Istirahat</option>
-                        <option>pelajaran</option>
-                        <option>keagamaan</option>
-                            
-                    
-                    </select>
-                </div>
-            </div>
-
-            <div id="kl"></div>
-
-            <div class="row form-group">
+            
+             <div class="row form-group">
                 <div class="col col-sm-5">
                 <label for="nama guru" class=" form-control-label">Kelas</label>
                 </div>
@@ -108,17 +90,7 @@
     </div>
 
 </div>
- <script >
-    function myFunction(){
-        var x = document.getElementById("class").value;
-        if (x = Istirahat) { document.getElemetById("kl").innerHTML='<a href=""></a>';
-    }
-        
-           
-        } 
-    
 
-</script>
 
 
 

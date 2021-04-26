@@ -15,5 +15,15 @@ class TeacherSeeder extends Seeder
             'user_id'           => '3',
         	'nip'               => '123456789',
             'gender'            => 'Laki-Laki'
-        ]);    }
+        ]);  
+
+        DB::table('teachers')->insert([
+            'user_id'           => '4',
+            'nip'               => '1',
+            'gender'            => 'Laki-Laki'
+        ]);   
+
+
+
+     }
 }

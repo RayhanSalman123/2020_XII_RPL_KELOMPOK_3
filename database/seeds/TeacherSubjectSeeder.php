@@ -11,9 +11,14 @@ class TeacherSubjectSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('teacher_subjects')->insert([
-            'ts_teacher_id' 		=> '1',
-            'ts_subject_id' 		=> '1',
-        ]);		
+         DB::table('teacher_subjects')->insert([
+            'ts_teacher_id'         => '2',
+            'ts_subject_id'         => '3',
+        ]); 
+
+         DB::table('teacher_subjects')->insert([
+            'ts_teacher_id'         => '2',
+            'ts_subject_id'         => '4',
+        ]); 	
     }
 }

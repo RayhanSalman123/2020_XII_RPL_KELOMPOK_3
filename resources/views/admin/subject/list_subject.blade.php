@@ -12,6 +12,7 @@
                 <th>NO</th>
                 <th>MATA PELAJARAN</th> 
                 <th>KURIKULUM</th>
+                <th>JURUSAN</th>
                 <th>ACTION</th>
             </tr>
         </thead>
@@ -22,6 +23,7 @@
                 <td>{{$count+1}}</td>
                 <td>{{$subjects->name_subject}}</td>
                 <td>{{$subjects->curriculum_name}}</td>
+                <td>{{$subjects->major_name}}</td>
                 <td>
                    <form action="/admin/list_subject_admin/{{$subjects->subject_id}}/delete" method="post">
                     <a href="{{URL::to('/admin/list_subject/edit_subject')}}/{{$subjects->subject_id}}/edit" value="EDIT" class="btn btn-outline-info fa fa-pencil-square-o"></a>
