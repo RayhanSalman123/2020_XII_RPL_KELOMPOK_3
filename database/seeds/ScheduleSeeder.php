@@ -121,24 +121,220 @@ class ScheduleSeeder extends Seeder
 
         DB::table('schedules')->insert([
             'sch_class_id'              => '1',
-            'sch_day_hour_id'           => '13',
+            'sch_day_hour_id'           => '12',
             'sch_teacher_subject_id'    => '2',
         ]);
 
         DB::table('schedules')->insert([
             'sch_class_id'              => '1',
-            'sch_day_hour_id'           => '24',
+            'sch_day_hour_id'           => '23',
             'sch_teacher_subject_id'    => '2',
         ]);
          DB::table('schedules')->insert([
             'sch_class_id'              => '1',
-            'sch_day_hour_id'           => '35',
+            'sch_day_hour_id'           => '34',
             'sch_teacher_subject_id'    => '2',
         ]);
 
         DB::table('schedules')->insert([
             'sch_class_id'              => '1',
-            'sch_day_hour_id'           => '46',
+            'sch_day_hour_id'           => '45',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+
+
+         DB::table('schedules')->insert([
+            'sch_class_id'              => '2',
+            'sch_day_hour_id'           => '12',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+        DB::table('schedules')->insert([
+            'sch_class_id'              => '2',
+            'sch_day_hour_id'           => '23',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+         DB::table('schedules')->insert([
+            'sch_class_id'              => '2',
+            'sch_day_hour_id'           => '34',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+        DB::table('schedules')->insert([
+            'sch_class_id'              => '2',
+            'sch_day_hour_id'           => '45',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+
+
+         DB::table('schedules')->insert([
+            'sch_class_id'              => '3',
+            'sch_day_hour_id'           => '12',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+        DB::table('schedules')->insert([
+            'sch_class_id'              => '3',
+            'sch_day_hour_id'           => '23',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+         DB::table('schedules')->insert([
+            'sch_class_id'              => '3',
+            'sch_day_hour_id'           => '34',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+        DB::table('schedules')->insert([
+            'sch_class_id'              => '3',
+            'sch_day_hour_id'           => '45',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+
+         DB::table('schedules')->insert([
+            'sch_class_id'              => '4',
+            'sch_day_hour_id'           => '12',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+        DB::table('schedules')->insert([
+            'sch_class_id'              => '4',
+            'sch_day_hour_id'           => '23',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+         DB::table('schedules')->insert([
+            'sch_class_id'              => '4',
+            'sch_day_hour_id'           => '34',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+        DB::table('schedules')->insert([
+            'sch_class_id'              => '4',
+            'sch_day_hour_id'           => '45',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+
+         DB::table('schedules')->insert([
+            'sch_class_id'              => '5',
+            'sch_day_hour_id'           => '12',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+        DB::table('schedules')->insert([
+            'sch_class_id'              => '5',
+            'sch_day_hour_id'           => '23',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+         DB::table('schedules')->insert([
+            'sch_class_id'              => '5',
+            'sch_day_hour_id'           => '34',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+        DB::table('schedules')->insert([
+            'sch_class_id'              => '5',
+            'sch_day_hour_id'           => '45',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+
+         DB::table('schedules')->insert([
+            'sch_class_id'              => '6',
+            'sch_day_hour_id'           => '12',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+        DB::table('schedules')->insert([
+            'sch_class_id'              => '6',
+            'sch_day_hour_id'           => '23',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+         DB::table('schedules')->insert([
+            'sch_class_id'              => '6',
+            'sch_day_hour_id'           => '34',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+        DB::table('schedules')->insert([
+            'sch_class_id'              => '6',
+            'sch_day_hour_id'           => '45',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+
+
+         DB::table('schedules')->insert([
+            'sch_class_id'              => '7',
+            'sch_day_hour_id'           => '12',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+        DB::table('schedules')->insert([
+            'sch_class_id'              => '7',
+            'sch_day_hour_id'           => '23',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+         DB::table('schedules')->insert([
+            'sch_class_id'              => '7',
+            'sch_day_hour_id'           => '34',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+        DB::table('schedules')->insert([
+            'sch_class_id'              => '7',
+            'sch_day_hour_id'           => '45',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+
+         DB::table('schedules')->insert([
+            'sch_class_id'              => '8',
+            'sch_day_hour_id'           => '12',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+        DB::table('schedules')->insert([
+            'sch_class_id'              => '8',
+            'sch_day_hour_id'           => '23',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+         DB::table('schedules')->insert([
+            'sch_class_id'              => '8',
+            'sch_day_hour_id'           => '34',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+        DB::table('schedules')->insert([
+            'sch_class_id'              => '8',
+            'sch_day_hour_id'           => '45',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+
+
+         DB::table('schedules')->insert([
+            'sch_class_id'              => '9',
+            'sch_day_hour_id'           => '12',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+        DB::table('schedules')->insert([
+            'sch_class_id'              => '9',
+            'sch_day_hour_id'           => '23',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+         DB::table('schedules')->insert([
+            'sch_class_id'              => '9',
+            'sch_day_hour_id'           => '34',
+            'sch_teacher_subject_id'    => '2',
+        ]);
+
+        DB::table('schedules')->insert([
+            'sch_class_id'              => '9',
+            'sch_day_hour_id'           => '45',
             'sch_teacher_subject_id'    => '2',
         ]);
 
