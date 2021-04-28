@@ -46,7 +46,9 @@ class UserSeeder extends Seeder
             'usr_is_active' => true,
         ]);
 
-         $guru = User::create([
+        $guru->assignRole('teacher');
+
+         $guru1 = User::create([
             'usr_name' => '-',
             'usr_email' => '-@gmail',
             'usr_password' => Hash::make('-'),
@@ -55,7 +57,7 @@ class UserSeeder extends Seeder
             'usr_is_active' => true,
         ]);
 
-        $guru->assignRole('teacher');
+        $guru1->assignRole('teacher');
 
        
     }

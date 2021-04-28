@@ -7,21 +7,23 @@ use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Note;
 use App\Subjects;
-
+use App\Student;
 
 class NoteController extends Controller
 {
     public function list_note()
     {
-    	$note=Note::join('subjects', 'subjects.subject_id', '=', 'notes.nt_subject_id')->get();
+    	$note=Note::join('users','users.usr_id','=','notes.user_id')->where('users.usr_id','=',auth()->user()->usr_id)
+                   ->join('subjects', 'subjects.subject_id', '=', 'notes.nt_subject_id')->get();
         return view('student/note/list_note', ['note' => $note]);
     }
 
     public function create()
     {
 
-        $subject= Subjects::all();
-        return view('student.note.add_note', compact('subject'));
+        $data['subject']= Subjects::whereNotIn('subject_id', [3, 4])->get();
+        $data['student']= Student::join('users','students.user_id','=','users.usr_id')->where('students.user_id', Auth()->user()->usr_id)->first();
+        return view('student.note.add_note',$data);
     }
 
     public function store(Request $request)
@@ -35,6 +37,7 @@ class NoteController extends Controller
           ])){
 
         $note = new Note();
+        $note->user_id = $request->input('student_id');
         $note->nt_subject_id = $request->input('subject');
         $note->nt_date = $request->input('nt_date');
         $note->nt_name = $request->input('nt_name');
@@ -47,7 +50,7 @@ class NoteController extends Controller
 
      public function edit($nt_id)
     {
-        $subject= Subjects::all();
+        $subject= Subjects::whereNotIn('subject_id', [3, 4])->get();
         $note=Note::join('subjects', 'subjects.subject_id', '=', 'notes.nt_subject_id')->where('nt_id', $nt_id)->first();
         
 

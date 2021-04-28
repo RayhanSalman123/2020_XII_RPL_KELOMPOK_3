@@ -12,6 +12,15 @@
 
       <div class="row form-group">
         <div class="col col-sm-5">
+       </div>
+            <div class="col col-sm-5">
+              <input name="student_id" type="hidden" class="form-control @error('student') is-invalid @enderror" value="{{ Auth()->user()->usr_id }}" readonly required>
+
+            </div>
+        </div>
+
+        <div class="row form-group">
+        <div class="col col-sm-5">
           <label for="mata pelajaran" class=" form-control-label">Mata Pelajaran</label>
         </div>
         <div class="col col-sm-6">

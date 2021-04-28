@@ -19,7 +19,7 @@ class CreateSubmissionsTable extends Migration
             $table->foreign('user_id')->references('usr_id')->on('users')->onDelete('cascade');
             $table->foreignId('sbm_subject_id');
             $table->foreign('sbm_subject_id')->references('subject_id')->on('subjects');
-            $table->time('time');
+            $table->string('time');
             $table->string('day');
             $table->timestamps();
             $table->softdeletes();

@@ -17,7 +17,7 @@
                             </li>
 
                             <li>
-                                <a href="/teacher/mysubmission/form-submission">
+                                <a href="/teacher/mysubmission">
                                     <i class="fas fa-table"></i>Pengajuan Jadwal</a>
                             </li>
 

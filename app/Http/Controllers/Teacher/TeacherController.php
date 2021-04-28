@@ -41,27 +41,29 @@ class TeacherController extends Controller
     }
 
 
-    // public function submission()
+    public function submission()
 
-    // {
-    //      $submissions=Submissions::join('users','users.usr_id','=','submissions.user_id')
-    //                                 ->where('users.usr_id','=',auth()->user()->usr_id)
-    //                                 ->join('subjects', 'subjects.subject_id', 'submissions.sbm_subject_id')
-    //                                 ->orderBy('submissions.created_at','asc')->get();
+    {
+         $submissions=Submissions::join('users','users.usr_id','=','submissions.user_id')
+                                    ->where('users.usr_id','=',auth()->user()->usr_id)
+                                    ->join('subjects', 'subjects.subject_id', 'submissions.sbm_subject_id')
+                                    ->orderBy('submissions.created_at','asc')->get();
         
                                   
-    //     return view ('teacher/submission/mysubmission', ['submissions' => $submissions]);
-    // }
+        return view ('teacher/submission/mysubmission', ['submissions' => $submissions]);
+    }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function create()
     {
         $data['teacher']=Teacher::join('users','teachers.user_id','=','users.usr_id')->where('teachers.user_id', Auth()->user()->usr_id)->first();
-        $data['subject']=Subjects::all();
+        $data['subject']=Subjects::whereNotIn('subject_id', [3, 4])->get();
         $data ['day'] = Day::whereNotIn('day_id', [1, 7])->get();
         $data  ['hour'] = Hours::whereNotIn('hour_id', [12, 13,14])->get();
 
@@ -89,7 +91,7 @@ class TeacherController extends Controller
         $submission->day = $request->input('day_id');
         $submission->save();
         Alert::success('Berhasil', 'Data berhasil di ajukan');  
-        return redirect('/teacher/mysubmission/form-submission');
+        return redirect('/teacher/mysubmission');
     }
 
     /**
@@ -132,10 +134,10 @@ class TeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function delete($submission_id)
-    // {
-    //      $submissions = Submissions::find($submission_id);
-    //     $submissions->delete();
-    //     return redirect('/teacher/mysubmission')->withSuccess('Data Berhasil DiHapus');
-    // }
+    public function delete($submission_id)
+    {
+         $submissions = Submissions::find($submission_id);
+        $submissions->delete();
+        return redirect('/teacher/mysubmission')->withSuccess('Data Berhasil DiHapus');
+    }
 }

@@ -1,4 +1,4 @@
-<!-- @extends('layouts.teacher.master')
+ @extends('layouts.teacher.master')
 
 @section('content')
     <div class="col-md-12">
@@ -36,6 +36,6 @@
                 </tbody>
             </table>
          </div>
-                    <!-- END DATA TABLE-->
+                
     </div>
-@endsection -->
+@endsection

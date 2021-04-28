@@ -19,7 +19,7 @@
 
                           <li  class="{{Request::path() === 'student/list_note'?'active' : ''}} has-sub">
                             <a href="/student/list_note">
-                                <i class="fas fa-edit"></i>List Catatan</a>
+                                <i class="fas fa-edit"></i>Catatan Ku</a>
                         </li>
 
                         <li class="{{Request::path() === 'student/list_schedule_uniform'?'active' : ''}} has-sub">
