@@ -19,7 +19,8 @@ class ClassController extends Controller
     public function list_class()
     {
          $class=Classes::join('majors', 'majors.major_id','=','classes.cl_major_id')->
-                         join('grades', 'grades.grade_id','=','classes.cl_grade_id')->get();
+                         join('grades', 'grades.grade_id','=','classes.cl_grade_id')
+                         ->orderBy('classes.class_id','asc')->get();
 
 
         return view('admin.class.list_class', ['class' => $class]);

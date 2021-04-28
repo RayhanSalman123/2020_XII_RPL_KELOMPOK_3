@@ -41,15 +41,16 @@ class MajorController extends Controller
     public function store(Request $request)
     {
         
-       if($request->validate([
-        'major' => 'required|unique:majors,major_name',
-        ])){  
-
+        
         $major= Majors::where('major_name', $request->input('major'))->first();
          if ($major) {
             Alert::error('Gagal', 'Jurusan Sudah Tersedia'); 
              return back();
          }
+
+       if($request->validate([
+        'major' => 'required|unique:majors,major_name',
+        ])){  
 
         $major = new Majors();
         $major->major_name = $request->input('major');

@@ -76,11 +76,10 @@
         
     </div>
     <div class="card-footer">
-        <button type="submit" class="btn btn-primary btn-sm">
-            <i class="fa fa-dot-circle-o"></i>  Submit
+        <button type="submit" class="btn btn-primary btn-sm"> Submit
         </button>
         <a href="/admin/list_teacher" class="btn btn-danger btn-sm">
-            <i class="fa fa-ban"></i>Cancel
+            Cancel
         </a>
     </div>
     </form>

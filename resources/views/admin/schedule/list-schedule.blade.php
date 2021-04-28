@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <h2 class="text-left">
-                        {{ $dataClass->grade_name . ' ' . $dataClass->major_name . '  ' . $dataClass->group }} <a href="{{URL::to('/admin/list_schedule/edit_schedule')}}/{<!-- {$schedule->schedule_id -->}}/edit" value="EDIT" class="btn btn-outline-info fa fa-pencil-square-o"></a></h2>
+                        {{ $dataClass->grade_name . ' ' . $dataClass->major_name . '  ' . $dataClass->group }} <a href="{{URL::to('/admin/list_schedule/edit_schedule', $dataClass->class_id)}}" value="EDIT" class="btn btn-outline-info fa fa-pencil-square-o"></a></h2>
 
                 </div>
                 <div class="card-body" style="font-size: 8px;">

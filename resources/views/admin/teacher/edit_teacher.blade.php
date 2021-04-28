@@ -4,7 +4,7 @@
 <div class="card">
     <div class="card-header">
         Edit
-        <strong>Kelas</strong>
+        <strong>Guru</strong>
     </div>
     <div class="card-body card-block">
         <form action="" method="POST" class="form-horizontal">

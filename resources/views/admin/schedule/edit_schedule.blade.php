@@ -1,13 +1,15 @@
 @extends('layouts.admin.master')
 
 @section('content')
+
+       @foreach($edit as $e)
 <div class="card">
     <div class="card-header">
         EDIT
         <strong>JADWAL</strong>
     </div>
     <div class="card-body card-block">
-        <form action="" method="post" class="form-horizontal">
+        <form action="{{ url('/admin/list_schedule/update', $e->sch_id) }}" method="post" class="form-horizontal">
             @csrf
             
              <div class="row form-group">
@@ -16,9 +18,8 @@
                 </div>
                 <div class="col col-sm-6">
                     <select name="class_id" class="form-control" required>
-                        <option disabled selected value="">-- Pilih --</option>
                         @foreach($class as $data)
-                        <option value="{{ $data->class_id }}">{{$data->grade_name}} &nbsp; {{ $data->major_name.' '.''.' '.$data->group}}</option>
+                        <option disabled="" value="{{ $data->class_id }}" {{ ($data->class_id == $e->sch_class_id) ? 'selected' : '' }} >{{$data->grade_name}} &nbsp; {{ $data->major_name.' '.''.' '.$data->group}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -32,7 +33,7 @@
                     <select name="subject_id" class="form-control" required>
                         <option disabled selected value="">-- Pilih --</option>
                         @foreach($teacher as $data)
-                        <option value="{{ $data->ts_id }}">{{$data->name_subject.' '.' - '.' '. $data->usr_name }}</option>
+                        <option value="{{ $data->ts_id }}" {{ ($data->ts_id == $e->sch_teacher_subject_id) ? 'selected' : '' }}>{{$data->name_subject.' '.' - '.' '. $data->usr_name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -44,9 +45,8 @@
                 </div>
                 <div class="col col-sm-6">
                     <select name="day_id" class="form-control" required>
-                        <option disabled selected value="">-- Pilih --</option>
                         @foreach($day as $data)
-                        <option value="{{ $data->day_id }}">{{$data->day_name }}</option>
+                        <option disabled value="{{ $data->day_id }}" {{ ($data->day_id == $e->id_day) ? 'selected' : '' }}>{{$data->day_name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -58,9 +58,8 @@
                 </div>
                 <div class="col col-sm-6">
                     <select name="hour_id" class="form-control" required>
-                        <option disabled selected value="">-- Pilih --</option>
                         @foreach($hour as $data)
-                        <option value="{{ $data->hour_id }}">Jam {{$data->hour_notes}} &nbsp; {{ $data->start_time.' '.'-'.' '.$data->end_time}}</option>
+                        <option disabled ="" value="{{ $data->hour_id }}" {{ ($data->hour_id == $e->id_hour) ? 'selected' : '' }}>Jam {{$data->hour_notes}} &nbsp; {{ $data->start_time.' '.'-'.' '.$data->end_time}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -74,23 +73,13 @@
                 </div>
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
         </form>
+
     </div>
 
 </div>
 
+        @endforeach
 
 
 

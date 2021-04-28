@@ -26,6 +26,11 @@ class TeacherController extends Controller
 
     public function store(Request $request)
     {
+         $teacher= Teacher::where('nip', $request->input('nip'))->where('user_id', $request->input('usr_name'))->first();
+         if ($teacher) {
+            Alert::error('Gagal', 'Guru Sudah Tersedia'); 
+             return back();
+         }
         
         if($request->validate([
             'nip' => 'required|unique:teachers,nip|numeric|min:0',
@@ -33,6 +38,7 @@ class TeacherController extends Controller
             'usr_email' => 'required|unique:users,usr_email',
             'gender' => 'required',
         ])){
+
         	
         $nip = $request -> input('nip');
         $usr_name = $request -> input('usr_name');
@@ -54,12 +60,10 @@ class TeacherController extends Controller
             $teacher->nip = $nip;
             $teacher->gender = $gender;
             $teacher->save();
+            return redirect('admin/list_teacher')->withSuccess('Berhasil', 'Data Berhasil DiSimpan');
        }
-       return redirect('admin/list_teacher')->withSuccess('Berhasil', 'Data Berhasil DiSimpan');
-        }else{
-            return back();  
-        }
-
+       
+       }
     }
 
 

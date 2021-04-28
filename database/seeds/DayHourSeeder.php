@@ -77,7 +77,7 @@ class DayHourSeeder extends Seeder
             'dh_notes'  => ''
         ]);
 
-        DB::table('day_hours')->insert([
+       DB::table('day_hours')->insert([
             'id_day' 	=> '3',
             'id_hour' 	=> '1',
             'dh_notes' 	=> ''

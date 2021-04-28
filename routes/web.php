@@ -84,7 +84,7 @@ Route::group(['middleware' => ['auth', 'DisablePreventBack', 'verified', 'role:a
 	Route::get('/admin/manage_schedule', 'Admin\ScheduleController@AddSchedule');
     Route::post('/admin/manage_schedule', 'Admin\ScheduleController@SaveSchedule');
 	Route::get('/admin/list_schedule'  , 'Admin\ScheduleController@ListSchedule');
-	Route::get('/admin/list_schedule/edit_schedule/{schedule_id}/edit', 'Admin\ScheduleController@edit');
+	Route::get('/admin/list_schedule/edit_schedule/{schedule_id}', 'Admin\ScheduleController@edit');
 	Route::post('/admin/list_schedule/update/{schedule_id}', 'Admin\ScheduleController@update');
 
 
